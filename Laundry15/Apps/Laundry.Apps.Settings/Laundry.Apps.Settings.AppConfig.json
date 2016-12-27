@@ -1,0 +1,11 @@
+{
+  "Name": "Settings",
+  "ID": "Laundry.Apps.Settings",
+  "Title": "系统设置",
+  "Description": "系统设置",
+  "Enable": true,
+  "Visible": true,
+  "Icon": "icon.png",
+  "Target": "Laundry.Apps.Settings.dll",
+  "StartWay": 0
+}

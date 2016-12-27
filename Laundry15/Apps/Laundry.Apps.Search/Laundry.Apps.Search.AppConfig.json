@@ -1,0 +1,11 @@
+{
+  "Name": "Search",
+  "ID": "Laundry.Apps.Search",
+  "Title": "ËÑË÷",
+  "Description": "ËÑË÷",
+  "Enable": true,
+  "Visible": true,
+  "Icon": "icon.png",
+  "Target": "Laundry.Apps.Search.dll",
+  "StartWay": 0
+}

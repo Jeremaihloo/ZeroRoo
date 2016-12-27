@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F2D8A97-01C8-45AF-ADA4-29D139F1F91E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZeroRoo.Docker</RootNamespace>
+    <AssemblyName>ZeroRoo.Docker</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSkin, Version=16.4.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DSkin.Design, Version=16.4.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1_100.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57772.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57773.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57774.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57775.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57776.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57777.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57778.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57779.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577710.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577711.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577712.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577713.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577714.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577715.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577716.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577717.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577718.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\577719.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20150109103919340_easyicon_net_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UI\UI.DSkin.Q\UI.Q.csproj">
+      <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
+      <Name>UI.Q</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.App\ZeroRoo.App.csproj">
+      <Project>{5dc576ed-ebb1-446c-ae3b-0120a23535af}</Project>
+      <Name>ZeroRoo.App</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

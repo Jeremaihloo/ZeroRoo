@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{68933CB6-C250-49B8-A7D5-1483B1183F75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Q", "UI.DSkin.Q\UI.Q.csproj", "{E6CE54EB-2C80-4DCF-A300-A51D905B660C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QQ2014", "..\..\documents\DSkin\【高仿QQ2014水晶版】DSkin案例源码(2015-7-7)\QQ2014\QQ2014.csproj", "{5477FEFA-6C70-4DE1-AC1C-9983E5B87DC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Q.Demo", "UI.DSkin.Q.Demo\UI.Q.Demo.csproj", "{A59DABCC-737E-4656-B7F1-772D249D6436}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68933CB6-C250-49B8-A7D5-1483B1183F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68933CB6-C250-49B8-A7D5-1483B1183F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68933CB6-C250-49B8-A7D5-1483B1183F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68933CB6-C250-49B8-A7D5-1483B1183F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6CE54EB-2C80-4DCF-A300-A51D905B660C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6CE54EB-2C80-4DCF-A300-A51D905B660C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6CE54EB-2C80-4DCF-A300-A51D905B660C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CE54EB-2C80-4DCF-A300-A51D905B660C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5477FEFA-6C70-4DE1-AC1C-9983E5B87DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5477FEFA-6C70-4DE1-AC1C-9983E5B87DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5477FEFA-6C70-4DE1-AC1C-9983E5B87DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5477FEFA-6C70-4DE1-AC1C-9983E5B87DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A59DABCC-737E-4656-B7F1-772D249D6436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59DABCC-737E-4656-B7F1-772D249D6436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59DABCC-737E-4656-B7F1-772D249D6436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59DABCC-737E-4656-B7F1-772D249D6436}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

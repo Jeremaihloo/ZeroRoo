@@ -1,0 +1,11 @@
+{
+  "Name": "Backup",
+  "ID":  "Laundry.Apps.Backup",
+  "Title": "备份工具",
+  "Description": "备份工具",
+  "Enable": true,
+  "Visible": true,
+  "Icon": "icon.png",
+  "Target": "Laundry.Apps.Backup.dll",
+  "StartWay": 0
+}

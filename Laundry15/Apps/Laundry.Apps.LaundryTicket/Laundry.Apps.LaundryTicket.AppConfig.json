@@ -1,0 +1,11 @@
+{
+  "Name": "LaundryTicket",
+  "ID": "Laundry.Apps.LaundryTicket",
+  "Title": "开单",
+  "Description": "开取衣单",
+  "Enable": true,
+  "Visible": true,
+  "Icon": "icon.png",
+  "Target": "Laundry.Apps.LaundryTicket.dll",
+  "StartWay": 0
+}

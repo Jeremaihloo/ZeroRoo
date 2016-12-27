@@ -1,0 +1,11 @@
+{
+  "Name": "Update",
+  "ID": "Laundry.Apps.Update",
+  "Title": "系统更新",
+  "Description": "系统更新",
+  "Enable": true,
+  "Visible": true,
+  "Icon": "icon.png",
+  "Target": "Laundry.Apps.Update.dll",
+  "StartWay": 0
+}

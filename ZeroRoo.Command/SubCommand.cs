@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo
+namespace ZeroRoo.Command
 {
-    public class Class1
+    public class SubCommand : CommandAttribute
     {
     }
 }
