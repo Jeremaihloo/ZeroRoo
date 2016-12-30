@@ -50,13 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="CameraDataBackupSettingsApp.cs" />
+    <Compile Include="CameraDataBackupService.cs" />
     <Compile Include="CameraDataBackupSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CameraDataBackupSettingsForm.Designer.cs">
       <DependentUpon>CameraDataBackupSettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CameraDataViewApp.cs" />
     <Compile Include="CameraDataViewForm.cs">
       <SubType>Form</SubType>
     </Compile>

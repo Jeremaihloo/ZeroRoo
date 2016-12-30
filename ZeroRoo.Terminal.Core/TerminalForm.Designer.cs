@@ -89,9 +89,9 @@
             // 
             this.dSkinTabPage1.BackColor = System.Drawing.Color.Transparent;
             this.dSkinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dSkinTabPage1.Location = new System.Drawing.Point(0, 36);
+            this.dSkinTabPage1.Location = new System.Drawing.Point(0, 30);
             this.dSkinTabPage1.Name = "dSkinTabPage1";
-            this.dSkinTabPage1.Size = new System.Drawing.Size(508, 272);
+            this.dSkinTabPage1.Size = new System.Drawing.Size(508, 278);
             this.dSkinTabPage1.TabIndex = 0;
             this.dSkinTabPage1.TabItemImage = null;
             this.dSkinTabPage1.Text = "dSkinTabPage1";
@@ -127,6 +127,7 @@
             this.MinBox.Size = new System.Drawing.Size(25, 26);
             this.Name = "TerminalForm";
             this.Text = "Terminal";
+            this.Load += new System.EventHandler(this.TerminalForm_Load);
             this.qtbMain.ResumeLayout(false);
             this.ResumeLayout(false);
 

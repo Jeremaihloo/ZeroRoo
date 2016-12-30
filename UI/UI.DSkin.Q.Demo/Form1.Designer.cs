@@ -56,15 +56,19 @@
             this.dSkinToolTip1 = new DSkin.Controls.DSkinToolTip(this.components);
             this.dSkinTextureBrush1 = new DSkin.Controls.DSkinTextureBrush();
             this.dSkinHtmlToolTip1 = new DSkin.Controls.DSkinHtmlToolTip();
+            this.qPanel1 = new UI.Q.Controls.QPanel();
+            this.qTextBox1 = new UI.Q.Controls.QTextBox();
             this.dSkinPanel1.SuspendLayout();
             this.qTabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qGridList1)).BeginInit();
             this.qContextMenuStrip1.SuspendLayout();
+            this.qPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dSkinPanel1
             // 
             this.dSkinPanel1.BackColor = System.Drawing.Color.White;
+            this.dSkinPanel1.Controls.Add(this.qPanel1);
             this.dSkinPanel1.Controls.Add(this.dSkinDynamicListBox2);
             this.dSkinPanel1.Controls.Add(this.dSkinTabBar2);
             this.dSkinPanel1.Controls.Add(this.qGridList1);
@@ -573,6 +577,36 @@
             this.dSkinHtmlToolTip1.OwnerDraw = true;
             this.dSkinHtmlToolTip1.TooltipCssClass = "htmltooltip";
             // 
+            // qPanel1
+            // 
+            this.qPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.qPanel1.Controls.Add(this.qTextBox1);
+            this.qPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qPanel1.Location = new System.Drawing.Point(0, 0);
+            this.qPanel1.Name = "qPanel1";
+            this.qPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.qPanel1.RightBottom = ((System.Drawing.Image)(resources.GetObject("qPanel1.RightBottom")));
+            this.qPanel1.Size = new System.Drawing.Size(954, 543);
+            this.qPanel1.TabIndex = 10;
+            this.qPanel1.Text = "qPanel1";
+            // 
+            // qTextBox1
+            // 
+            this.qTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.qTextBox1.BitmapCache = false;
+            this.qTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.qTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.qTextBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qTextBox1.Location = new System.Drawing.Point(10, 10);
+            this.qTextBox1.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
+            this.qTextBox1.Name = "qTextBox1";
+            this.qTextBox1.Size = new System.Drawing.Size(934, 29);
+            this.qTextBox1.TabIndex = 0;
+            this.qTextBox1.TransparencyKey = System.Drawing.Color.White;
+            this.qTextBox1.WaterFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.qTextBox1.WaterText = "";
+            this.qTextBox1.WaterTextOffset = new System.Drawing.Point(0, 2);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -597,6 +631,8 @@
             this.qTabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qGridList1)).EndInit();
             this.qContextMenuStrip1.ResumeLayout(false);
+            this.qPanel1.ResumeLayout(false);
+            this.qPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -629,5 +665,7 @@
         private DSkin.Controls.DSkinDynamicListBoxItem dSkinDynamicListBoxItem1;
         private DSkin.Controls.DSkinDynamicListBoxItem dSkinDynamicListBoxItem2;
         private DSkin.Controls.DSkinDynamicListBoxItem dSkinDynamicListBoxItem3;
+        private Controls.QPanel qPanel1;
+        private Controls.QTextBox qTextBox1;
     }
 }

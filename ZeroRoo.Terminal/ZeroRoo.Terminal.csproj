@@ -54,17 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TerminalForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TerminalForm.Designer.cs">
-      <DependentUpon>TerminalForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="TerminalForm.resx">
-      <DependentUpon>TerminalForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -91,6 +82,14 @@
     <ProjectReference Include="..\UI\UI.DSkin.Q\UI.Q.csproj">
       <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
       <Name>UI.Q</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Terminal.Core\ZeroRoo.Terminal.Core.csproj">
+      <Project>{30901453-6f8e-460a-b21f-18c14dd1847e}</Project>
+      <Name>ZeroRoo.Terminal.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
+      <Project>{d1e3b18d-0683-492f-9f0f-4e4ea40f39bd}</Project>
+      <Name>ZeroRoo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
