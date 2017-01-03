@@ -7,23 +7,8 @@ using System.Threading.Tasks;
 
 namespace Laundry.Apps.TicketManage
 {
-    public class App : IApp
+    public class App : WindowApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
-        {
-            
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
-        {
-            
-        }
+        
     }
 }

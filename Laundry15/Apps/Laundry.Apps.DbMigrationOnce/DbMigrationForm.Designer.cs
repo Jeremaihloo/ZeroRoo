@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DbMigrationForm));
             this.qPanel1 = new UI.Q.Controls.QPanel();
+            this.lblStatus = new UI.Q.Controls.QLabel();
             this.pbStatus = new UI.Q.Controls.QProgressBar();
             this.btnMain = new UI.Q.Controls.QBigButton();
-            this.lblStatus = new UI.Q.Controls.QLabel();
             this.qPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,15 @@
             this.qPanel1.Size = new System.Drawing.Size(329, 254);
             this.qPanel1.TabIndex = 0;
             this.qPanel1.Text = "qPanel1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("微软雅黑", 9F);
+            this.lblStatus.Location = new System.Drawing.Point(16, 105);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(37, 18);
+            this.lblStatus.TabIndex = 2;
+            this.lblStatus.Text = "...........";
             // 
             // pbStatus
             // 
@@ -93,15 +102,6 @@
             this.btnMain.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
             // 
-            // lblStatus
-            // 
-            this.lblStatus.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.lblStatus.Location = new System.Drawing.Point(16, 105);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 18);
-            this.lblStatus.TabIndex = 2;
-            this.lblStatus.Text = "...........";
-            // 
             // DbMigrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -121,6 +121,7 @@
             this.MinBox.Size = new System.Drawing.Size(25, 26);
             this.Name = "DbMigrationForm";
             this.Text = "数据迁移";
+            this.Load += new System.EventHandler(this.DbMigrationForm_Load);
             this.qPanel1.ResumeLayout(false);
             this.qPanel1.PerformLayout();
             this.ResumeLayout(false);

@@ -19,50 +19,38 @@ namespace Laundry.Apps.DbMigrationOnce
         {
             InitializeComponent();
         }
-        private bool hasStarted = false;
 
-        public bool HasFinish { get; set; }
-
-        bool debug = false;
-        public void SetDebug(bool value)
-        {
-            this.debug = value;
-        }
-
-        private DbMigration.Migration op = new DbMigration.Migration();
-
-        private bool canMigration()
-        {
-            if (debug)
-                return true;
-
-            if(!File.Exists("migration.lock"))
-            {
-                return true;
-            }
-
-            return false;
-        }
+        private DbMigration.Migrator op = new DbMigration.Migrator();
 
         void Do()
         {
-            this.hasStarted = true;
-            this.op.DoMigration();
+            try
+            {
+                this.op.DoMigration();
+            }
+            catch(Exception ex)
+            {
+                this.BeginInvoke(new Action(() =>
+                {
+                    this.btnMain.Text = "查看日志";
+                    QMessageBox.Show("操作失败，请查看日志");
+                }));
+            }
         }
 
         private void Op_LogHandler(object sender, string e)
         {
             this.BeginInvoke(new Action(()=>
             {
-                this.pbStatus.Value += 100 / op.StepCount();
+                this.pbStatus.Value += 100 / op.StepCount;
 
                 this.lblStatus.Text = e;
 
-                if (this.pbStatus.Value >= 100)
+                if (this.op.HasFinish)
                 {
                     File.WriteAllText("migration.lock", DateTime.Now.ToString(), Encoding.Default);
-                    this.HasFinish = true;
                     this.btnMain.Text = "查看日志";
+                    this.pbStatus.Value = 100;
                 }
             }));
         }
@@ -70,27 +58,41 @@ namespace Laundry.Apps.DbMigrationOnce
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-            if (this.hasStarted  && !this.HasFinish)
+            if (this.op.HasStarted  && !this.op.HasFinish)
             {
-                e.Cancel = true;
-                QMessageBox.Show("数据迁移工作正在进行中，不能关闭窗口！");
+                if(QMessageBox.Show("数据迁移工作正在进行中，确定关闭窗口吗！", "警告", MessageBoxButtons.YesNo)== DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
         private void btnMain_Click(object sender, EventArgs e)
         {
-            if (this.canMigration())
+            if(!(this.btnMain.Text=="查看日志"))
             {
                 this.pbStatus.Maximum = 100;
 
-                this.op.LogHandler += Op_LogHandler;
+                this.op.NewStep += Op_LogHandler;
 
                 new Thread(Do).Start();
             }
             else
             {
-                QMessageBox.Show("你可能已经执行过数据迁移，不能重复进行这个操作！");
+                this.ShowLog();
             }
+        }
+
+        private void ShowLog()
+        {
+
+        }
+
+        private void DbMigrationForm_Load(object sender, EventArgs e)
+        {
+            this.pbStatus.Text = "";
+            this.lblStatus.Text = "";
+            this.btnMain.Text = "开始";
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Laundry.LibCore.Models;
 using UI.Q;
+using System.Runtime.InteropServices;
 
 namespace Laundry.LibCore.Forms
 {
@@ -34,7 +35,7 @@ namespace Laundry.LibCore.Forms
                     {
                         ls.Add(item.Text);
                     }
-                    this.txtFlaw.Text = string.Join(",", ls);
+                    this.txtFlaws.Text = string.Join(",", ls);
                     this.txtMark.Text = this.clothe.Mark;
                 }
                 catch (Exception ex)
@@ -97,12 +98,10 @@ namespace Laundry.LibCore.Forms
             FlawSelectForm flaw = new FlawSelectForm();
             flaw.ShowDialog();
             this.clothe.FlawRecords = FlawSelectForm.FlawRecordList;
-            var ls = new List<string>();
-            foreach(var item in this.clothe.FlawRecords)
+            if (this.clothe.FlawRecords != null)
             {
-                ls.Add(item.Text);
+                this.txtFlaws.Text = string.Join(",", this.clothe.FlawRecords.Select(item => item.Text).ToArray());
             }
-            this.txtFlaw.Text = string.Join(",", ls);
         }
 
         private void btnOk_Click(object sender, EventArgs e)

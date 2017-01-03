@@ -17,6 +17,15 @@ namespace Laundry.LibCore.Repository
             this.LaundryDbContext = new LaundryDbContext();
         }
 
+        public List<LaundryTicket> All()
+        {
+            return this.LaundryDbContext.LaundryTickets
+                .Include(item=>item.ClotheRecords)
+                    .ThenInclude(clothe=>clothe.FlawRecords)
+                .Include(item=>item.Vip)
+                .ToList();
+        }
+
         public LaundryTicket Find(int id)
         {
             return this.LaundryDbContext.LaundryTickets.FirstOrDefault(item => item.ID == id);

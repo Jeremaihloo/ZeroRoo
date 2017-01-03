@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DSkin">
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DSkin.Design">
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -57,11 +63,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Laundry.Apps.Settings.AppConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\UI\UI.DSkin.Q\UI.Q.csproj">
+      <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
+      <Name>UI.Q</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\ZeroRoo.App\ZeroRoo.App.csproj">
       <Project>{5dc576ed-ebb1-446c-ae3b-0120a23535af}</Project>
       <Name>ZeroRoo.App</Name>

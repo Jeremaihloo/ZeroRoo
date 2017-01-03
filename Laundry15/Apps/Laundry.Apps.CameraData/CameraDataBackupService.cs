@@ -4,26 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.App;
+using ZeroRoo.App.Apps;
 
 namespace Laundry.Apps.CameraData
 {
-    public class CameraDataBackupService : IApp
+    public class CameraDataBackupService : ServiceApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public override void OnStart()
         {
-            throw new NotImplementedException();
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
-        {
-            throw new NotImplementedException();
+            base.OnStart();
         }
     }
 }

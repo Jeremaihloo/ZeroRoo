@@ -133,9 +133,15 @@
     <Compile Include="CommandReturnCodes.cs" />
     <Compile Include="DefaultCommandHandler.cs" />
     <Compile Include="DefaultCommandManager.cs" />
+    <Compile Include="ICommandAdapter.cs" />
     <Compile Include="ICommandHandler.cs" />
+    <Compile Include="ICommandHost.cs" />
     <Compile Include="ICommandManager.cs" />
     <Compile Include="CommandHostRetryException.cs" />
+    <Compile Include="NativeCommandDescriptor.cs" />
+    <Compile Include="NativeCommandDescriptorBuilder.cs" />
+    <Compile Include="NativeCommandHostAgent.cs" />
+    <Compile Include="Parameters\CommandParser.cs" />
     <Compile Include="ServiceCollectionExtensions.cs" />
     <Compile Include="CommandSwitchAttribute.cs" />
     <Compile Include="CommandSwitchesAttribute.cs" />
@@ -143,6 +149,7 @@
     <Compile Include="Parameters\ICommandParametersParser.cs" />
     <Compile Include="Parameters\ICommandParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZeroRooCommandHost.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">

@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -45,18 +46,25 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketViewTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ZeroRoo.Configuration\ZeroRoo.Configuration.csproj">
       <Project>{7de936d5-7654-4842-adde-c3b03d0603d0}</Project>
       <Name>ZeroRoo.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Laundry.LibCore.Print\Laundry.LibCore.Print.csproj">
+      <Project>{2ae39237-af64-4a4f-b805-dc0ce1cd21a7}</Project>
+      <Name>Laundry.LibCore.Print</Name>
     </ProjectReference>
     <ProjectReference Include="..\Laundry.LibCore\Laundry.LibCore.csproj">
       <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>

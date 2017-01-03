@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Q;
 
 namespace Laundry.Apps.TicketManage
 {
-    public partial class TicketManageForm : Form
+    public partial class TicketManageForm : QForm
     {
         public TicketManageForm()
         {

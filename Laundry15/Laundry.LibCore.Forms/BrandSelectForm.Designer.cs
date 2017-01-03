@@ -28,67 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lvBrand = new System.Windows.Forms.ListView();
-            this.tableLayoutPanel1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrandSelectForm));
             this.SuspendLayout();
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lvBrand, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.859078F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.14092F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(381, 413);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(375, 21);
-            this.textBox1.TabIndex = 0;
-            // 
-            // lvBrand
-            // 
-            this.lvBrand.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvBrand.FullRowSelect = true;
-            this.lvBrand.Location = new System.Drawing.Point(3, 35);
-            this.lvBrand.MultiSelect = false;
-            this.lvBrand.Name = "lvBrand";
-            this.lvBrand.Size = new System.Drawing.Size(375, 375);
-            this.lvBrand.TabIndex = 2;
-            this.lvBrand.UseCompatibleStateImageBehavior = false;
-            this.lvBrand.View = System.Windows.Forms.View.Details;
-            this.lvBrand.DoubleClick += new System.EventHandler(this.lvBrand_DoubleClick);
             // 
             // BrandSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 413);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(329, 563);
+            //this.CloseBox.HoverImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.CloseBox.HoverImage")));
+            //this.CloseBox.NormalImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.CloseBox.NormalImage")));
+            //this.CloseBox.PressImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.CloseBox.PressImage")));
+            this.CloseBox.Size = new System.Drawing.Size(25, 26);
+            //this.MaxBox.HoverImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MaxBox.HoverImage")));
+            //this.MaxBox.NormalImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MaxBox.NormalImage")));
+            //this.MaxBox.PressImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MaxBox.PressImage")));
+            //this.MinBox.HoverImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MinBox.HoverImage")));
+            //this.MinBox.NormalImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MinBox.NormalImage")));
+            //this.MinBox.PressImage = ((System.Drawing.Image)(resources.GetObject("BrandSelectForm.MinBox.PressImage")));
+            this.MinBox.Size = new System.Drawing.Size(25, 26);
             this.Name = "BrandSelectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "品牌";
             this.Load += new System.EventHandler(this.BrandSelectForm_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListView lvBrand;
     }
 }

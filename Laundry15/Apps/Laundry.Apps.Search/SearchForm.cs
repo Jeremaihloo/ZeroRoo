@@ -40,11 +40,11 @@ namespace Laundry.Apps.Search
         {
             this.lvUsers.Rows.Clear();
 
-            for(var i=0;i<this.vipList.Count;i++)
+            for (var i = 0; i < this.vipList.Count; i++)
             {
                 var item = this.vipList[i];
                 DSkin.Controls.DSkinGridListRow lvi = new DSkin.Controls.DSkinGridListRow();
-                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.VipID});
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.VipID });
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Name });
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Phone });
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Address });
@@ -54,10 +54,6 @@ namespace Laundry.Apps.Search
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.TicketCount.ToString() });
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.ClotheCount.ToString() });
                 this.lvUsers.Rows.Add(lvi);
-            }
-            for(var i=0;i<this.lvUsers.Columns.Count;i++)
-            {
-                this.lvUsers.Columns[i].Width = -2;
             }
         }
 
@@ -75,10 +71,6 @@ namespace Laundry.Apps.Search
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.ClotheRecords.Where(t => t.State == TicketClotheState.HasClean).ToList().Count.ToString() });
                 lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.HasPay ? "已付" : "未付" });
                 this.lvTickets.Rows.Add(lvi);
-            }
-            for(var i=0;i< this.lvTickets.Columns.Count;i++)
-            {
-                this.lvTickets.Columns[i].Width = -2;
             }
         }
 

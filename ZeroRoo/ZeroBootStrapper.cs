@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ZeroRoo
 {
-    public class ZeroBootStrapper
+    public static class ZeroBootStrapper
     {
         public static IServiceCollection Services { get; set; }
 
-        public static void Run()
+        static ZeroBootStrapper()
         {
             Services = new ServiceCollection();
         }

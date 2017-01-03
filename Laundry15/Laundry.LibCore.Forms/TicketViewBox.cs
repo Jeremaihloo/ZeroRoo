@@ -18,7 +18,8 @@ namespace Laundry.LibCore.Forms
     {
         public TicketViewBox()
         {
-            InitializeComponent();
+            this.pictureBox = new QPictureBox();
+            this.Controls.Add(this.pictureBox);
         }
 
         private LaundryTicket ticket;
@@ -28,27 +29,15 @@ namespace Laundry.LibCore.Forms
             this.drawTicket();
         }
 
-        Bitmap ticketViewBitmap;
+        QPictureBox pictureBox;
+        Image ticketViewBitmap;
 
         void drawTicket()
         {
-            var drawer = new PrintDrawer();
-            var template = new TicketTemplate(this.ticket);
-            var size = new Size(224, (int)drawer.MessureHeight(template.GetLines()));
-            ticketViewBitmap = new Bitmap(size.Width, size.Height);
-            Graphics g = Graphics.FromImage(ticketViewBitmap);
-            drawer.Draw(template, size, g, (Bitmap)Image.FromFile("qrcode.jpg"));
-            g.Dispose();
-            this.pbxTicketView.Image = ticketViewBitmap;
-            this.pbxTicketView.Height = ticketViewBitmap.Height;
-            this.Height = this.pbxTicketView.Height;
-        }
-
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            this.Width = this.pbxTicketView.Width;
-            this.pbxTicketView.Height = this.Height;
+            ticketViewBitmap = new TicketPreviewPrinter().PrintTicket(ticket);
+            this.pictureBox.Image = ticketViewBitmap;
+            this.pictureBox.Height = ticketViewBitmap.Height;
+            this.pictureBox.Width = ticketViewBitmap.Width;
         }
     }
 }

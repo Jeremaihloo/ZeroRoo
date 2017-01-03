@@ -57,17 +57,14 @@ namespace Laundry.Apps.LaundryTicket
             foreach (var item in ticket.ClotheRecords)
             {
                 DSkin.Controls.DSkinGridListRow lvi = new DSkin.Controls.DSkinGridListRow();
-                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell(item.Price.ToString(), typeof(DSkin.DirectUI.DuiLabel)));
-                //lvi.SubItems.Add(item.Color);
-                //lvi.SubItems.Add(item.Brand);
-                var lf = new List<string>();
-                foreach (var f in item.FlawRecords)
-                {
-                    lf.Add(f.Text);
-                }
-                var flaw = string.Join(",", lf);
-                //lvi.SubItems.Add(flaw);
-                //lvi.SubItems.Add(item.Mark);
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Name });
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Price.ToString() });
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Color });
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Brand });
+                var flaw = item.FlawRecords.Select(h => h.Text).ToArray();
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = string.Join(",", flaw) });
+                lvi.Cells.Add(new DSkin.Controls.DSkinGridListCell() { Text = item.Mark });
+                lvi.Tag = item;
                 this.glClothe.Rows.Add(lvi);
             }
         }
@@ -161,13 +158,13 @@ namespace Laundry.Apps.LaundryTicket
 
             TicketClotheForm.Result = null;
             TicketClotheForm form = new TicketClotheForm();
-            form.Set(this.ticket.ClotheRecords[(int)this.glClothe.SelectedItem.Tag]);
+            form.Set(this.glClothe.SelectedItem.Tag as TicketClotheRecord);
             form.ShowDialog();
             if (TicketClotheForm.Result != null)
             {
                 var ticketClothe = new TicketClotheRecord();
                 ticketClothe = TicketClotheForm.Result;
-                this.ticket.ClotheRecords[(int)this.glClothe.SelectedItem.Tag] = ticketClothe;
+                this.glClothe.SelectedItem.Tag = ticketClothe;
                 this.BindClothes();
             }
         }
@@ -194,7 +191,7 @@ namespace Laundry.Apps.LaundryTicket
                 QMessageBox.Show("你必须要先选择一个衣服才能进行删除！");
                 return;
             }
-            this.ticket.ClotheRecords.RemoveAt((int)this.glClothe.SelectedItem.Tag);
+            this.ticket.ClotheRecords.Remove(this.glClothe.SelectedItem.Tag as TicketClotheRecord);
             this.BindClothes();
         }
 
@@ -213,6 +210,8 @@ namespace Laundry.Apps.LaundryTicket
         void bindVip()
         {
             this.txtVipID.Text = this.vip.VipID;
+            this.txtName.Text = this.vip.Name;
+            this.txtAddress.Text = this.vip.Address;
             this.txtPhone.Text = this.vip.Phone;
             this.txtGender.SelectedIndex = this.vip.Sex == "女" ? 0 : 1;
             this.txtBalance.Text = this.vip.Balance.ToString();
@@ -282,7 +281,7 @@ namespace Laundry.Apps.LaundryTicket
             form.ShowDialog();
         }
 
-        private void dtpPlanTakeAt_ValueChanged_1(object sender, EventArgs e)
+        private void dtpPlanTakeAt_ValueChanged(object sender, EventArgs e)
         {
             this.ticket.PlanTakeAwayAt = this.dtpPlanTakeOff.Value;
         }
@@ -302,9 +301,27 @@ namespace Laundry.Apps.LaundryTicket
             this.ticket.Mark = this.txtMark.Text;
         }
 
-        private void txtName_TextChanged(object sender, EventArgs e)
+        private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (this.tab.SelectedIndex == 2)
+            {
+                if (this.checkIsFinish())
+                {
+                    this.tab.SelectedIndex = 2;
+
+                    this.txtThisMoney.Text = FeeCalculator.New().Calculate(this.ticket).ToString();
+
+                    this.ticketViewBox.SetTicket(this.ticket);
+                }
+                else
+                {
+                    this.tab.SelectedIndex = 0;
+                }
+            }
+            if(this.tab.SelectedIndex == 1)
+            {
+                this.txtThisMoney.Text = FeeCalculator.New().Calculate(this.ticket).ToString();
+            }
         }
     }
 }

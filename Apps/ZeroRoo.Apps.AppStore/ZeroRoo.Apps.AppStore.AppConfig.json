@@ -7,5 +7,6 @@
   "Visible": true,
   "Icon": "icon.png",
   "Target": "ZeroRoo.Apps.AppStore.dll",
-  "StartWay": 0
+  "StartWay": 0,
+  "AppMode": 0
 }

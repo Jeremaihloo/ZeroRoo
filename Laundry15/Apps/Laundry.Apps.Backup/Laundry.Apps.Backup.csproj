@@ -30,8 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DSkin">
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DSkin.Design">
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,15 +48,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="BackupSettingsApp.cs" />
+    <Compile Include="BackupService.cs" />
+    <Compile Include="BackupSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupSettingsForm.Designer.cs">
+      <DependentUpon>BackupSettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Laundry.Apps.Backup.AppConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\UI\UI.DSkin.Q\UI.Q.csproj">
+      <Project>{E6CE54EB-2C80-4DCF-A300-A51D905B660C}</Project>
+      <Name>UI.Q</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\ZeroRoo.App\ZeroRoo.App.csproj">
       <Project>{5dc576ed-ebb1-446c-ae3b-0120a23535af}</Project>
       <Name>ZeroRoo.App</Name>

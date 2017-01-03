@@ -30,6 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DSkin, Version=16.4.1.9, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DSkin.Design">
+      <HintPath>..\..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -52,12 +59,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\UI\UI.DSkin.Q\UI.Q.csproj">
+      <Project>{E6CE54EB-2C80-4DCF-A300-A51D905B660C}</Project>
+      <Name>UI.Q</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\ZeroRoo.App\ZeroRoo.App.csproj">
       <Project>{5DC576ED-EBB1-446C-AE3B-0120A23535AF}</Project>
       <Name>ZeroRoo.App</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Laundry.Apps.TicketManage.AppConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -7,23 +7,12 @@ using ZeroRoo.App;
 
 namespace Laundry.Apps.CameraData
 {
-    public class CameraDataBackupSettingsApp : IApp
+    public class CameraDataBackupSettingsApp : WindowApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public override void OnStart()
         {
-            
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
-        {
-            
+            var form = new CameraDataBackupSettingsForm();
+            this.SetWindow(form);
         }
     }
 }

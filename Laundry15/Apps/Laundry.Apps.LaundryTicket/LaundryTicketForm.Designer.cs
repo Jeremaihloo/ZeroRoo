@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LaundryTicketForm));
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn1 = new DSkin.Controls.DSkinGridListColumn();
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn2 = new DSkin.Controls.DSkinGridListColumn();
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn3 = new DSkin.Controls.DSkinGridListColumn();
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn4 = new DSkin.Controls.DSkinGridListColumn();
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn5 = new DSkin.Controls.DSkinGridListColumn();
             DSkin.Controls.DSkinGridListColumn dSkinGridListColumn6 = new DSkin.Controls.DSkinGridListColumn();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LaundryTicketForm));
             this.tab = new UI.Q.Controls.QTabControl();
             this.dSkinTabPage1 = new DSkin.Controls.DSkinTabPage();
             this.glClothe = new UI.Q.Controls.QGridList();
-            this.qBigButton6 = new UI.Q.Controls.QBigButton();
-            this.qBigButton5 = new UI.Q.Controls.QBigButton();
-            this.qBigButton4 = new UI.Q.Controls.QBigButton();
+            this.btnDeleteClothe = new UI.Q.Controls.QBigButton();
+            this.btnEditClothe = new UI.Q.Controls.QBigButton();
+            this.btnAddClothe = new UI.Q.Controls.QBigButton();
             this.dSkinTabPage2 = new DSkin.Controls.DSkinTabPage();
             this.txtGender = new UI.Q.Controls.QComboBox();
             this.cbTakeOffWay = new UI.Q.Controls.QComboBox();
@@ -66,9 +66,9 @@
             this.qLabel1 = new UI.Q.Controls.QLabel();
             this.dSkinTabPage3 = new DSkin.Controls.DSkinTabPage();
             this.ticketViewBox = new Laundry.LibCore.Forms.TicketViewBox();
-            this.qBigButton3 = new UI.Q.Controls.QBigButton();
-            this.qBigButton2 = new UI.Q.Controls.QBigButton();
-            this.qBigButton1 = new UI.Q.Controls.QBigButton();
+            this.btnPay = new UI.Q.Controls.QBigButton();
+            this.btnPrint = new UI.Q.Controls.QBigButton();
+            this.btnSave = new UI.Q.Controls.QBigButton();
             this.tab.SuspendLayout();
             this.dSkinTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.glClothe)).BeginInit();
@@ -110,7 +110,7 @@
             this.tab.SelectedBackColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))))};
-            this.tab.SelectedIndex = 1;
+            this.tab.SelectedIndex = 2;
             this.tab.Size = new System.Drawing.Size(796, 531);
             this.tab.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tab.TabIndex = 7;
@@ -118,14 +118,15 @@
             this.tab.UpdownBtnArrowPressColor = System.Drawing.Color.Gray;
             this.tab.UpdownBtnBackColor = System.Drawing.Color.White;
             this.tab.UpdownBtnBorderColor = System.Drawing.Color.Black;
+            this.tab.SelectedIndexChanged += new System.EventHandler(this.tab_SelectedIndexChanged);
             // 
             // dSkinTabPage1
             // 
             this.dSkinTabPage1.BackColor = System.Drawing.Color.White;
             this.dSkinTabPage1.Controls.Add(this.glClothe);
-            this.dSkinTabPage1.Controls.Add(this.qBigButton6);
-            this.dSkinTabPage1.Controls.Add(this.qBigButton5);
-            this.dSkinTabPage1.Controls.Add(this.qBigButton4);
+            this.dSkinTabPage1.Controls.Add(this.btnDeleteClothe);
+            this.dSkinTabPage1.Controls.Add(this.btnEditClothe);
+            this.dSkinTabPage1.Controls.Add(this.btnAddClothe);
             this.dSkinTabPage1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dSkinTabPage1.Location = new System.Drawing.Point(0, 36);
             this.dSkinTabPage1.Name = "dSkinTabPage1";
@@ -365,83 +366,86 @@
             this.glClothe.VScrollBar.SmallChange = 500;
             this.glClothe.VScrollBar.Visible = false;
             // 
-            // qBigButton6
+            // btnDeleteClothe
             // 
-            this.qBigButton6.AdaptImage = true;
-            this.qBigButton6.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton6.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton6.ButtonBorderWidth = 1;
-            this.qBigButton6.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton6.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton6.ForeColor = System.Drawing.Color.White;
-            this.qBigButton6.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton6.HoverImage = null;
-            this.qBigButton6.IsPureColor = true;
-            this.qBigButton6.Location = new System.Drawing.Point(206, 456);
-            this.qBigButton6.Name = "qBigButton6";
-            this.qBigButton6.NormalImage = null;
-            this.qBigButton6.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton6.PressedImage = null;
-            this.qBigButton6.Radius = 4;
-            this.qBigButton6.ShowButtonBorder = true;
-            this.qBigButton6.Size = new System.Drawing.Size(95, 33);
-            this.qBigButton6.TabIndex = 2;
-            this.qBigButton6.Text = "删除";
-            this.qBigButton6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton6.TextPadding = 0;
-            this.qBigButton6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnDeleteClothe.AdaptImage = true;
+            this.btnDeleteClothe.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnDeleteClothe.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnDeleteClothe.ButtonBorderWidth = 1;
+            this.btnDeleteClothe.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnDeleteClothe.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDeleteClothe.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteClothe.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnDeleteClothe.HoverImage = null;
+            this.btnDeleteClothe.IsPureColor = true;
+            this.btnDeleteClothe.Location = new System.Drawing.Point(206, 456);
+            this.btnDeleteClothe.Name = "btnDeleteClothe";
+            this.btnDeleteClothe.NormalImage = null;
+            this.btnDeleteClothe.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnDeleteClothe.PressedImage = null;
+            this.btnDeleteClothe.Radius = 4;
+            this.btnDeleteClothe.ShowButtonBorder = true;
+            this.btnDeleteClothe.Size = new System.Drawing.Size(95, 33);
+            this.btnDeleteClothe.TabIndex = 2;
+            this.btnDeleteClothe.Text = "删除";
+            this.btnDeleteClothe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDeleteClothe.TextPadding = 0;
+            this.btnDeleteClothe.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnDeleteClothe.Click += new System.EventHandler(this.btnDeleteClothe_Click);
             // 
-            // qBigButton5
+            // btnEditClothe
             // 
-            this.qBigButton5.AdaptImage = true;
-            this.qBigButton5.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton5.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton5.ButtonBorderWidth = 1;
-            this.qBigButton5.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton5.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton5.ForeColor = System.Drawing.Color.White;
-            this.qBigButton5.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton5.HoverImage = null;
-            this.qBigButton5.IsPureColor = true;
-            this.qBigButton5.Location = new System.Drawing.Point(105, 456);
-            this.qBigButton5.Name = "qBigButton5";
-            this.qBigButton5.NormalImage = null;
-            this.qBigButton5.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton5.PressedImage = null;
-            this.qBigButton5.Radius = 4;
-            this.qBigButton5.ShowButtonBorder = true;
-            this.qBigButton5.Size = new System.Drawing.Size(95, 33);
-            this.qBigButton5.TabIndex = 1;
-            this.qBigButton5.Text = "编辑";
-            this.qBigButton5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton5.TextPadding = 0;
-            this.qBigButton5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnEditClothe.AdaptImage = true;
+            this.btnEditClothe.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnEditClothe.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnEditClothe.ButtonBorderWidth = 1;
+            this.btnEditClothe.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnEditClothe.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnEditClothe.ForeColor = System.Drawing.Color.White;
+            this.btnEditClothe.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnEditClothe.HoverImage = null;
+            this.btnEditClothe.IsPureColor = true;
+            this.btnEditClothe.Location = new System.Drawing.Point(105, 456);
+            this.btnEditClothe.Name = "btnEditClothe";
+            this.btnEditClothe.NormalImage = null;
+            this.btnEditClothe.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnEditClothe.PressedImage = null;
+            this.btnEditClothe.Radius = 4;
+            this.btnEditClothe.ShowButtonBorder = true;
+            this.btnEditClothe.Size = new System.Drawing.Size(95, 33);
+            this.btnEditClothe.TabIndex = 1;
+            this.btnEditClothe.Text = "编辑";
+            this.btnEditClothe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnEditClothe.TextPadding = 0;
+            this.btnEditClothe.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnEditClothe.Click += new System.EventHandler(this.btnEditClothe_Click);
             // 
-            // qBigButton4
+            // btnAddClothe
             // 
-            this.qBigButton4.AdaptImage = true;
-            this.qBigButton4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton4.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton4.ButtonBorderWidth = 1;
-            this.qBigButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton4.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton4.ForeColor = System.Drawing.Color.White;
-            this.qBigButton4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton4.HoverImage = null;
-            this.qBigButton4.IsPureColor = true;
-            this.qBigButton4.Location = new System.Drawing.Point(4, 456);
-            this.qBigButton4.Name = "qBigButton4";
-            this.qBigButton4.NormalImage = null;
-            this.qBigButton4.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton4.PressedImage = null;
-            this.qBigButton4.Radius = 4;
-            this.qBigButton4.ShowButtonBorder = true;
-            this.qBigButton4.Size = new System.Drawing.Size(95, 33);
-            this.qBigButton4.TabIndex = 0;
-            this.qBigButton4.Text = "添加";
-            this.qBigButton4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton4.TextPadding = 0;
-            this.qBigButton4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnAddClothe.AdaptImage = true;
+            this.btnAddClothe.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnAddClothe.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnAddClothe.ButtonBorderWidth = 1;
+            this.btnAddClothe.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAddClothe.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAddClothe.ForeColor = System.Drawing.Color.White;
+            this.btnAddClothe.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnAddClothe.HoverImage = null;
+            this.btnAddClothe.IsPureColor = true;
+            this.btnAddClothe.Location = new System.Drawing.Point(4, 456);
+            this.btnAddClothe.Name = "btnAddClothe";
+            this.btnAddClothe.NormalImage = null;
+            this.btnAddClothe.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnAddClothe.PressedImage = null;
+            this.btnAddClothe.Radius = 4;
+            this.btnAddClothe.ShowButtonBorder = true;
+            this.btnAddClothe.Size = new System.Drawing.Size(95, 33);
+            this.btnAddClothe.TabIndex = 0;
+            this.btnAddClothe.Text = "添加";
+            this.btnAddClothe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAddClothe.TextPadding = 0;
+            this.btnAddClothe.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnAddClothe.Click += new System.EventHandler(this.btnAddClothe_Click);
             // 
             // dSkinTabPage2
             // 
@@ -642,6 +646,7 @@
             this.dtpPlanTakeOff.Name = "dtpPlanTakeOff";
             this.dtpPlanTakeOff.Size = new System.Drawing.Size(186, 29);
             this.dtpPlanTakeOff.TabIndex = 21;
+            this.dtpPlanTakeOff.ValueChanged += new System.EventHandler(this.dtpPlanTakeAt_ValueChanged);
             // 
             // txtMark
             // 
@@ -708,6 +713,7 @@
             this.txtThisMoney.Location = new System.Drawing.Point(352, 282);
             this.txtThisMoney.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
             this.txtThisMoney.Name = "txtThisMoney";
+            this.txtThisMoney.ReadOnly = true;
             this.txtThisMoney.Size = new System.Drawing.Size(186, 29);
             this.txtThisMoney.TabIndex = 11;
             this.txtThisMoney.TransparencyKey = System.Drawing.Color.White;
@@ -734,6 +740,7 @@
             this.txtBalance.Location = new System.Drawing.Point(352, 243);
             this.txtBalance.Margin = new System.Windows.Forms.Padding(3, 11, 3, 3);
             this.txtBalance.Name = "txtBalance";
+            this.txtBalance.ReadOnly = true;
             this.txtBalance.Size = new System.Drawing.Size(186, 29);
             this.txtBalance.TabIndex = 9;
             this.txtBalance.TransparencyKey = System.Drawing.Color.White;
@@ -828,6 +835,7 @@
             this.txtPhone.WaterFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtPhone.WaterText = "";
             this.txtPhone.WaterTextOffset = new System.Drawing.Point(0, 2);
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             // 
             // qLabel2
             // 
@@ -854,6 +862,7 @@
             this.txtVipID.WaterFont = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtVipID.WaterText = "";
             this.txtVipID.WaterTextOffset = new System.Drawing.Point(0, 2);
+            this.txtVipID.TextChanged += new System.EventHandler(this.txtVipID_TextChanged);
             // 
             // qLabel1
             // 
@@ -869,9 +878,9 @@
             // 
             this.dSkinTabPage3.BackColor = System.Drawing.Color.White;
             this.dSkinTabPage3.Controls.Add(this.ticketViewBox);
-            this.dSkinTabPage3.Controls.Add(this.qBigButton3);
-            this.dSkinTabPage3.Controls.Add(this.qBigButton2);
-            this.dSkinTabPage3.Controls.Add(this.qBigButton1);
+            this.dSkinTabPage3.Controls.Add(this.btnPay);
+            this.dSkinTabPage3.Controls.Add(this.btnPrint);
+            this.dSkinTabPage3.Controls.Add(this.btnSave);
             this.dSkinTabPage3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dSkinTabPage3.Location = new System.Drawing.Point(0, 36);
             this.dSkinTabPage3.Name = "dSkinTabPage3";
@@ -883,89 +892,99 @@
             // ticketViewBox
             // 
             this.ticketViewBox.AutoScroll = true;
+            this.ticketViewBox.BackColor = System.Drawing.Color.Transparent;
+            this.ticketViewBox.Borders.AllColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ticketViewBox.Borders.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ticketViewBox.Borders.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ticketViewBox.Borders.RightColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ticketViewBox.Borders.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ticketViewBox.Location = new System.Drawing.Point(6, 6);
             this.ticketViewBox.Margin = new System.Windows.Forms.Padding(6);
             this.ticketViewBox.Name = "ticketViewBox";
-            this.ticketViewBox.Size = new System.Drawing.Size(266, 483);
+            this.ticketViewBox.RightBottom = ((System.Drawing.Image)(resources.GetObject("ticketViewBox.RightBottom")));
+            this.ticketViewBox.Size = new System.Drawing.Size(256, 483);
             this.ticketViewBox.TabIndex = 3;
             // 
-            // qBigButton3
+            // btnPay
             // 
-            this.qBigButton3.AdaptImage = true;
-            this.qBigButton3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton3.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton3.ButtonBorderWidth = 1;
-            this.qBigButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton3.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton3.ForeColor = System.Drawing.Color.White;
-            this.qBigButton3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton3.HoverImage = null;
-            this.qBigButton3.IsPureColor = true;
-            this.qBigButton3.Location = new System.Drawing.Point(596, 302);
-            this.qBigButton3.Name = "qBigButton3";
-            this.qBigButton3.NormalImage = null;
-            this.qBigButton3.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton3.PressedImage = null;
-            this.qBigButton3.Radius = 4;
-            this.qBigButton3.ShowButtonBorder = true;
-            this.qBigButton3.Size = new System.Drawing.Size(140, 50);
-            this.qBigButton3.TabIndex = 2;
-            this.qBigButton3.Text = "收费";
-            this.qBigButton3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton3.TextPadding = 0;
-            this.qBigButton3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPay.AdaptImage = true;
+            this.btnPay.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPay.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPay.ButtonBorderWidth = 1;
+            this.btnPay.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPay.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPay.ForeColor = System.Drawing.Color.White;
+            this.btnPay.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPay.HoverImage = null;
+            this.btnPay.IsPureColor = true;
+            this.btnPay.Location = new System.Drawing.Point(596, 302);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.NormalImage = null;
+            this.btnPay.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPay.PressedImage = null;
+            this.btnPay.Radius = 4;
+            this.btnPay.ShowButtonBorder = true;
+            this.btnPay.Size = new System.Drawing.Size(140, 50);
+            this.btnPay.TabIndex = 2;
+            this.btnPay.Text = "收费";
+            this.btnPay.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPay.TextPadding = 0;
+            this.btnPay.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
-            // qBigButton2
+            // btnPrint
             // 
-            this.qBigButton2.AdaptImage = true;
-            this.qBigButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton2.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton2.ButtonBorderWidth = 1;
-            this.qBigButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton2.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton2.ForeColor = System.Drawing.Color.White;
-            this.qBigButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton2.HoverImage = null;
-            this.qBigButton2.IsPureColor = true;
-            this.qBigButton2.Location = new System.Drawing.Point(596, 217);
-            this.qBigButton2.Name = "qBigButton2";
-            this.qBigButton2.NormalImage = null;
-            this.qBigButton2.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton2.PressedImage = null;
-            this.qBigButton2.Radius = 4;
-            this.qBigButton2.ShowButtonBorder = true;
-            this.qBigButton2.Size = new System.Drawing.Size(140, 50);
-            this.qBigButton2.TabIndex = 1;
-            this.qBigButton2.Text = "打印";
-            this.qBigButton2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton2.TextPadding = 0;
-            this.qBigButton2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrint.AdaptImage = true;
+            this.btnPrint.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPrint.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPrint.ButtonBorderWidth = 1;
+            this.btnPrint.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnPrint.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPrint.HoverImage = null;
+            this.btnPrint.IsPureColor = true;
+            this.btnPrint.Location = new System.Drawing.Point(596, 217);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.NormalImage = null;
+            this.btnPrint.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnPrint.PressedImage = null;
+            this.btnPrint.Radius = 4;
+            this.btnPrint.ShowButtonBorder = true;
+            this.btnPrint.Size = new System.Drawing.Size(140, 50);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "打印";
+            this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPrint.TextPadding = 0;
+            this.btnPrint.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrintTicketView_Click);
             // 
-            // qBigButton1
+            // btnSave
             // 
-            this.qBigButton1.AdaptImage = true;
-            this.qBigButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton1.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton1.ButtonBorderWidth = 1;
-            this.qBigButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.qBigButton1.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.qBigButton1.ForeColor = System.Drawing.Color.White;
-            this.qBigButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton1.HoverImage = null;
-            this.qBigButton1.IsPureColor = true;
-            this.qBigButton1.Location = new System.Drawing.Point(596, 140);
-            this.qBigButton1.Name = "qBigButton1";
-            this.qBigButton1.NormalImage = null;
-            this.qBigButton1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
-            this.qBigButton1.PressedImage = null;
-            this.qBigButton1.Radius = 4;
-            this.qBigButton1.ShowButtonBorder = true;
-            this.qBigButton1.Size = new System.Drawing.Size(140, 50);
-            this.qBigButton1.TabIndex = 0;
-            this.qBigButton1.Text = "保存";
-            this.qBigButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.qBigButton1.TextPadding = 0;
-            this.qBigButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnSave.AdaptImage = true;
+            this.btnSave.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(29)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnSave.ButtonBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnSave.ButtonBorderWidth = 1;
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnSave.Font = new System.Drawing.Font("微软雅黑", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnSave.HoverImage = null;
+            this.btnSave.IsPureColor = true;
+            this.btnSave.Location = new System.Drawing.Point(596, 140);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.NormalImage = null;
+            this.btnSave.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(140)))), ((int)(((byte)(222)))));
+            this.btnSave.PressedImage = null;
+            this.btnSave.Radius = 4;
+            this.btnSave.ShowButtonBorder = true;
+            this.btnSave.Size = new System.Drawing.Size(140, 50);
+            this.btnSave.TabIndex = 0;
+            this.btnSave.Text = "保存";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.TextPadding = 0;
+            this.btnSave.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.btnSave.Click += new System.EventHandler(this.btnSaveTicket_Click);
             // 
             // LaundryTicketForm
             // 
@@ -1007,9 +1026,9 @@
         private DSkin.Controls.DSkinTabPage dSkinTabPage2;
         private UI.Q.Controls.QLabel qLabel1;
         private DSkin.Controls.DSkinTabPage dSkinTabPage3;
-        private UI.Q.Controls.QBigButton qBigButton6;
-        private UI.Q.Controls.QBigButton qBigButton5;
-        private UI.Q.Controls.QBigButton qBigButton4;
+        private UI.Q.Controls.QBigButton btnDeleteClothe;
+        private UI.Q.Controls.QBigButton btnEditClothe;
+        private UI.Q.Controls.QBigButton btnAddClothe;
         private UI.Q.Controls.QTextBox txtMark;
         private UI.Q.Controls.QLabel qLabel11;
         private UI.Q.Controls.QLabel qLabel10;
@@ -1027,9 +1046,9 @@
         private UI.Q.Controls.QTextBox txtPhone;
         private UI.Q.Controls.QLabel qLabel2;
         private UI.Q.Controls.QTextBox txtVipID;
-        private UI.Q.Controls.QBigButton qBigButton3;
-        private UI.Q.Controls.QBigButton qBigButton2;
-        private UI.Q.Controls.QBigButton qBigButton1;
+        private UI.Q.Controls.QBigButton btnPay;
+        private UI.Q.Controls.QBigButton btnPrint;
+        private UI.Q.Controls.QBigButton btnSave;
         private UI.Q.Controls.QGridList glClothe;
         private UI.Q.Controls.QDateTimePicker dtpPlanTakeOff;
         private LibCore.Forms.TicketViewBox ticketViewBox;

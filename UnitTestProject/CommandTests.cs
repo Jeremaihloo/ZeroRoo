@@ -32,7 +32,20 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void CommandCommandParametersParse()
+        {
+            CommandParser cmdParser = new CommandParser();
+            var ps = cmdParser.Parse("Baz /Level:2");
+            CommandParametersParser cmdPParser = new CommandParametersParser();
+            var context = cmdPParser.Parse(ps);
+            var output = new StringWriter();
+            context.Output = output;
+            _manager.ExecuteAsync(context);
+            Trace.WriteLine(output.ToString());
+        }
+
+        [TestMethod]
+        public void CommandHostAgentTest()
         {
             CommandHostAgent hostAgent = new CommandHostAgent(_manager);
 

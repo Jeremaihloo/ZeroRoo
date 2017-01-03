@@ -10,33 +10,15 @@ using System.IO;
 
 namespace Laundry.Apps.DbMigrationOnce
 {
-    public class App : IApp
+    public class App : WindowApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public override void OnStart()
         {
-            DbMigrationForm form = new DbMigrationForm();
-            form.SetDebug((bool)env.Get("IFDEBUG"));
-            form.ShowDialog();
-            if (form.HasFinish)
-            {
-                env.AppConfig.Enable = false;
-                env.AppConfig.Visible = false;
-            }
+            var form = new DbMigrationForm();
+            this.SetWindow(form);
         }
 
-        public void OnStop()
-        {
-            
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
+        public override void OnStop(AppStopEventArgs e)
         {
             
         }

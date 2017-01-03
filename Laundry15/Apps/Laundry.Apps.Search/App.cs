@@ -7,29 +7,12 @@ using System.Threading.Tasks;
 
 namespace Laundry.Apps.Search
 {
-    public class App : IApp
+    public class App : WindowApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public override void OnStart()
         {
-            SearchForm form = new SearchForm();
-            form.Show();
-        }
-
-        public void OnStop()
-        {
-            
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
-        {
-            
+            var form = new SearchForm();
+            this.SetWindow(form);
         }
     }
 }

@@ -11,6 +11,7 @@ using DSkin.DirectUI;
 using DSkin.Forms;
 using ZeroRoo.Docker.Properties;
 using ZeroRoo.App;
+using UI.Q;
 
 namespace ZeroRoo.Docker
 {
@@ -76,7 +77,14 @@ namespace ZeroRoo.Docker
             //{
             //}
 
-            this.appProcessManager.Start(((DuiBaseControl)sender).Tag.ToString());
+            try
+            {
+                this.appProcessManager.Start(((DuiBaseControl)sender).Tag.ToString());
+            }
+            catch(Exception ex)
+            {
+                QMessageBox.Show(ex.Message, "错误");
+            }
 
         }
 
@@ -252,6 +260,7 @@ namespace ZeroRoo.Docker
 
         AppLoader appLoader = new AppLoader();
         AppProcessManager appProcessManager;
+
         void LoadApp()
         {
             this.appLoader.Load();
@@ -288,7 +297,14 @@ namespace ZeroRoo.Docker
         {
             var btn = (Button)sender;
             var index = btn.Tag.ToString();
-            this.appProcessManager.Start(index);
+            try
+            {
+                this.appProcessManager.Start(index);
+            }
+            catch(Exception ex)
+            {
+                QMessageBox.Show(ex.Message, "错误");
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\FeeRecordTemplate.cs" />
     <Compile Include="Templates\TicketTemplate.cs" />
+    <Compile Include="Print\TicketPreviewPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Laundry.Configuration.Models\Laundry.Configuration.Models.csproj">

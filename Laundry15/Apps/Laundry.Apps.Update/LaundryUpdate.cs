@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Q;
 
 namespace Laundry.Apps.Update
 {
-    public partial class LaundryUpdate : Form
+    public partial class LaundryUpdate : QForm
     {
         public LaundryUpdate()
         {

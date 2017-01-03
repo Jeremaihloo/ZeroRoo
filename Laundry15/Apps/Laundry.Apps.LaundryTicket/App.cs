@@ -7,24 +7,12 @@ using System.Threading.Tasks;
 
 namespace Laundry.Apps.LaundryTicket
 {
-    public class App : IApp
+    public class App : WindowApp
     {
-        public event EventHandler Stop;
-
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public override void OnStart()
         {
-            LaundryTicketForm form = new LaundryTicketForm();
-            form.Show();
-        }
-
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
-        {
-            
-        }
-
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
-        {
-            
+            var form = new LaundryTicketForm();
+            this.SetWindow(form);
         }
     }
 }

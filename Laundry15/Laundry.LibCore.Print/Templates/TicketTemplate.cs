@@ -81,7 +81,7 @@ namespace Laundry.LibCore.Print.Templates
 
             lines.Add(new PrintLine("--------------------------------------------------", 8));
             lines.Add(new PrintLine("总计金额：" + FeeCalculator.New().Calculate(this.Ticket), 14));
-            lines.Add(new PrintLine("付款状态：" + this.Ticket.HasPay, 10));
+            lines.Add(new PrintLine("付款状态：" + (this.Ticket.HasPay ? "已付" : "未付"), 10));
             lines.Add(new PrintLine("                                        ", 8));
             lines.Add(new PrintLine("卡上余额：" + this.Ticket.Vip.Balance + "元", 12));
 

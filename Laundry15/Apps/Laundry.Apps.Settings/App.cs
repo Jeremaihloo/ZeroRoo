@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace Laundry.Apps.Settings
 {
-    public class App : IApp
+    public class App : WindowApp
     {
-        public event EventHandler Stop;
+        public event EventHandler Stopping;
 
-        public void OnStart(IAppEnviroment env, AppSystem system)
+        public void OnStart()
         {
             LaundrySettings form = new LaundrySettings();
-            form.Show();
+            this.SetWindow(form);
         }
 
-        public void OnStop(IAppEnviroment env, AppSystem system, AppStopEventArgs e)
+        public void OnStop(AppStopEventArgs e)
         {
-            
+            throw new NotImplementedException();
         }
 
-        public void OnWakeUp(IAppEnviroment env, AppSystem system)
+        public void OnWakeUp()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

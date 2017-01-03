@@ -14,6 +14,7 @@ namespace UI.Q
         public static System.Windows.Forms.DialogResult Show(string text, string caption = "信息", System.Windows.Forms.MessageBoxButtons buttons = System.Windows.Forms.MessageBoxButtons.OK)
         {
             QDialogForm form = new QDialogForm(text, caption, buttons);
+            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             form.Show();
             return Result;
         }

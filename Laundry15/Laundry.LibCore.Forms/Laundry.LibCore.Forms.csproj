@@ -92,10 +92,7 @@
       <DependentUpon>TicketFeeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TicketViewBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="TicketViewBox.Designer.cs">
-      <DependentUpon>TicketViewBox.cs</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TicketViewForm.cs">
       <SubType>Form</SubType>
@@ -126,9 +123,6 @@
     <EmbeddedResource Include="TicketFeeForm.resx">
       <DependentUpon>TicketFeeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TicketViewBox.resx">
-      <DependentUpon>TicketViewBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TicketViewForm.resx">
       <DependentUpon>TicketViewForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +131,10 @@
     <ProjectReference Include="..\..\UI\UI.DSkin.Q\UI.Q.csproj">
       <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
       <Name>UI.Q</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
+      <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
+      <Name>ZeroRoo.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Laundry.LibCore.Print\Laundry.LibCore.Print.csproj">
       <Project>{2AE39237-AF64-4A4F-B805-DC0CE1CD21A7}</Project>

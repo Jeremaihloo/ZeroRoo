@@ -7,5 +7,6 @@
   "Visible": true,
   "Icon": "icon.png",
   "Target": "Laundry.Apps.Update.dll",
-  "StartWay": 0
+  "StartWay": 0,
+  "AppMode": 0
 }

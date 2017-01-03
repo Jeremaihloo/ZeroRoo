@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Q;
 
 namespace Laundry.Apps.Settings
 {
-    public partial class LaundrySettings : Form
+    public partial class LaundrySettings : QForm
     {
         public LaundrySettings()
         {

@@ -226,7 +226,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Migration.cs" />
+    <Compile Include="Data\Migrator.cs" />
     <Compile Include="Data\OldDbContext.cs" />
     <Compile Include="OldModel\ChongZhiType.cs" />
     <Compile Include="OldModel\MoneyHistory.cs" />
@@ -248,6 +248,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
+      <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
+      <Name>ZeroRoo.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Laundry.LibCore\Laundry.LibCore.csproj">
       <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>
       <Name>Laundry.LibCore</Name>
