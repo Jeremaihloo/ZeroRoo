@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class TraditionalApp : IApp
     {

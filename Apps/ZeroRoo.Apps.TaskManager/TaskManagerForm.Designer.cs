@@ -1,4 +1,4 @@
-﻿namespace ZeroRoo.Apps.TaskManager
+﻿namespace ZeroRoo.Appss.TaskManager
 {
     partial class TaskManagerForm
     {

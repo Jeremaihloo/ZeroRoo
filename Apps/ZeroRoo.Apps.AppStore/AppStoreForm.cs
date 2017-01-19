@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Q;
 
-namespace ZeroRoo.Apps.AppStore
+namespace ZeroRoo.Appss.AppStore
 {
     public partial class AppStoreForm : QForm
     {

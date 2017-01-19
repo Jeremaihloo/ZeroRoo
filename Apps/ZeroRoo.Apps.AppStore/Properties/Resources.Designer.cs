@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZeroRoo.Apps.AppStore.Properties
+namespace ZeroRoo.Appss.AppStore.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace ZeroRoo.Apps.AppStore.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZeroRoo.Apps.AppStore.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZeroRoo.Appss.AppStore.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

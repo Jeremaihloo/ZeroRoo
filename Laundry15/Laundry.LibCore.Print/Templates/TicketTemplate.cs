@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Laundry.LibCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Laundry.LibCore.Models;
-using ZeroRoo.Configuration;
 
 namespace Laundry.LibCore.Print.Templates
 {
@@ -16,7 +13,7 @@ namespace Laundry.LibCore.Print.Templates
         public TicketTemplate(LaundryTicket ticket)
         {
             this.Ticket = ticket;
-            this.storeInfo = ConfigManager.Default.Config<Store>();
+            this.storeInfo = new Store();
         }
 
         private Store storeInfo;
@@ -43,8 +40,6 @@ namespace Laundry.LibCore.Print.Templates
                 lines.Add(new PrintLine("编号：" + item.ID, 8));
                 lines.Add(new PrintLine("衣物：" + item.Name + "  价格：" + item.Price, 8));
                 lines.Add(new PrintLine("颜色：" + item.Color + "  品牌：" + item.Brand, 8));
-                //lines.Add(new PrintLine(YiFuList[i].ClotheID + " " + YiFuList[i].ClotheType + " " + YiFuList[i].Price + " " + YiFuList[i].Color + " " + YiFuList[i].PinPai, 8));
-
                 lines.Add(new PrintLine("瑕疵：", 8));
                 var flawList = new List<string>();
                 foreach(var flaw in item.FlawRecords)

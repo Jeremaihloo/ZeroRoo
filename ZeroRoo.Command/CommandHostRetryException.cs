@@ -2,7 +2,7 @@
 
 namespace ZeroRoo.Commands
 {
-    public class CommandHostRetryException : ZeroRooCoreException
+    public class CommandHostRetryException : ZeroCoreException
     {
         public CommandHostRetryException(string message)
             : base(message)

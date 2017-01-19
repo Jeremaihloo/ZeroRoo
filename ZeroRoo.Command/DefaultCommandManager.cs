@@ -30,10 +30,10 @@ namespace ZeroRoo.Commands
                 var commandList = string.Join(",", GetCommandDescriptors().SelectMany(d => d.Names).ToArray());
                 if (matches.Any())
                 {
-                    throw new ZeroRooCoreException(string.Format("Multiple commands found matching arguments \"{0}\". Commands available: {1}.",
+                    throw new ZeroCoreException(string.Format("Multiple commands found matching arguments \"{0}\". Commands available: {1}.",
                         commandMatch, commandList));
                 }
-                throw new ZeroRooCoreException(string.Format("No command found matching arguments \"{0}\". Commands available: {1}.",
+                throw new ZeroCoreException(string.Format("No command found matching arguments \"{0}\". Commands available: {1}.",
                     commandMatch, commandList));
             }
         }

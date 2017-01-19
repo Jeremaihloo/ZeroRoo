@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Q;
 
-namespace ZeroRoo.Apps.TaskManager
+namespace ZeroRoo.Appss.TaskManager
 {
     public partial class TaskManagerForm : QForm
     {

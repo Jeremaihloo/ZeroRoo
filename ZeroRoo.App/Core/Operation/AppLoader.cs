@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Diagnostics;
 using System.Drawing;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class AppLoader
     {

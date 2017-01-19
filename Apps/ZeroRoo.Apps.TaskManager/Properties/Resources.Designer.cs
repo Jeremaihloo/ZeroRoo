@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZeroRoo.Apps.TaskManager.Properties
+namespace ZeroRoo.Appss.TaskManager.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace ZeroRoo.Apps.TaskManager.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZeroRoo.Apps.TaskManager.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ZeroRoo.Appss.TaskManager.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

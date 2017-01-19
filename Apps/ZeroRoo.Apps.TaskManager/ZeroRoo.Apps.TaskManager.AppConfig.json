@@ -1,12 +1,12 @@
 {
   "Name": "TaskManager",
-  "ID": "ZeroRoo.Apps.TaskManager",
+  "ID": "ZeroRoo.Appss.TaskManager",
   "Title": "系统更新",
   "Description": "系统更新",
   "Enable": true,
   "Visible": true,
   "Icon": "icon.png",
-  "Target": "ZeroRoo.Apps.TaskManager.dll",
+  "Target": "ZeroRoo.Appss.TaskManager.dll",
   "StartWay": 0,
   "AppMode": 0
 }

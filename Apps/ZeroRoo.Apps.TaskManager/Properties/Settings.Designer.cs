@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZeroRoo.Apps.TaskManager.Properties
+namespace ZeroRoo.Appss.TaskManager.Properties
 {
 
 

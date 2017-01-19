@@ -1,4 +1,4 @@
-﻿namespace ZeroRoo.Apps.ChatLine
+﻿namespace ZeroRoo.Appss.ChatLine
 {
     partial class MainForm
     {

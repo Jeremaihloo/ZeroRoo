@@ -1,4 +1,4 @@
-﻿namespace ZeroRoo.Apps.AppStore
+﻿namespace ZeroRoo.Appss.AppStore
 {
     partial class AppStoreForm
     {

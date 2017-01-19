@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.Apps.AppFinder
+namespace ZeroRoo.Appss.AppFinder
 {
     public class Class1
     {

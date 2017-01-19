@@ -55,7 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
     <Compile Include="AppStoreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,14 +95,11 @@
       <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
       <Name>UI.Q</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ZeroRoo.App\ZeroRoo.App.csproj">
-      <Project>{5dc576ed-ebb1-446c-ae3b-0120a23535af}</Project>
-      <Name>ZeroRoo.App</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(SolutionDir)ZeroRoo.Docker\bin\Debug\Apps\$(ProjectName)\$(ProjectName).AppConfig.json $(SolutionDir)ZeroRoo.Docker\bin\Debug\Configs\</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

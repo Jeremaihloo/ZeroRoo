@@ -58,10 +58,6 @@
     <Compile Include="TicketViewTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ZeroRoo.Configuration\ZeroRoo.Configuration.csproj">
-      <Project>{7de936d5-7654-4842-adde-c3b03d0603d0}</Project>
-      <Name>ZeroRoo.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Laundry.LibCore.Print\Laundry.LibCore.Print.csproj">
       <Project>{2ae39237-af64-4a4f-b805-dc0ce1cd21a7}</Project>
       <Name>Laundry.LibCore.Print</Name>

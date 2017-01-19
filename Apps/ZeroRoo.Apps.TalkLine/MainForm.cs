@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ZeroRoo.Apps.ChatLine
+namespace ZeroRoo.Appss.ChatLine
 {
     public partial class MainForm : Form
     {

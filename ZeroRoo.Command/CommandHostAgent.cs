@@ -75,7 +75,7 @@ namespace ZeroRoo.Commands
             await output.WriteLineAsync(string.Format("{0}", exception.Message));
             await output.WriteLineAsync();
 
-            if (!(exception is ZeroRooCoreException) &&
+            if (!(exception is ZeroCoreException) &&
                 exception.InnerException == null)
             {
                 await output.WriteLineAsync(string.Format("Exception Details: {0}: {1}", exception.GetType().FullName, exception.Message));

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class AppManageItem
     {

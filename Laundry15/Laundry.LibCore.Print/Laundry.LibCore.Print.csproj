@@ -52,14 +52,6 @@
     <Compile Include="Print\TicketPreviewPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Laundry.Configuration.Models\Laundry.Configuration.Models.csproj">
-      <Project>{a7a1dae3-b6f5-4bc6-9a47-3a6fb70f365d}</Project>
-      <Name>Laundry.Configuration.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ZeroRoo.Configuration\ZeroRoo.Configuration.csproj">
-      <Project>{7de936d5-7654-4842-adde-c3b03d0603d0}</Project>
-      <Name>ZeroRoo.Configuration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Laundry.LibCore\Laundry.LibCore.csproj">
       <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>
       <Name>Laundry.LibCore</Name>

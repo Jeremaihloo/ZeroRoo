@@ -119,6 +119,12 @@
     <Compile Include="Forms\QDialogForm.Designer.cs">
       <DependentUpon>QDialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\QToolTipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QToolTipForm.Designer.cs">
+      <DependentUpon>QToolTipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\QVirtualKeyboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Forms\QDialogForm.resx">
       <DependentUpon>QDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\QToolTipForm.resx">
+      <DependentUpon>QToolTipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QVirtualKeyboardForm.resx">
       <DependentUpon>QVirtualKeyboardForm.cs</DependentUpon>

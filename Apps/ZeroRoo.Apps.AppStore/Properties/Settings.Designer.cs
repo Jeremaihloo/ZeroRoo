@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZeroRoo.Apps.AppStore.Properties
+namespace ZeroRoo.Appss.AppStore.Properties
 {
 
 

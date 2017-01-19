@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.Apps.PictureViewer
+namespace ZeroRoo.Appss.PictureViewer
 {
     public class Class1
     {

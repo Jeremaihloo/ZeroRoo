@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UI.Q;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class WindowApp: BaseApp
     {

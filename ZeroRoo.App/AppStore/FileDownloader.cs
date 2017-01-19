@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class FileDownloader
     {

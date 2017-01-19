@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.App.Apps
+namespace ZeroRoo.Apps.Apps
 {
     public class ServiceApp: BaseApp
     {

@@ -1,12 +1,12 @@
 {
   "Name": "AppStore",
-  "ID": "ZeroRoo.Apps.AppStore",
+  "ID": "ZeroRoo.Appss.AppStore",
   "Title": "系统更新",
   "Description": "系统更新",
   "Enable": true,
   "Visible": true,
   "Icon": "icon.png",
-  "Target": "ZeroRoo.Apps.AppStore.dll",
+  "Target": "ZeroRoo.Appss.AppStore.dll",
   "StartWay": 0,
   "AppMode": 0
 }

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Configuration;
 
-namespace ZeroRoo.App
+namespace ZeroRoo.Apps
 {
     public class AppProcessManager
     {

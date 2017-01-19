@@ -4,7 +4,6 @@ using Laundry.LibCore;
 using Laundry.LibCore.Repository;
 using Laundry.LibCore.Models;
 using System.Collections.Generic;
-using ZeroRoo.Configuration;
 using System.Threading;
 
 namespace UnitTests
@@ -77,13 +76,6 @@ namespace UnitTests
             tmpVip = vipRepository.Find(vip.ID);
             var nowBalance = tmpVip.Balance;
             Assert.AreEqual(lastVipBalance - (feeSum / 2), nowBalance);
-        }
-
-        [TestMethod]
-        public void ConfigRead()
-        {
-            var storeInfo = ConfigManager.Default.Config<Store>();
-            Assert.AreEqual("13761561263", storeInfo.Phone);
         }
         
         [TestMethod]
