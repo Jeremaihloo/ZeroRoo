@@ -13,9 +13,11 @@ namespace UI.Q.Forms
 {
     public partial class QToolTipForm : QForm
     {
-        public static QToolTipForm NewBind(DSkin.Controls.DSkinBaseControl tipControl, string text = "default text")
+        public static QToolTipForm NewBind(DSkin.Controls.DSkinBaseControl tipControl, string text = "default text", int tipHeight = 20)
         {
-            var toolTipForm = new QToolTipForm(tipControl, text);
+            var toolTipForm = new QToolTipForm(tipControl, text, tipHeight);
+            toolTipForm.TopLevel = true;
+            toolTipForm.TopMost = true;
             return toolTipForm;
         }
 
@@ -31,11 +33,11 @@ namespace UI.Q.Forms
 
         public DSkin.Controls.DSkinBaseControl TipControl { get; set; }
 
-        public QToolTipForm(DSkin.Controls.DSkinBaseControl tipControl, string text = "default text")
+        public QToolTipForm(DSkin.Controls.DSkinBaseControl tipControl, string text = "default text", int tipHeight=20)
         {
             InitializeComponent();
 
-            this.TipHeight = 20;
+            this.TipHeight = tipHeight;
             this.TipControl = tipControl;
             this.TipControl.MouseEnter += tipControl_MouseEnter;
             this.TipControl.MouseLeave += tipControl_MouseLeave;
@@ -45,8 +47,10 @@ namespace UI.Q.Forms
             this.Label.TextAlign = ContentAlignment.MiddleCenter;
             this.Label.Dock = DockStyle.Fill;
             this.Label.ForeColor = Color.White;
-            this.Label.Text = "default text";
+            this.Label.Text = text;
             this.Controls.Add(this.Label);
+
+            this.TopMost = true;
         }
 
         private void tipControl_MouseLeave(object sender, EventArgs e)

@@ -16,13 +16,14 @@ namespace ZeroRoo.Docker.Shapes
         public Dashboard()
         {
             InitializeComponent();
+
+            this.Size = new Size(500, 50);
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-
-            this.Size = new Size(500, 50);
+            
             this.ShowInTaskbar = false;
             this.ShowSystemButtons = false;
             this.TopMost = true;

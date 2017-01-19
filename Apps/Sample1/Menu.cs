@@ -11,7 +11,7 @@ namespace Sample1
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            throw new NotImplementedException();
+            builder.Add("Sample1", "Sample1", "icon.png", x => { });
         }
     }
 }

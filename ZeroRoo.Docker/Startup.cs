@@ -31,15 +31,18 @@ namespace ZeroRoo.Docker
         {
             base.ConfigureServices(services);
 
+            services.AddSingleton<IServiceCollection>(services);
+
             services.AddLogging();
             services.AddOptions();
-            services.AddSingleton<IAppContainerFactory, AppContainerFactory>();
 
             services.AddAppManagerHost("Apps", "Apps");
             services.AddManifestDefinition("App.txt", "app");
             services.AddAppLocation("Apps"); 
             services.AddAppManager();
 
+            services.AddSingleton<IAppContainerFactory, AppContainerFactory>();
+            
             services.AddNavigation();
             services.AddDockerShape();
         }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Q;
+using ZeroRoo.Docker.Shapes;
 
 namespace ZeroRoo.Docker.Core
 {
@@ -13,9 +14,9 @@ namespace ZeroRoo.Docker.Core
     {
         public static IRuntime RunForm<T>(this IRuntime runtime)
         {
-            var dash = runtime.Services.BuildServiceProvider().GetRequiredService<T>();
-
-            Application.Run(dash as Form);
+            var provider = runtime.Services.BuildServiceProvider();
+            var dash = provider.GetRequiredService<T>() as Form;
+            Application.Run(dash);
             return runtime;
         }
     }

@@ -41,23 +41,10 @@ namespace ZeroRoo.Apps
 
                         if (!appEntry.IsError)
                         {
-                            IStartup startup = null;
-                            foreach (var item in appEntry.ExportedTypes)
+                            foreach(var item in appEntry.ExportedTypes.Where(h=>typeof(IStartup).IsAssignableFrom(h)))
                             {
-                                if (IsStartup(item))
-                                {
-                                    try
-                                    {
-                                        startup = (IStartup)Activator.CreateInstance(item);
-                                    }
-                                    catch(Exception ex)
-                                    {
-                                        logger.LogCritical("Startup Create Error", ex.Message);
-                                    }
-                                }
+                                builder.Services.AddScoped(typeof(IStartup), item);
                             }
-                            startup.ConfigureServices(builder.Services);
-                            startup.Configure(builder, builder.Services.BuildServiceProvider());
                         }
                     }
                     catch (Exception e)
@@ -65,6 +52,14 @@ namespace ZeroRoo.Apps
                         logger.LogCritical("Could not load an app", ae, e);
                     }
                 });
+            }
+
+            var secProvider = builder.Services.BuildServiceProvider();
+
+            foreach(var startup in secProvider.GetServices<IStartup>())
+            {
+                startup.ConfigureServices(builder.Services);
+                startup.Configure(builder, provider);
             }
 
             return builder;

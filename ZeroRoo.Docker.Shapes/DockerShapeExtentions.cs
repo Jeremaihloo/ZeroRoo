@@ -14,7 +14,7 @@ namespace ZeroRoo.Docker.Shapes
         public static IServiceCollection AddDockerShape(this IServiceCollection services)
         {
             services.AddSingleton<Dashboard>();
-            services.AddScoped<IShapeContainer, MenuItemContainer>();
+            services.AddSingleton<IShapeContainer, MenuItemContainer>();
             services.AddSingleton<DockerShapeContext>();
             services.AddScoped<IMenuItemButtonBuilder, MenuItemButtonBuilder>();
             services.AddSingleton<IMenuItemButtonProvider, MenuItemButtonsProvider>();
@@ -30,11 +30,14 @@ namespace ZeroRoo.Docker.Shapes
             var menuItemBuilder = provider.GetRequiredService<IMenuItemButtonBuilder>();
             var dashboard = provider.GetRequiredService<Dashboard>();
             var container = provider.GetRequiredService<IShapeContainer>();
+            var c = (System.Windows.Forms.Control)container;
+            dashboard.Controls.Add(c);
+
             var buttons = menuProvider.GetButtons(menuItemBuilder, menu);
             container.AddRange(buttons);
-            var c = (System.Windows.Forms.Control)container;
-            c.Dock = System.Windows.Forms.DockStyle.Fill;
-            dashboard.Controls.Add(c);
+
+            dashboard.Width = c.Width + provider.GetRequiredService<DockerShapeContext>().DockerPadding * 2;
+            builder.Services.AddSingleton<Dashboard>(dashboard);
             return builder;
         }
     }

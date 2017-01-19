@@ -17,9 +17,8 @@ namespace ZeroRoo.Docker.Shapes
             btn.Name = menuItem.Name;
             btn.Tag = menuItem;
             btn.Size = context.MenuItemButtonSize;
-            btn.Margin = new System.Windows.Forms.Padding(context.DockerPadding);
 
-            QToolTipForm.NewBind(btn, btn.Text);
+            QToolTipForm.NewBind(btn, btn.Text, 50);
             return btn;
         }
     }
