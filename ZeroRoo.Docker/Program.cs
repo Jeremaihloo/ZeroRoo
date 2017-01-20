@@ -12,6 +12,8 @@ namespace ZeroRoo.Docker
 {
     static class Program
     {
+        public static IRuntime Runtime { get; set; }
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -27,12 +29,12 @@ namespace ZeroRoo.Docker
                     new PhysicalFileProvider(Directory.GetCurrentDirectory())
             };
 
-            var runtime = new RuntimeBuilder()
+            Runtime = new RuntimeBuilder()
                 .UseEnviroment(env)
                 .UseStartup(new Startup(env))
                 .Build();
 
-            runtime.RunForm<Dashboard>();
+            Runtime.RunForm<Dashboard>();
         }
     }
 }

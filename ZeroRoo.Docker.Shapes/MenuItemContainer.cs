@@ -31,12 +31,15 @@ namespace ZeroRoo.Docker.Shapes
 
         void RangeButtons()
         {
+            this.Width = this.Controls.Count * context.MenuItemButtonSize.Width +
+                    (this.Controls.Count + 1) * context.DockerPadding;
+            this.Height = context.DockerPadding * 2 + context.MenuItemButtonSize.Height;
+            this.Left = context.DockerPadding;
+
             if (this.Parent != null)
             {
-                this.Parent.Width = this.Controls.Count * context.MenuItemButtonSize.Width + 
-                    (this.Controls.Count + 1) * context.DockerPadding;
-                this.Parent.Height = context.MenuItemButtonSize.Height + 
-                    context.DockerPadding * 2;
+                this.Parent.Width = this.Width;
+                this.Parent.Height = this.Height;
             }
 
             for (var i = 0; i < this.Controls.Count; i++)

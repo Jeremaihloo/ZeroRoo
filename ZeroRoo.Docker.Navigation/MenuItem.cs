@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ZeroRoo.Docker.Navigation
 {
@@ -29,9 +30,9 @@ namespace ZeroRoo.Docker.Navigation
         public string Text { get; set; }
 
         /// <summary>
-        /// The relative position of the menu item among its siblings. e.g., 10, 0, "after".
+        /// the activity for the menu item, if null myabe the sub items none
         /// </summary>
-        public string Position { get; set; }
+        public IActivity Activity { get; set; }
 
         /// <summary>
         /// The child menu items.

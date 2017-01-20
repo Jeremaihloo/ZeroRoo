@@ -13,7 +13,7 @@ namespace ZeroRoo.Docker.Navigation
         public static IServiceCollection AddNavigation(this IServiceCollection services)
         {
             services.TryAddScoped<INavigationManager, NavigationManager>();
-
+            services.AddSingleton<IActivityManager, ActivityManager>();
             return services;
         }
     }

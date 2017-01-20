@@ -91,6 +91,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDemo1", "AppLoaderSometh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.Docker.Navigation", "ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj", "{929DA311-2AFD-4B7D-8017-DE99136E559E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample2", "AppLoaderSomething\Sample2\Sample2.csproj", "{362A5F01-EFE7-4B05-A733-4A074BA60FB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -257,6 +259,10 @@ Global
 		{929DA311-2AFD-4B7D-8017-DE99136E559E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{929DA311-2AFD-4B7D-8017-DE99136E559E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{929DA311-2AFD-4B7D-8017-DE99136E559E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362A5F01-EFE7-4B05-A733-4A074BA60FB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362A5F01-EFE7-4B05-A733-4A074BA60FB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362A5F01-EFE7-4B05-A733-4A074BA60FB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362A5F01-EFE7-4B05-A733-4A074BA60FB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -280,5 +286,6 @@ Global
 		{6619FA0E-1B90-461A-AFAE-A0ED743CF74D} = {02494A1D-3369-4236-9757-22111F5CB1B0}
 		{B8A051A1-C1B3-40B6-8FCB-B93C39FFE5FA} = {02494A1D-3369-4236-9757-22111F5CB1B0}
 		{416D6C0D-0F71-48D6-9219-A6CEB86116F9} = {02494A1D-3369-4236-9757-22111F5CB1B0}
+		{362A5F01-EFE7-4B05-A733-4A074BA60FB1} = {3AFCD893-106D-4765-B2CD-B7832FFA3F31}
 	EndGlobalSection
 EndGlobal

@@ -30,6 +30,7 @@ namespace ZeroRoo.Docker.Shapes
             var menuItemBuilder = provider.GetRequiredService<IMenuItemButtonBuilder>();
             var dashboard = provider.GetRequiredService<Dashboard>();
             var container = provider.GetRequiredService<IShapeContainer>();
+
             var c = (System.Windows.Forms.Control)container;
             dashboard.Controls.Add(c);
 

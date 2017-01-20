@@ -40,6 +40,12 @@ namespace ZeroRoo.Docker.Navigation
             return this;
         }
 
+        public NavigationItemBuilder Activity(IActivity activity)
+        {
+            _item.Activity = activity;
+            return this;
+        }
+
         public new IEnumerable<MenuItem> Build()
         {
             _item.Items = base.Build();

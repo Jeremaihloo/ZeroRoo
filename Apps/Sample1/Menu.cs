@@ -11,7 +11,9 @@ namespace Sample1
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            builder.Add("Sample1", "Sample1", "icon.png", x => { });
+            builder.Add("Sample1", "Sample1", "icon.png", x => { }, new SampleForm());
+            builder.Add("Sample1", "Sample1", "icon.png", x => { }, new SampleForm());
+            builder.Add("Sample1", "Sample1", "icon.png", x => { }, new SampleForm());
         }
     }
 }
