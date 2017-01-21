@@ -33,5 +33,13 @@ namespace Sample1
         {
             this.Show();
         }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            var dForm = new DSkin.Forms.DSkinForm();
+            dForm.Show();
+        }
     }
 }

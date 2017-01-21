@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Docker.Navigation;
 
-namespace Sample1
+namespace ZeroRoo.Apps.Laundry
 {
     public class Menu : INavigationProvider
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            builder.Add("Sample1", "Sample1", "icon.png", x => { }, typeof(SampleForm));
-            builder.Add("Sample1", "Sample1", "icon.png", x => { }, typeof(SampleForm));
-            builder.Add("Sample1", "Sample1", "icon.png", x => { }, typeof(SampleForm));
+            builder.Add("CreateTicketTest", "开单测试", "icon.png", x => { }, typeof(TestForm));
+            //var testForm = new LaundryTicketForm();
+            builder.Add("CreateTicket", "开单", "icon.png", x => { }, typeof(LaundryTicketForm));
         }
     }
 }

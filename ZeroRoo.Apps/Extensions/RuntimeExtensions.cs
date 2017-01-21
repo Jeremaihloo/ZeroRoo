@@ -35,7 +35,9 @@ namespace ZeroRoo.Apps
 
             using (logger.BeginScope("Loading apps"))
             {
-                Parallel.ForEach(availableapps, new ParallelOptions { MaxDegreeOfParallelism = 4 }, ae =>
+                //Parallel.ForEach(availableapps, new ParallelOptions { MaxDegreeOfParallelism = 4 }, ae =>
+                //{
+                foreach (var ae in availableapps)
                 {
                     try
                     {
@@ -43,7 +45,7 @@ namespace ZeroRoo.Apps
 
                         if (!appEntry.IsError)
                         {
-                            foreach(var item in appEntry.ExportedTypes.Where(h=>typeof(IStartup).IsAssignableFrom(h)))
+                            foreach (var item in appEntry.ExportedTypes.Where(h => typeof(IStartup).IsAssignableFrom(h)))
                             {
                                 builder.Services.AddScoped(typeof(IStartup), item);
                             }
@@ -53,7 +55,8 @@ namespace ZeroRoo.Apps
                     {
                         logger.LogCritical("Could not load an app", ae, e);
                     }
-                });
+                }
+                //});
             }
 
             var secProvider = builder.Services.BuildServiceProvider();

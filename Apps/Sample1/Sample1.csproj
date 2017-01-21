@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DSkin">
+      <HintPath>..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="DSkin.Design">
+      <HintPath>..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
       <Private>True</Private>

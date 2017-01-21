@@ -14,10 +14,11 @@ using Laundry.LibCore;
 using Laundry.LibCore.Print;
 using Laundry.LibCore.Print.Templates;
 using UI.Q;
+using ZeroRoo.Docker.Navigation;
 
 namespace ZeroRoo.Apps.Laundry
 {
-    public partial class LaundryTicketForm : QForm
+    public partial class LaundryTicketForm : QForm, IActivity
     {
         public LaundryTicketForm()
         {
@@ -322,6 +323,16 @@ namespace ZeroRoo.Apps.Laundry
             {
                 this.txtThisMoney.Text = FeeCalculator.New().Calculate(this.ticket).ToString();
             }
+        }
+
+        public void OnActive()
+        {
+            
+        }
+
+        public void OnCreate()
+        {
+            this.Show();
         }
     }
 }

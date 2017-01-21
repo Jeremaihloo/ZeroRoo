@@ -33,7 +33,7 @@ namespace ZeroRoo.Docker.Navigation
                 {
                     navigationProvider.BuildNavigation(builder);
                 }
-                catch (Exception e)  
+                catch (Exception e)
                 {
                     _logger.LogError($"An exception occured while building the menu: ", e);
                 }

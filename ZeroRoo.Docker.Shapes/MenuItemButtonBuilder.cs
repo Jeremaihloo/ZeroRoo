@@ -32,7 +32,9 @@ namespace ZeroRoo.Docker.Shapes
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            activityManager.Active((((System.Windows.Forms.Control)sender).Tag as MenuItem).Activity);
+            var menuItem = ((System.Windows.Forms.Control)sender).Tag as MenuItem;
+            var activity = Activator.CreateInstance(menuItem.Activity) as IActivity;
+            activityManager.Active(activity);
         }
     }
 }

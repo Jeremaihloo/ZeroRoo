@@ -37,12 +37,17 @@ namespace ZeroRoo.Apps
                 _loadedAssemblies.TryAdd(item.Key, item.Value);
             }
 
-            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            //AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
         }
 
         private Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            throw new NotImplementedException();
+            var files = Directory.GetFileSystemEntries(args.Name + ".dll");
+            if(files!=null&&files.Length>0)
+            {
+                return Assembly.LoadFrom(files[0]);
+            }
+            return null;
         }
 
         private static IEnumerable<KeyValuePair<string, Assembly>> GetApplicationAssemblyNames()
@@ -61,8 +66,8 @@ namespace ZeroRoo.Apps
 
             LoadAppModule(appInfo);
 
-
-            return IsAssemblyLoaded(appInfo.Id) ? _loadedAssemblies[appInfo.Id] : null;
+            var r = IsAssemblyLoaded(appInfo.Id) ? _loadedAssemblies[appInfo.Id] : null;
+            return r;
         }
         
         internal void LoadAppModule(IAppInfo appInfo)
@@ -71,24 +76,37 @@ namespace ZeroRoo.Apps
             var assemblyFolderPath = Path.Combine(fileInfo.PhysicalPath);
             var assemblyPath = Path.Combine(assemblyFolderPath, appInfo.Id + ".dll");
 
-            if (!Directory.Exists(assemblyFolderPath))
-            {
-                return;
-            }
-
-            var assembly = LoadFromAssemblyPath(assemblyPath);
-            //var refs = assembly.GetReferencedAssemblies();
-            //foreach (var item in refs)
-            //{
-
-            //    if (!IsAssemblyLoaded(item.Name))
-            //    {
-            //        LoadFromAssemblyPath(item.Name);
-            //    }
-            //}
+            LoadAssemblyDep(assemblyFolderPath, appInfo.Id);
 
         }
         
+        internal void LoadAssemblyDep(string assemblyFolderPath, string name)
+        {
+            try
+            {
+                var assemblyPath = Path.Combine(assemblyFolderPath, name + ".dll");
+                if (!Directory.Exists(assemblyFolderPath))
+                {
+                    return;
+                }
+
+                var assembly = LoadFromAssemblyPath(assemblyPath);
+                var refs = assembly.GetReferencedAssemblies();
+                foreach (var item in refs)
+                {
+                    var subPath = Path.Combine(assemblyFolderPath, item.Name + ".dll");
+                    if (!IsAssemblyLoaded(item.Name))
+                    {
+                        LoadAssemblyDep(assemblyFolderPath, item.Name);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                _logger.LogCritical("Load Assembly error", ex.Message);
+            }
+        }
+
         private bool IsAssemblyLoaded(string assemblyName)
         {
             return _loadedAssemblies.ContainsKey(assemblyName);
@@ -99,8 +117,12 @@ namespace ZeroRoo.Apps
             try
             {
                 var name = Path.GetFileNameWithoutExtension(assemblyPath);
-                return _loadedAssemblies.GetOrAdd(name, 
-                    Assembly.LoadFrom(assemblyPath));
+                if (!_loadedAssemblies.ContainsKey(name) && File.Exists(assemblyPath))
+                {
+                    var ass = Assembly.LoadFrom(assemblyPath);
+                    return _loadedAssemblies.GetOrAdd(name, ass);
+                }
+                return null;
             }
             catch (Exception ex)
             {

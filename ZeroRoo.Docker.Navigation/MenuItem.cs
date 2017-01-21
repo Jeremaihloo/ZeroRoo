@@ -32,7 +32,7 @@ namespace ZeroRoo.Docker.Navigation
         /// <summary>
         /// the activity for the menu item, if null myabe the sub items none
         /// </summary>
-        public IActivity Activity { get; set; }
+        public Type Activity { get; set; }
 
         /// <summary>
         /// The child menu items.

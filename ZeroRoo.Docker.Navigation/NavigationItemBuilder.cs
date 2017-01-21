@@ -40,7 +40,7 @@ namespace ZeroRoo.Docker.Navigation
             return this;
         }
 
-        public NavigationItemBuilder Activity(IActivity activity)
+        public NavigationItemBuilder Activity(Type activity)
         {
             _item.Activity = activity;
             return this;
