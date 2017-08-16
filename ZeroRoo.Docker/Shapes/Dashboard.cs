@@ -28,6 +28,8 @@ namespace ZeroRoo.Docker.Shapes
                 Dock = DockStyle.Fill,
             };
 
+            browser.RegisterAsyncJsObject("engine", new ZeroRooJsBradge()); //Standard object rego
+
             // browser.LoadingStateChanged += OnLoadingStateChanged;
             // browser.ConsoleMessage += OnBrowserConsoleMessage;
             this.Controls.Add(browser);
