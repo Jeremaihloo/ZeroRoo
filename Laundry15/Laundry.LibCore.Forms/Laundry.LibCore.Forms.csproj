@@ -128,10 +128,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UI\UI.DSkin.Q\UI.Q.csproj">
-      <Project>{e6ce54eb-2c80-4dcf-a300-a51d905b660c}</Project>
-      <Name>UI.Q</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
       <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
       <Name>ZeroRoo.Utils</Name>

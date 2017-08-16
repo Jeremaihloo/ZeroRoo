@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ZeroRoo.Docker.Shapes
+namespace ZeroRoo.Desktop
 {
-    public partial class Dashboard : Form
+    public partial class Form1 : Form
     {
-        public Dashboard()
+        public Form1()
         {
             InitializeComponent();
-
-            this.Size = Screen.GetWorkingArea(this).Size;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Location = new Point(0, 0);
         }
-
     }
 }

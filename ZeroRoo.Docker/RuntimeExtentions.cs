@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Q;
 using ZeroRoo.Docker.Shapes;
 
 namespace ZeroRoo.Docker.Core

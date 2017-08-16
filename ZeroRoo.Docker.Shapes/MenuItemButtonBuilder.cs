@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UI.Q.Forms;
 using ZeroRoo.Docker.Navigation;
 
 namespace ZeroRoo.Docker.Shapes
@@ -24,7 +23,6 @@ namespace ZeroRoo.Docker.Shapes
             btn.Size = context.MenuItemButtonSize;
             btn.Click += Btn_Click;
 
-            QToolTipForm.NewBind(btn, btn.Text, 50);
             return btn;
         }
 
