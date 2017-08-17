@@ -225,6 +225,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JsServices\DesktopFileService.cs" />
     <Compile Include="JsServices\DesktopNotifyService.cs" />
     <Compile Include="JsServices\DesktopMenuService.cs" />
     <Compile Include="JsServices\IJsService.cs" />

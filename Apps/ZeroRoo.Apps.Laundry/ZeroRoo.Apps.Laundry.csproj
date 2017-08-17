@@ -32,12 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DSkin">
-      <HintPath>..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.dll</HintPath>
-    </Reference>
-    <Reference Include="DSkin.Design">
-      <HintPath>..\..\..\..\documents\DSkin\AuthorizeDSkin20151015005333\【4.0】DSkin20161213201507\DSkin.Design.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
@@ -131,51 +125,35 @@
     <Compile Include="FeatureForms\BackupSettingsForm.Designer.cs">
       <DependentUpon>BackupSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\CameraDataBackupSettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\CameraDataBackupSettingsForm.cs" />
     <Compile Include="FeatureForms\CameraDataBackupSettingsForm.Designer.cs">
       <DependentUpon>CameraDataBackupSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\CameraDataViewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\CameraDataViewForm.cs" />
     <Compile Include="FeatureForms\CameraDataViewForm.Designer.cs">
       <DependentUpon>CameraDataViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\DbMigrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\DbMigrationForm.cs" />
     <Compile Include="FeatureForms\DbMigrationForm.Designer.cs">
       <DependentUpon>DbMigrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\LaundrySettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\LaundrySettings.cs" />
     <Compile Include="FeatureForms\LaundrySettings.Designer.cs">
       <DependentUpon>LaundrySettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\LaundryTicketForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\LaundryTicketForm.cs" />
     <Compile Include="FeatureForms\LaundryTicketForm.Designer.cs">
       <DependentUpon>LaundryTicketForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\LaundryUpdate.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\LaundryUpdate.cs" />
     <Compile Include="FeatureForms\LaundryUpdate.Designer.cs">
       <DependentUpon>LaundryUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\SearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\SearchForm.cs" />
     <Compile Include="FeatureForms\SearchForm.Designer.cs">
       <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeatureForms\TicketManageForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FeatureForms\TicketManageForm.cs" />
     <Compile Include="FeatureForms\TicketManageForm.Designer.cs">
       <DependentUpon>TicketManageForm.cs</DependentUpon>
     </Compile>
@@ -190,18 +168,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Laundry15\Laundry.DbMigration\Laundry.DbMigration.csproj">
-      <Project>{b5452a7f-bca8-4196-9729-385e7cb7a702}</Project>
-      <Name>Laundry.DbMigration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Laundry15\Laundry.LibCore.Print\Laundry.LibCore.Print.csproj">
-      <Project>{2ae39237-af64-4a4f-b805-dc0ce1cd21a7}</Project>
-      <Name>Laundry.LibCore.Print</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Laundry15\Laundry.LibCore\Laundry.LibCore.csproj">
-      <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>
-      <Name>Laundry.LibCore</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">
       <Project>{25bb5974-8e72-4b23-ba31-4d51fa620195}</Project>
       <Name>ZeroRoo.Apps.Abstractions</Name>

@@ -7,11 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Q;
 
 namespace Laundry.Apps.Backup
 {
-    public partial class BackupSettingsForm : QForm
+    public partial class BackupSettingsForm : Form
     {
         public BackupSettingsForm()
         {

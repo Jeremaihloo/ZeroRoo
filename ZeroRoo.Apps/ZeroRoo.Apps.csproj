@@ -209,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppContainerFactory.cs" />
+    <Compile Include="AppHostContainer.cs" />
     <Compile Include="CompositeAppOrderingStrategy.cs" />
     <Compile Include="CompositeAppProvider.cs" />
     <Compile Include="AppInfo.cs" />

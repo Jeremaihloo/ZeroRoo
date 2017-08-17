@@ -11,6 +11,7 @@ using ZeroRoo.Apps.Abstractions;
 using ZeroRoo.Apps.Manifests;
 using ZeroRoo.Docker.Shapes;
 using ZeroRoo.Docker.Navigation;
+using ZeroRoo.Docker.JsServices;
 
 namespace ZeroRoo.Docker
 {
@@ -45,6 +46,11 @@ namespace ZeroRoo.Docker
             
             services.AddNavigation();
             services.AddDockerShape();
+
+            services.AddSingleton<DesktopMenuService>();
+            services.AddSingleton<DesktopFileService>();
+            services.AddSingleton<DesktopNotifyService>();
+            services.AddSingleton<ZeroRooJsBradge>();
         }
 
         public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)

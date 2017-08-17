@@ -62,10 +62,6 @@
       <Project>{2ae39237-af64-4a4f-b805-dc0ce1cd21a7}</Project>
       <Name>Laundry.LibCore.Print</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Laundry.LibCore\Laundry.LibCore.csproj">
-      <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>
-      <Name>Laundry.LibCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

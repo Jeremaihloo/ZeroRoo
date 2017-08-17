@@ -276,10 +276,6 @@
       <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
       <Name>ZeroRoo.Utils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Laundry.LibCore\Laundry.LibCore.csproj">
-      <Project>{94397912-eb0e-41d3-afb3-a868b791dd81}</Project>
-      <Name>Laundry.LibCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
