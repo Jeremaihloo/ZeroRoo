@@ -7,14 +7,25 @@ using ZeroRoo.Docker.JsServices;
 
 namespace ZeroRoo.Docker
 {
+    public struct JsObject
+    {
+        public string Value;
+    }
+
+    public class SubC
+    {
+        public int A;
+        public string B;
+    }
+
     public class ZeroRooJsBradge
     {
         public DesktopMenuService DesktopMenuService { get; set; }
         public DesktopNotifyService DesktopNotifyService { get; set; }
         public DesktopFileService DesktopFileService { get; set; }
 
-        public ZeroRooJsBradge(DesktopFileService desktopFileService, 
-                                DesktopMenuService desktopMenuService, 
+        public ZeroRooJsBradge(DesktopFileService desktopFileService,
+                                DesktopMenuService desktopMenuService,
                                 DesktopNotifyService desktopNotifyService)
         {
             this.DesktopFileService = desktopFileService;
@@ -27,9 +38,18 @@ namespace ZeroRoo.Docker
             return a + b;
         }
 
-        public Shapes.MenuItemButton GetDesktopMenuItems()
+        public string GetDesktopMenuItems()
         {
-            return this.DesktopMenuService.GetButtons().ToArray()[0];
+            var o = this.DesktopMenuService.GetButtons().ToArray();
+            return Newtonsoft.Json.JsonConvert.SerializeObject(o);
+        }
+
+        public SubC[] ObjectArray(string name)
+        {
+            return new[]
+            {
+                new SubC(){ A=1, B="lujiejie" }
+            };
         }
     }
 }

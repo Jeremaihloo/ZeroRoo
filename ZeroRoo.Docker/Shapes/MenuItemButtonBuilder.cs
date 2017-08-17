@@ -19,9 +19,7 @@ namespace ZeroRoo.Docker.Shapes
             MenuItemButton btn = new MenuItemButton();
             btn.Text = menuItem.Text;
             btn.Name = menuItem.Name;
-            btn.Tag = menuItem;
-            btn.Size = context.MenuItemButtonSize;
-            btn.Click += Btn_Click;
+            //btn.Click += Btn_Click;
 
             return btn;
         }

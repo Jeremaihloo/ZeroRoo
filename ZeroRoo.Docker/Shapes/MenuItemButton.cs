@@ -12,9 +12,7 @@ namespace ZeroRoo.Docker.Shapes
     {
         public string Text { get; set; }
         public string Name { get; set; }
-        public object Tag { get; set; }
-        public Size Size { get; set; }
 
-        public event EventHandler Click;
+        //public event EventHandler Click;
     }
 }

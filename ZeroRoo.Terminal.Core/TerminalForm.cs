@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using UI.Q;
-using UI.Q.Controls;
 using ZeroRoo.Terminal.Core;
 
 namespace ZeroRoo.Terminal

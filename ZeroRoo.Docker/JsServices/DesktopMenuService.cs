@@ -10,6 +10,8 @@ namespace ZeroRoo.Docker.JsServices
 {
     public class DesktopMenuService
     {
+        public string Name { get; set; }
+
         private INavigationManager navigationManager;
         private IMenuItemButtonBuilder menuItemButtonBuilder;
         private IMenuItemButtonProvider menuItemButtonProvider;
