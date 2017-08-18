@@ -1,12 +1,11 @@
 var $ = require('jquery')
-export default class Event {
-  on (name, cb) {
+module.exports = {
+  on: function (name, cb) {
     $(document).on(name, function (e, data) {
       cb(data)
     })
-  }
-
-  emit (name, data) {
+  },
+  emit: function (name, data) {
     $(document).trigger(name, data)
   }
 }

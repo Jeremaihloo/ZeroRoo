@@ -1,42 +1,42 @@
 var count = 0
+var $event = require('../service/event')
 
 function delay (cb, n) {
   setTimeout(cb, n || 0)
 }
 
-export default class App {
-  constructor (o) {
-    let _default = {
-      _show: true,
-      title: 'app',
-      icon: '',
-      _focus: false,
-      titleHeight: 30,
-      type: null,
-      top: null,
-      left: null,
-      height: 400,
-      width: 600,
-      data: null,
-      animating: false,
-      maximized: false,
-      oldPosition: null,
-      resizable: true,
-      singleton: false,
-      _close: false
-    }
-    $.extend(_default, o)
-    $.each(_default, (k, v) => {
-      if (typeof v === 'function') {
-        _default[k] = v()
-      }
-    })
-    $.extend(this, _default)
+var $ = require('jquery')
 
-    this.sortKey = count++
-    this.checkLayout()
+function App (o) {
+  var _default = {
+    _show: true,
+    title: 'app',
+    icon: '',
+    _focus: false,
+    titleHeight: 30,
+    type: null,
+    top: null,
+    left: null,
+    height: 400,
+    width: 600,
+    data: null,
+    animating: false,
+    maximized: false,
+    oldPosition: null,
+    resizable: true,
+    singleton: false,
+    _close: false
   }
+  $.extend(_default, o)
+  $.each(_default, function (k, v) {
+    if (typeof v === 'function') {
+      _default[k] = v()
+    }
+  })
+  $.extend(this, _default)
 
+  this.sortKey = count++
+  this.checkLayout()
 }
 
 App.prototype.checkLayout = function () {
@@ -75,7 +75,7 @@ App.prototype.checkLayout = function () {
 }
 
 App.prototype.set = function (key, value) {
-  var isResize = ['height', 'width', 'top', 'left'].indexOf(key) >= 0;
+  var isResize = ['height', 'width', 'top', 'left'].indexOf(key) >= 0
   if (isResize) {
     this.maximized = false
 
@@ -95,7 +95,7 @@ App.prototype.show = function () {
 App.prototype.hide = function () {
   this._show = false
   this.blur()
-};
+}
 
 App.prototype.close = function () {
   if (!this._close) {
@@ -152,3 +152,5 @@ App.prototype.maximize = function (force) {
     })
   }
 }
+
+module.exports = App

@@ -1,6 +1,4 @@
-<style lang="less" rel="stylesheet/less">
 
-</style>
 <template>
   <div class="application-section">
     <app-window :key="index" v-for="(app, index) in apps" :app="app"></app-window>
@@ -8,7 +6,7 @@
 </template>
 
 <script>
-export default {
+module.exports = {
   props: {
     apps: Array
   },
@@ -25,3 +23,7 @@ export default {
   }
 }
 </script>
+
+<style lang="less" rel="stylesheet/less">
+
+</style>

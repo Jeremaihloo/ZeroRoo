@@ -1,18 +1,18 @@
-export default class File {
-  constructor (o) {
-    $.extend(this, o)
-    if (!this.x) {
-      this.x = 0
-    }
-    if (!this.y) {
-      this.y = 0
-    }
-    if (!this.inPosition) {
-      this.inPosition = false
-    }
-    this._sourceData = o
-    this.selected = false
+var $ = require('jquery')
+
+function File (o) {
+  $.extend(this, o)
+  if (!this.x) {
+    this.x = 0
   }
+  if (!this.y) {
+    this.y = 0
+  }
+  if (!this.inPosition) {
+    this.inPosition = false
+  }
+  this._sourceData = o
+  this.selected = false
 }
 
 File.prototype.open = function () {
@@ -27,14 +27,14 @@ File.prototype.open = function () {
   if (file._openedApp && file._openedApp._close) {
     file._openedApp = null
   }
-  var App = require('service/app.js')
+  var App = require('../service/app.js')
   var app = new App(options)
 
   if (app.singleton && file._openedApp) {
     app = file._openedApp
   }
 
-  require('service/app-controller').openApp(app)
+  require('../service/app-controller').openApp(app)
 
   file.selected = false
   if (app.singleton) {
@@ -72,3 +72,5 @@ File.prototype.clone = function () {
   })
   return new File(newObject)
 }
+
+module.exports = File

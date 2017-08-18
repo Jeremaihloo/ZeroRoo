@@ -17,6 +17,9 @@
 </template>
 
 <script>
+var $ = require('jquery')
+var $event = require('../service/event')
+
 module.exports = {
   data: function () {
     return {}

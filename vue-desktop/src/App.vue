@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <root></root>
+    <img src="./assets/logo.png">
+    <hello></hello>
   </div>
 </template>
 
 <script>
-var Root = require('./views/root')
+import Hello from './components/Hello'
 
-module.exports = {
+export default {
   name: 'app',
   components: {
-    Root
+    Hello
   }
 }
 </script>
@@ -20,7 +21,6 @@ module.exports = {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>

@@ -13,14 +13,11 @@
 </template>
 
 <script>
-var appController = require('service/app-controller');
+var appController = require('../service/app-controller')
 
-require('service/keyboard').init();
-require('service/global-var');
+require('../service/keyboard').init()
+require('../service/global-var')
 export default {
-  el: function () {
-    return 'body'
-  },
   data: function () {
     return {
       apps: appController.apps,
@@ -29,15 +26,14 @@ export default {
   },
   replace: false,
   components: {
-    wallpaper: require('views/wallpaper.vue'),
-    files: require('views/file.vue'),
-    selection: require('views/selection.vue'),
-    application: require('views/application.vue'),
-    taskbar: require('views/taskbar.vue'),
-    mousemenu: require('views/mouse-menu.vue')
+    wallpaper: require('../views/wallpaper.vue'),
+    files: require('../views/file.vue'),
+    selection: require('../views/selection.vue'),
+    application: require('../views/application.vue'),
+    taskbar: require('../views/taskbar.vue'),
+    mousemenu: require('../views/mouse-menu.vue')
   },
   ready: function () {
-    
   }
 }
 </script>

@@ -1,10 +1,12 @@
-var util = require('service/util')
-var App = require('service/app')
-var File = require('service/file')
-var Vue = require('vue')
-// var storage = require('service/storage');
+var util = require('../service/util')
+// var App = require('service/app')
+var File = require('../service/file')
 
-var sourceFile = require('data/files.js');
+// var Vue = require('vue')
+// var storage = require('service/storage');
+var $event = require('../service/event')
+
+var sourceFile = require('../data/files.js')
 
 var _this = {
   apps: [],
@@ -76,4 +78,4 @@ $event.on('window:resize', function () {
 //     storage.set('files',this.files);
 // });
 
-module.exports = _this;
+module.exports = _this

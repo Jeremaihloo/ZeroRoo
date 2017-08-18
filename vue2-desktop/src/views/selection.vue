@@ -12,12 +12,14 @@
 </style>
 <template>
   <div class="mouse-action-section">
-    <div class="selection-section" v-show="selection.startSelection" :style="getSelectionStyle();"></div>
+    <div class="selection-section" v-show="selection.startSelection" :style="getSelectionStyle()"></div>
   </div>
 </template>
 
 <script>
-var util = require('service/util');
+var util = require('../service/util')
+var $event = require('../service/event')
+var $ = require('jquery')
 
 module.exports = {
   data: function () {
@@ -42,7 +44,7 @@ module.exports = {
       var bottomRight = {
         x: Math.max(a.x, b.x),
         y: Math.max(a.y, b.y)
-      };
+      }
       this.selection.topLeft = topLeft
       this.selection.bottomRight = bottomRight
       return {
@@ -50,7 +52,7 @@ module.exports = {
         left: topLeft.x + 'px',
         height: bottomRight.y - topLeft.y + 'px',
         width: bottomRight.x - topLeft.x + 'px'
-      };
+      }
     }
   },
   components: {

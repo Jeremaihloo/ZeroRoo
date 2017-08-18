@@ -1,3 +1,67 @@
+
+<template>
+  <div class="file-item" :class="{
+           selected:file.selected,
+           dragging:dragging
+           }" @mousedown="mousedownOnFileItem($event)" @contextmenu="contextmenuOnFileItem($event,file)">
+    <div class="file-body" @click="select(file)" @dblclick="file.open()" @dragstart="onDragstart($event,file)" @dragend="onDragend()" draggable="true">
+      <div :class="'icon' + file.icon">
+  
+      </div>
+      <div class="text">
+        {{file.name}}
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+// let util = require('service/util')
+// let appController = require('service/app-controller')
+
+var $ = require('jquery')
+var $event = require('../service/event')
+
+export default {
+  props: {
+    file: Object,
+    select: Function,
+    dragstart: Function
+  },
+  data: function () {
+    return {
+      dragging: false
+    }
+  },
+  methods: {
+    onDragstart: function ($event, file) {
+      this.dragstart($event, file)
+      this.dragging = true
+    },
+    onDragend: function () {
+      this.dragging = false
+    },
+    mousedownOnFileItem: function (e) {
+      if ($(e.target).is('.file-item') && e.button === 0) {
+        $event.emit('mousedown:wallpaper', { x: e.clientX, y: e.clientY })
+      } else if (e.button === 0) {
+        $event.emit('mousedown:file', { x: e.clientX, y: e.clientY })
+      }
+    },
+    contextmenuOnFileItem: function (e, file) {
+      if ($(e.target).is('.file-item')) {
+        $event.emit('contextmenu:wallpaper', { x: e.clientX, y: e.clientY })
+      } else {
+        $event.emit('contextmenu:file', { x: e.clientX, y: e.clientY, file: file })
+      }
+    }
+  },
+  components: {},
+  ready: function () {
+
+  }
+}
+</script>
+
 <style lang="less" rel="stylesheet/less">
 .file-item {
   position: absolute;
@@ -40,62 +104,3 @@
   }
 }
 </style>
-<template>
-  <div class="file-item" :class="{
-           selected:file.selected,
-           dragging:dragging
-           }" @mousedown="mousedownOnFileItem($event);" @contextmenu="contextmenuOnFileItem($event,file)">
-    <div class="file-body" @click="select(file)" @dblclick="file.open()" @dragstart="onDragstart($event,file);" @dragend="onDragend();" draggable="true">
-      <div class="icon {{file.icon}}">
-  
-      </div>
-      <div class="text">
-        {{file.name}}
-      </div>
-    </div>
-  </div>
-</template>
-<script>
-let util = require('service/util')
-let appController = require('service/app-controller')
-
-export default {
-  props: {
-    file: Object,
-    select: Function,
-    dragstart: Function
-  },
-  data: function () {
-    return {
-      dragging: false
-    }
-  },
-  methods: {
-    onDragstart: function ($event, file) {
-      this.dragstart($event, file)
-      this.dragging = true
-    },
-    onDragend: function () {
-      this.dragging = false
-    },
-    mousedownOnFileItem: function (e) {
-      if ($(e.target).is('.file-item') && e.button === 0) {
-        $event.emit('mousedown:wallpaper', { x: e.clientX, y: e.clientY })
-      } else if (e.button === 0) {
-        $event.emit('mousedown:file', { x: e.clientX, y: e.clientY })
-      }
-    },
-    contextmenuOnFileItem: function (e, file) {
-      if ($(e.target).is('.file-item')) {
-        $event.emit('contextmenu:wallpaper', { x: e.clientX, y: e.clientY })
-      } else {
-        $event.emit('contextmenu:file', { x: e.clientX, y: e.clientY, file: file })
-      }
-    }
-  },
-  components: {},
-  ready: function () {
-
-  }
-}
-</script>

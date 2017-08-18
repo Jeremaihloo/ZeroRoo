@@ -1,17 +1,17 @@
 
 <template>
   <div class="app" v-show="app._show" :class="{
-                      focus:app._focus,
-                      animating:app.animating,
-                      maximized:app.maximized
-                      }" :style="{
-                      top:app.top+'px',
-                      left:app.left+'px',
-                      width:app.width+'px',
-                      height:app.height+30+'px'
-                      }" @mousedown="appWindowMousedown(app,$event)">
+                        focus:app._focus,
+                        animating:app.animating,
+                        maximized:app.maximized
+                        }" :style="{
+                        top:app.top+'px',
+                        left:app.left+'px',
+                        width:app.width+'px',
+                        height:app.height+30+'px'
+                        }" @mousedown="appWindowMousedown(app,$event)">
     <header class="app-title" @mousedown.self="titleMousedown(app,$event)" @mouseup="mouseup()">
-      <div class="icon {{app.icon}}">
+      <div :class="'icon ' + app.icon">
   
       </div>
       {{app.title}}
@@ -25,14 +25,17 @@
       <component :is="app.type" :app.sync="app"></component>
     </div>
     <div class="resize-overlay" v-show="overlayShow"></div>
-    <div v-for="(dir, index) in resizeDirection" :key="index" v-show="app.resizable" class="resize-handle resize-handle-{{dir}}" @mousedown="resizeHandler(dir,$event)"></div>
+    <div v-for="(dir, index) in resizeDirection" :key="index" v-show="app.resizable" :class="'resize-handle resize-handle-' + dir" @mousedown="resizeHandler(dir,$event)"></div>
   </div>
 </template>
 <script>
 const appWindowMinWidth = 400
 const appWindowMinHeight = 200
+var $ = require('jquery')
 
-export default {
+var $event = require('../service/event')
+
+module.exports = {
   props: {
     app: Object
   },
@@ -110,7 +113,7 @@ export default {
           }
         }
       }
-      var arr = direction.split('');
+      var arr = direction.split('')
       arr.forEach(function (dir) {
         if (fn[dir]) {
           fn[dir](event)
@@ -210,7 +213,6 @@ export default {
         onEasyResize(e)
         onDamnItResize(e)
       }
-
     }).on('mouseup', vm.mouseup)
 
     vm.$watch(function () {

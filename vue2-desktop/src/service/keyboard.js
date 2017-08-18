@@ -1,5 +1,7 @@
+var $ = require('jquery')
+var $event = require('../service/event')
 
-function change() {
+function change () {
   $.each(combination, function (k, v) {
     v.forEach(function (arr) {
       var flag = true
@@ -7,7 +9,7 @@ function change() {
         if (!keypressMap[code]) {
           flag = false
         }
-      });
+      })
       if (flag) {
         $event.emit(k + ':keyboard')
       }
@@ -15,7 +17,7 @@ function change() {
   })
 }
 
-function isA2Z(e) {
+function isA2Z (e) {
   if (e.keyCode >= 65 && e.keyCode <= 90) {
     return true
   }
@@ -46,7 +48,7 @@ module.exports = {
       if (isA2Z(e)) {
         setTimeout(function () {
           keypressMap[e.keyCode] = false
-          change();
+          change()
         }, 100)
       }
     }).on('keyup', function (e) {

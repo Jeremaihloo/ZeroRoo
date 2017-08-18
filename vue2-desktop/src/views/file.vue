@@ -14,8 +14,11 @@
 </template>
 
 <script>
-var util = require('service/util')
-var appController = require('service/app-controller')
+var util = require('../service/util')
+var appController = require('../service/app-controller')
+var $ = require('jquery')
+
+var $event = require('../service/event')
 
 var option = {
   cell: {
@@ -25,7 +28,7 @@ var option = {
 }
 var maxRow = Math.floor(window._h / option.cell.height)
 
-function getParsedXY(x, y, origin) {
+function getParsedXY (x, y, origin) {
   x = x - option.cell.width / 2
   y = y - option.cell.height / 2
   var o = {
@@ -39,15 +42,13 @@ function getParsedXY(x, y, origin) {
   return o
 }
 
-
-
 var commandKeyPressed = false
 $(window).on('keydown', function (e) {
-  if (e.keyCode == require('service/keyboard').keyMap.cmd) {
+  if (e.keyCode === require('../service/keyboard').keyMap.cmd) {
     commandKeyPressed = true
   }
 }).on('keyup', function (e) {
-  if (e.keyCode == require('service/keyboard').keyMap.cmd) {
+  if (e.keyCode === require('../service/keyboard').keyMap.cmd) {
     commandKeyPressed = false
   }
 })
@@ -110,13 +111,12 @@ export default {
       var map = this.getGridMap()
       var x, y
       var count = 0
-      for (x = 0, y = 0 x < 50 y++) {
+      for (x = 0, y = 0; x < 50; y++) {
         if (y > maxRow - 1) {
           y = 0
           x++
         }
         if (!map[x] || !map[x][y]) {
-
           if (cb && cb(x, y, count) === false) {
             return
           }
@@ -126,7 +126,7 @@ export default {
     }
   },
   components: {
-    file: require('components/file-item.vue')
+    file: require('../components/file-item.vue')
   },
   ready: function () {
     var vm = this
@@ -228,10 +228,10 @@ export default {
       vm.clearSelect()
     })
     $event.on('openFileProp:menu', function (file) {
-      var File = require('service/file.js')
+      var File = require('../service/file.js')
       var propObj = {
-        name: file.name + " 属性",
-        app: "props",
+        name: file.name + ' 属性',
+        app: 'props',
         icon: file.icon,
         options: {
           data: file,

@@ -1,18 +1,19 @@
 
 <template>
-  <div class="taskbar-section" @mousedown="mousedown($event);">
+  <div class="taskbar-section" @mousedown="mousedown($event)">
     <div class="app-list">
       <div class="app-item" :key="index" :class="{actived:app._focus}" v-for="(app, index) in sortedApps" @click="click(app)">
-        <span class="icon {{app.icon}}"></span>{{app.title}}
+        <span :class="'icon' + app.icon"></span>{{app.title}}
       </div>
     </div>
   </div>
 </template>
 <script>
-var util = require('service/util')
-var appController = require('service/app-controller')
+// var util = require('../service/util')
+// var appController = require('../service/app-controller')
+var $event = require('../service/event')
 
-function getNewArray(arr) {
+function getNewArray (arr) {
   var _arr = []
   arr.forEach(function (a) {
     _arr.push(a)
