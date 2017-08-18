@@ -1,0 +1,42 @@
+*{
+  margin:0;
+  padding:0;
+  border:none;
+  box-sizing:border-box;
+}
+html,body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
+.root{
+  height:100%;
+  width:100%;
+  position:relative;
+  .scope{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+  }
+}
+
+.icon{
+  background-image: url(./images/doc.png);
+  background-position: center center;
+  background-repeat:no-repeat;
+  &.firefox{
+    background-image:url(./images/firefox.png);
+  }
+  &.chrome{
+    background-image:url(./images/chrome.png);
+  }
+  &.safari{
+    background-image:url(./images/safari.png);
+  }
+}
+
+input[type=text]{
+  border:1px solid;
+  cursor:text;
+}
