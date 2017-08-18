@@ -49,6 +49,13 @@ namespace ZeroRoo.Docker
                 .Build();
 
             Runtime.RunForm<Dashboard>();
+
+            Application.ApplicationExit += Application_ApplicationExit;
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            Cef.Shutdown();
         }
     }
 }

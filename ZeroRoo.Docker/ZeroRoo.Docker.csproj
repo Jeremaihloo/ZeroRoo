@@ -229,6 +229,9 @@
     <Compile Include="JsServices\DesktopNotifyService.cs" />
     <Compile Include="JsServices\DesktopMenuService.cs" />
     <Compile Include="JsServices\IJsService.cs" />
+    <Compile Include="JsServices\Structs\DesktopFileButton.cs" />
+    <Compile Include="JsServices\Structs\DockBarButton.cs" />
+    <Compile Include="JsServices\Structs\TestJsStructObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuntimeExtentions.cs" />
@@ -250,7 +253,7 @@
     <Compile Include="Shapes\MenuItemButtonBuilder.cs" />
     <Compile Include="Shapes\MenuItemButtonsProvider.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ZeroRooJsBradge.cs" />
+    <Compile Include="JsServices\ZeroRooJsBradge.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -347,6 +350,10 @@
     <ProjectReference Include="..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
       <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>
       <Name>ZeroRoo.Docker.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
+      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
+      <Name>ZeroRoo.FileSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
       <Project>{d1e3b18d-0683-492f-9f0f-4e4ea40f39bd}</Project>

@@ -79,10 +79,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ZeroRoo.Terminal.Core\ZeroRoo.Terminal.Core.csproj">
-      <Project>{30901453-6f8e-460a-b21f-18c14dd1847e}</Project>
-      <Name>ZeroRoo.Terminal.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
       <Project>{d1e3b18d-0683-492f-9f0f-4e4ea40f39bd}</Project>
       <Name>ZeroRoo</Name>

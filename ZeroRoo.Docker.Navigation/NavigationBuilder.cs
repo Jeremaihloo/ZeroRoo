@@ -13,10 +13,11 @@ namespace ZeroRoo.Docker.Navigation
             Contained = new List<MenuItem>();
         }
 
-        public NavigationBuilder Add(string name, string caption, string icon, Action<NavigationItemBuilder> itemBuilder, Type activityType)
+        public NavigationBuilder Add(string appName, string name, string caption, string icon, Action<NavigationItemBuilder> itemBuilder, Type activityType)
         {
             var childBuilder = new NavigationItemBuilder();
 
+            childBuilder.App(appName);
             childBuilder.Name(name);
             childBuilder.Icon(icon);
             childBuilder.Caption(caption);

@@ -21,11 +21,11 @@ namespace ZeroRoo.Docker.Shapes
         {
             InitializeComponent();
 
-            this.Size = Screen.GetWorkingArea(this).Size;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Location = new Point(0, 0);
+            //this.Size = Screen.GetWorkingArea(this).Size;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.Location = new Point(0, 0);
 
-            browser = new ChromiumWebBrowser("localhost:8080")
+            browser = new ChromiumWebBrowser("localhost:3000")
             {
                 Dock = DockStyle.Fill,
             };

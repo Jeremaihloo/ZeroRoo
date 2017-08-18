@@ -4,52 +4,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Docker.JsServices;
+using ZeroRoo.Docker.JsServices.Structs;
 
 namespace ZeroRoo.Docker
 {
-    public struct JsObject
-    {
-        public string Value;
-    }
-
-    public class SubC
-    {
-        public int A;
-        public string B;
-    }
-
     public class ZeroRooJsBradge
     {
         public DesktopMenuService DesktopMenuService { get; set; }
         public DesktopNotifyService DesktopNotifyService { get; set; }
         public DesktopFileService DesktopFileService { get; set; }
 
-        public ZeroRooJsBradge(DesktopFileService desktopFileService,
-                                DesktopMenuService desktopMenuService,
+        public ZeroRooJsBradge(DesktopFileService desktopFileService, 
+                                DesktopMenuService desktopMenuService, 
                                 DesktopNotifyService desktopNotifyService)
         {
             this.DesktopFileService = desktopFileService;
             this.DesktopMenuService = desktopMenuService;
             this.DesktopNotifyService = desktopNotifyService;
         }
-
-        public int Add(int a, int b)
+        
+        public DesktopFileButton[] GetDesktopFiles()
         {
-            return a + b;
+            var o = this.DesktopFileService.GetDesktopFiles().ToArray();
+            return o;
         }
 
-        public string GetDesktopMenuItems()
+        public DockBarButton[] GetDockBarButtons()
         {
-            var o = this.DesktopMenuService.GetButtons().ToArray();
-            return Newtonsoft.Json.JsonConvert.SerializeObject(o);
+            return this.DesktopMenuService.GetButtons().ToArray();
         }
 
-        public SubC[] ObjectArray(string name)
+        public void Open(string openUri)
         {
-            return new[]
-            {
-                new SubC(){ A=1, B="lujiejie" }
-            };
+            // app://Simple1:MainActivity
+            // file://C://Users/jj/test.txt
+            // http://
+            // https://
+
+        }
+
+        public void OpenApp(string menuName)
+        {
+
         }
     }
 }

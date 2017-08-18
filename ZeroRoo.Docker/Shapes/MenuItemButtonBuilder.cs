@@ -11,7 +11,7 @@ namespace ZeroRoo.Docker.Shapes
     {
         public MenuItemButtonBuilder(IActivityManager activityManager)
         {
-            this.activityManager = activityManager;
+            //this.activityManager = activityManager;
         }
 
         public IShape Build(DockerShapeContext context, MenuItem menuItem)
@@ -19,18 +19,19 @@ namespace ZeroRoo.Docker.Shapes
             MenuItemButton btn = new MenuItemButton();
             btn.Text = menuItem.Text;
             btn.Name = menuItem.Name;
+            btn.MenuItem = menuItem;
+
             //btn.Click += Btn_Click;
 
             return btn;
         }
 
-        private IActivityManager activityManager;
+        //private IActivityManager activityManager;
 
-        private void Btn_Click(object sender, EventArgs e)
-        {
-            var menuItem = ((System.Windows.Forms.Control)sender).Tag as MenuItem;
-            var activity = Activator.CreateInstance(menuItem.Activity) as IActivity;
-            activityManager.Active(activity);
-        }
+        //private void Btn_Click(object sender, EventArgs e)
+        //{
+        //    var activity = Activator.CreateInstance(menuItem.Activity) as IActivity;
+        //    activityManager.Active(activity);
+        //}
     }
 }

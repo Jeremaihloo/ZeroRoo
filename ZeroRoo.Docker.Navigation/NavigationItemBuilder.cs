@@ -22,6 +22,12 @@ namespace ZeroRoo.Docker.Navigation
             _item = existingItem;
         }
 
+        public NavigationItemBuilder App(string appName)
+        {
+            _item.App = appName;
+            return this;
+        }
+
         public NavigationItemBuilder Name(string name)
         {
             _item.Name = name;

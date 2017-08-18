@@ -15,6 +15,11 @@ namespace ZeroRoo.Docker.Navigation
         }
 
         /// <summary>
+        /// App Name
+        /// </summary>
+        public string App { get; set; }
+
+        /// <summary>
         /// The name to id the menu item
         /// </summary>
         public string Name { get; set; }
