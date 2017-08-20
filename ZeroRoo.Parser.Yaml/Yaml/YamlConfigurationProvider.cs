@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
-namespace Orchard.Parser.Yaml
+namespace ZeroRoo.Parser.Yaml
 {
     public class YamlConfigurationProvider : FileConfigurationProvider
     {

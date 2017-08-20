@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
-using Orchard.Parser.Yaml;
+using ZeroRoo.Parser.Yaml;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
-namespace Orchard.Parser
+namespace ZeroRoo.Parser
 {
     public static class YamlConfigurationExtensions
     {

@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Menu.cs" />
-    <Compile Include="SampleForm.cs" />
+    <Compile Include="SampleActivity.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +63,7 @@
     <Content Include="App.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sample.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">

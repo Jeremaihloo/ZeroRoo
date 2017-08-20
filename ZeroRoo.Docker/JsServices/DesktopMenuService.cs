@@ -9,10 +9,11 @@ using ZeroRoo.Docker.JsServices.Structs;
 using ZeroRoo.FileSystem;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using ZeroRoo.Apps.Services;
 
 namespace ZeroRoo.Docker.JsServices
 {
-    public class DesktopMenuService
+    public class DesktopMenuService : IAppService
     {
         public string Name { get; set; }
 
@@ -35,27 +36,20 @@ namespace ZeroRoo.Docker.JsServices
             this.fileSystem = fileSystem;
         }
 
-        public DockBarButton[] GetButtons()
+        public IShape[] GetButtons()
         {
             var menu = this.navigationManager.BuildMenu();
 
             var buttons = this.menuItemButtonProvider.GetButtons(this.menuItemButtonBuilder, menu);
 
-            var list = new List<DockBarButton>();
             var appDirProvider = new PhysicalFileProvider(this.fileSystem.GetAppsDir().PhysicalPath);
             foreach(var item in buttons)
             {
                 var h = item as MenuItemButton;
-                var i = new DockBarButton()
-                {
-                    Name = h.MenuItem.Name,
-                    Title = h.MenuItem.Text,
-                    Uri = $"{h.Name}",
-                    Icon = Path.Combine(appDirProvider.Root, h.MenuItem.App, h.MenuItem.Icon)
-                };
-                list.Add(i);
+                h.MenuItem.Icon = Path.Combine(appDirProvider.Root, h.MenuItem.App, h.MenuItem.Icon);
+                h.MenuItem.Activity.HtmlUri = Path.Combine(appDirProvider.Root, h.MenuItem.App, h.MenuItem.Activity.HtmlUri);
             }
-            return list.ToArray();
+            return buttons.ToArray();
         }
 
         public void Open(string name)

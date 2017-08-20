@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace Orchard.Parser.Yaml
+namespace ZeroRoo.Parser.Yaml
 {
     /// <summary>
     /// A Yaml file based <see cref="FileConfigurationSource"/>

@@ -10,11 +10,24 @@ using ZeroRoo.Docker.Navigation;
 
 namespace Sample1
 {
-    public partial class SampleForm : IActivity
+    public partial class SampleActivity : IActivity
     {
-        public SampleForm()
+        public SampleActivity()
         {
             
+        }
+        string htmlUri;
+
+        public string HtmlUri
+        {
+            get
+            {
+                return "sample.html";
+            }
+            set
+            {
+                htmlUri = value;
+            }
         }
 
         public void OnActive()

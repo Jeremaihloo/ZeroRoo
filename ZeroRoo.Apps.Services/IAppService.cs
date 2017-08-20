@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroRoo.Docker.JsServices
+namespace ZeroRoo.Apps.Services
 {
-    public interface IJsService
+    public interface IAppService
     {
+
     }
 }

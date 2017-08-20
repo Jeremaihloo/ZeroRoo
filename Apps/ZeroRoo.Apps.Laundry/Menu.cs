@@ -11,9 +11,9 @@ namespace ZeroRoo.Apps.Laundry
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            builder.Add("CreateTicketTest", "开单测试", "icon.png", x => { }, typeof(TestForm));
-            //var testForm = new LaundryTicketForm();
-            builder.Add("CreateTicket", "开单", "icon.png", x => { }, typeof(LaundryTicketForm));
+            builder.Add("ZeroRoo.Apps.Laundry", "CreateTicketTest", "开单测试", "icon.png", x => { }, null);
+
+            builder.Add("ZeroRoo.Apps.Laundry", "CreateTicket", "开单", "icon.png", x => { }, null);
         }
     }
 }

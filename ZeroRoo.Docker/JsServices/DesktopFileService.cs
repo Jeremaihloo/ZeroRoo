@@ -5,12 +5,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZeroRoo.Apps.Services;
 using ZeroRoo.Docker.JsServices.Structs;
 using ZeroRoo.FileSystem;
 
 namespace ZeroRoo.Docker.JsServices
 {
-    public class DesktopFileService
+    public class DesktopFileService: IAppService
     {
         private IFileSystem fileSystem;
         

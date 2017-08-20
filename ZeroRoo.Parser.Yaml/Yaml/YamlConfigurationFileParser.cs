@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using YamlDotNet.RepresentationModel;
 
-namespace Orchard.Parser.Yaml
+namespace ZeroRoo.Parser.Yaml
 {
     public class YamlConfigurationFileParser
     {

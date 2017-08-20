@@ -5,6 +5,9 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+import Engine from './engine'
+Vue.use(Engine)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

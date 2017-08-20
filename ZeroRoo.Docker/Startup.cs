@@ -13,6 +13,7 @@ using ZeroRoo.Docker.Shapes;
 using ZeroRoo.Docker.Navigation;
 using ZeroRoo.Docker.JsServices;
 using ZeroRoo.FileSystem;
+using ZeroRoo.Apps.Services;
 
 namespace ZeroRoo.Docker
 {
@@ -53,7 +54,11 @@ namespace ZeroRoo.Docker
             services.AddSingleton<DesktopNotifyService>();
             services.AddSingleton<ZeroRooJsBradge>();
 
+            services.AddScoped<IAppService, MainAppService>();
+
             services.AddDefaultFileSystem();
+
+            services.AddAppsServices();
         }
 
         public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)
@@ -62,7 +67,10 @@ namespace ZeroRoo.Docker
 
             runtimeBuilder.UseApps();
 
+            runtimeBuilder.UseAppsServices();
+
             runtimeBuilder.UseDockerNavigation();
+
         }
     }
 }
