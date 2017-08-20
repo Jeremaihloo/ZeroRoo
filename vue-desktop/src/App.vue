@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <files-container></files-container>
+    <div class="root">
+      <files-container class="scope"></files-container>
+    </div>
   </div>
 </template>
 
@@ -15,7 +17,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" rel="stylesheet/less">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,15 +1,17 @@
 <<template>
-  <draggable v-model="files" @start="drag=true" @end="drag=false">
-    <div v-for="file in files">{{file.name}}</div>
+  <draggable class="file-section" v-model="files" @start="drag=true" @end="drag=false">
+    <desktop-button v-for="(file, index) in files" :file="file" :key="index"></desktop-button>
   </draggable>
 </template>
 
 <script>
 import Draggable from 'vuedraggable'
+import DesktopButton from './DesktopButton'
 
 export default {
-  components:{
-    Draggable
+  components: {
+    Draggable,
+    DesktopButton
   },
   mounted() {
     this.$engine.call({
@@ -18,6 +20,15 @@ export default {
       Data: null
     }, res => {
       console.log('ZeroRoo.Docker.JsService.MainAppService', 'GetVersion', res.Data)
+    })
+
+    this.$engine.call({
+      ServiceName: 'ZeroRoo.Docker.JsServices.DesktopMenuService',
+      Action: 'GetDockButtons',
+      Data: null
+    }, res => {
+      console.log('files', res)
+      this.files = res.Data
     })
   },
   data() {

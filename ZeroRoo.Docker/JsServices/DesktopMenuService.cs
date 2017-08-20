@@ -36,7 +36,7 @@ namespace ZeroRoo.Docker.JsServices
             this.fileSystem = fileSystem;
         }
 
-        public IShape[] GetButtons()
+        public IShape[] GetDockButtons(AppServiceMessage msg)
         {
             var menu = this.navigationManager.BuildMenu();
 

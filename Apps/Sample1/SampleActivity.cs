@@ -14,21 +14,10 @@ namespace Sample1
     {
         public SampleActivity()
         {
-            
+            this.HtmlUri = "sample.html";
         }
-        string htmlUri;
 
-        public string HtmlUri
-        {
-            get
-            {
-                return "sample.html";
-            }
-            set
-            {
-                htmlUri = value;
-            }
-        }
+        public string HtmlUri { get; set; }
 
         public void OnActive()
         {

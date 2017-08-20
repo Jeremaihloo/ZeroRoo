@@ -55,6 +55,7 @@ namespace ZeroRoo.Docker
             services.AddSingleton<ZeroRooJsBradge>();
 
             services.AddScoped<IAppService, MainAppService>();
+            services.AddScoped<IAppService, DesktopMenuService>();
 
             services.AddDefaultFileSystem();
 
