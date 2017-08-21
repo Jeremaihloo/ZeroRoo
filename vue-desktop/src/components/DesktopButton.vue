@@ -1,10 +1,12 @@
 <template>
   <div class="file-item" :class="{
-                       selected:file.selected,
-                       dragging:dragging
-                       }">
+                           selected:file.selected,
+                           dragging:dragging
+                           }">
     <div class="file-body">
-      <div class="icon">
+      <div class="icon" :style="{
+                             'background-image':'url(file:///' + icon + ')'
+                             }">
 
       </div>
       <div class="text">
@@ -16,10 +18,11 @@
 
 <script>
 export default {
-  props: ['file'],
-  methods: {
-    dragging() {
-
+  props: ['file', 'dragging'],
+  computed: {
+    icon () {
+      console.log('File Icon', this.file.MenuItem.Icon)
+      return this.file.MenuItem.Icon.replace(/\\/g, '/')
     }
   }
 }
@@ -45,7 +48,6 @@ export default {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     width: 90px;
     .icon {
       height: 80px;

@@ -63,6 +63,9 @@
     <Content Include="App.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="sample.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

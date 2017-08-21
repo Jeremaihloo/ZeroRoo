@@ -1,20 +1,6 @@
 
 <template>
   <div class="app-browser">
-    <!-- <header class="browser-header">
-      <div class="browser-control-panel">
-        <div class="back" @click="iframeBack()">
-          < </div>
-            <div class="forward" @click="iframeForward()"> > </div>
-            <div class="refresh" @click="iframeReload()"> c </div>
-        </div>
-        <div class="browser-address-bar">
-          <div class="browser-address-input-container">
-            <input class="browser-address-input" @blur="fixUrl()" @keyup.enter="(fixUrl()||true)&&go()" v-model="url" type="text">
-          </div>
-          <div class="browser-address-button" @click="go()">Go</div>
-        </div>
-    </header> -->
     <section class="browser-body" :style="{height: app.height + 'px'}">
       <iframe v-el:iframe :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
     </section>
@@ -40,7 +26,7 @@ export default {
     },
     iframeGo: function (url) {
       this.src = url
-    },
+    }
   },
   components: {},
   ready: function () {
@@ -84,41 +70,7 @@ export default {
     }
     float:left;
   }
-  .browser-address-bar {
-    position: relative;
-    margin-left: 3*@headerHeight + 20px;
-    @margin: 4px;
-    .browser-address-input {
-      width: 100%;
-      vertical-align: top;
-      height: @headerHeight - 2*@margin;
-      position: relative;
-      top: @margin;
-      &:focus {
-        outline: none;
-      }
-    }
-    .browser-address-input-container {
-      margin-right: 50px;
-    }
-    .browser-address-button {
-      position: absolute;
-      right: 0;
-      width: 50px;
-      cursor: default;
-      text-align: center;
-      top: @margin;
-      line-height: @headerHeight - 2*@margin;
-      background: #E8E8E8;
-      color: #999;
-      &:hover {
-        background: #eee;
-      }
-      &:active {
-        background: #ccc;
-      }
-    }
-  }
+
 }
 
 .browser-body {

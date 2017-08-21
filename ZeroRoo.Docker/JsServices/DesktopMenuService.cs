@@ -46,8 +46,8 @@ namespace ZeroRoo.Docker.JsServices
             foreach(var item in buttons)
             {
                 var h = item as MenuItemButton;
-                h.MenuItem.Icon = Path.Combine(appDirProvider.Root, h.MenuItem.App, h.MenuItem.Icon);
-                h.MenuItem.Activity.HtmlUri = Path.Combine(appDirProvider.Root, h.MenuItem.App, h.MenuItem.Activity.HtmlUri);
+                h.MenuItem.Icon = $"/Apps/{h.MenuItem.App}/{h.MenuItem.Icon}";
+                h.MenuItem.Activity.HtmlUri = $"/Apps/{h.MenuItem.App}/{h.MenuItem.Activity.HtmlUri}";
             }
             return buttons.ToArray();
         }

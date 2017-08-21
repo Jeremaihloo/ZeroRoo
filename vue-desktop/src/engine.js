@@ -1,6 +1,6 @@
 
 class Engine {
-  constructor() {
+  constructor () {
     this.subscribes = {}
     this.beforeOpen = []
     this.Version = '0.0.1'
@@ -29,11 +29,11 @@ class Engine {
     }
   }
 
-  subscribe(action, callback) {
+  subscribe (action, callback) {
     this.subscribes.action = callback
   }
 
-  call(msg, callback) {
+  call (msg, callback) {
     let path = this.createSubscribeKey(msg)
 
     this.subscribes[path] = callback
@@ -46,13 +46,13 @@ class Engine {
     }
   }
 
-  createSubscribeKey(msg){
+  createSubscribeKey (msg) {
     let path = msg.ServiceName + '.' + msg.Action
     path = path.replace(/\./g, '_')
     return path
   }
 
-  install(Vue, options) {
+  install (Vue, options) {
     // 1. 添加全局方法或属性
     Vue.prototype.$engine = this
   }

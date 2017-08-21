@@ -73,6 +73,7 @@
     <Compile Include="AppServicesExtensions.cs" />
     <Compile Include="IAppService.cs" />
     <Compile Include="IAppServiceServer.cs" />
+    <Compile Include="MimeTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

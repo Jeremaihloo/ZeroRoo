@@ -1,6 +1,6 @@
 <<template>
   <draggable class="file-section" v-model="files" @start="drag=true" @end="drag=false">
-    <desktop-button v-for="(file, index) in files" :file="file" :key="index"></desktop-button>
+    <desktop-button v-for="(file, index) in files" :file="file" :key="index" :dragging="drag"></desktop-button>
   </draggable>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     Draggable,
     DesktopButton
   },
-  mounted() {
+  mounted () {
     this.$engine.call({
       ServiceName: 'ZeroRoo.Docker.JsServices.MainAppService',
       Action: 'GetVersion',
@@ -31,7 +31,7 @@ export default {
       this.files = res.Data
     })
   },
-  data() {
+  data () {
     return {
       files: [],
       drag: false
@@ -39,4 +39,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.file-section{
+  background-color: rgb(176, 224, 230);
+}
+</style>
 
