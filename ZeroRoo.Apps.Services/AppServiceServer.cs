@@ -25,7 +25,7 @@ namespace ZeroRoo.Apps.Services
             // Set the HTTP GET request event.
             this.wss.OnGet += Wss_OnGet;
         }
-
+        
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)
         {
             var req = e.Request;

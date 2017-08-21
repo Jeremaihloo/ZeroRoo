@@ -1,27 +1,36 @@
 
 <template>
-  <div class="app-browser">
-    <section class="browser-body" :style="{height: app.height + 'px'}">
-      <iframe v-el:iframe :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
+  <div class="activity">
+    <header>
+      <span class="icon"></span>
+      <span class="btn-min"></span>
+      <span class="btn-max"></span>
+      <span class="btn-close"></span>
+    </header>
+    <section class="activity-body">
+      <iframe ref="iframe" :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
     </section>
-    </div>
+  </div>
 </template>
 
 <script>
 
 export default {
-  props: {
-    app: true
-  },
+  props: ['activity'],
   data: function () {
     return {
       url: '',
       src: ''
     }
   },
+  watch: {
+    activity: function (newVal, oldVal) {
+      console.log(newVal, oldVal)
+    }
+  },
   methods: {
     go: function () {
-      if (!$.trim(this.url)) return
+      // if (!$.trim(this.url)) return
       this.iframeGo(this.url)
     },
     iframeGo: function (url) {
@@ -29,10 +38,18 @@ export default {
     }
   },
   components: {},
-  ready: function () {
-    if (this.app.data) {
-      this.url = this.app.data.index
-      this.fixUrl()
+  mounted() {
+    console.log('AppActivity Mounted')
+    console.log('AppActivity:ready', this.activity)
+    if (this.activity) {
+      this.url = this.activity.HtmlUri
+      this.go()
+    }
+  },
+  ready() {
+    console.log('AppActivity:ready', this.activity)
+    if (this.activity) {
+      this.url = this.activity.HtmlUri
       this.go()
     }
   }
@@ -40,40 +57,5 @@ export default {
 </script>
 
 <style lang="less" rel="stylesheet/less">
-.app-browser {
-  position: relative;
-  height: 100%;
-}
 
-@headerHeight: 30px;
-.browser-header {
-  height: @headerHeight;
-  background: #F3F3F3;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  .browser-control-panel {
-    &>div {
-      float: left;
-      display: block;
-      height: @headerHeight;
-      width: @headerHeight;
-      text-align: center;
-      cursor: default;
-      &:hover {
-        background: #fff;
-      }
-      &:active {
-        background: #eee;
-      }
-    }
-    float:left;
-  }
-
-}
-
-.browser-body {
-  padding-top: 30px;
-}
 </style>

@@ -1,6 +1,10 @@
 <<template>
   <draggable class="file-section" v-model="files" @start="drag=true" @end="drag=false">
-    <desktop-button @click="test" v-for="(file, index) in files" :file="file" :key="index" :dragging="drag" :selected="file.selected" @onMouseDown="btnOnMouseDown"></desktop-button>
+    <desktop-button v-for="(file, index) in files" :file="file" :key="index" 
+      :dragging="drag" 
+      :selected="file.selected" 
+      @onMouseDown="btnOnMouseDown"
+      @onDbClick="btnOnDbClick"></desktop-button>
   </draggable>
 </template>
 
@@ -18,12 +22,16 @@ export default {
       alert('sdfasfsafasf')
     },
     btnOnMouseDown (file) {
-      // this.clearSelected()
+      this.clearSelected()
       file.selected = true
       console.log('OnMouseDown', file)
       this.files.forEach(function (f) {
         console.log(f)
       }, this)
+    },
+    btnOnDbClick(file){
+      console.log('OnDbClick', file)
+      this.$bus.emit('activity:open', file.MenuItem.Activity)
     },
     clearSelected () {
       this.files.forEach(function (file) {

@@ -2,17 +2,20 @@
   <div id="app">
     <div class="root">
       <files-container class="scope"></files-container>
+      <applications-container class="scope"></applications-container>
     </div>
   </div>
 </template>
 
 <script>
 import FilesContainer from './components/FilesContainer'
+import ApplicationsContainer from './components/ApplicationsContainer'
 
 export default {
   name: 'app',
   components: {
-    FilesContainer
+    FilesContainer,
+    ApplicationsContainer
   }
 }
 </script>

@@ -11,7 +11,9 @@ namespace Sample1
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            builder.Add("Sample1", "Sample1", "样例", "icon.png", x => { }, new SampleActivity());
+            builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, new SampleActivity());
+            builder.Add("Sample1", "Firefox", "Firefox", "firefox.png", x => { }, new SampleActivity());
+
         }
     }
 }

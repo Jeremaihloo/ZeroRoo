@@ -3,9 +3,9 @@
                                  selected:selected,
                                  dragging:dragging
                                  }">
-    <div class="file-body" @mousedown="onMouseDown">
+    <div class="file-body" @mousedown="onMouseDown" @dblclick="onDbClick">
       <div class="icon" :style="{
-                                   'background-image':'url(http://localhost:8000' + icon + ')'
+                                   'background-image':'url(' + icon + ')'
                                    }">
 
       </div>
@@ -19,27 +19,18 @@
 <script>
 export default {
   props: ['file', 'dragging', 'selected'],
-  watch: {
-    selected: {
-      handler: function (val, oldVal) {
-        console.log('change file', val, oldVal)
-      },
-      deep: true
-    }
-  },
   computed: {
     icon () {
       console.log('File Icon', this.file.MenuItem.Icon)
       return this.file.MenuItem.Icon.replace(/\\/g, '/')
     }
-    // selected () {
-    //   console.log('computed selected', this.file.selected)
-    //   return this.file.selected
-    // }
   },
   methods: {
     onMouseDown () {
       this.$emit('onMouseDown', this.file)
+    },
+    onDbClick() {
+      this.$emit('onDbClick', this.file)
     }
   }
 }
@@ -47,8 +38,10 @@ export default {
 
 <style lang="less" scoped>
 .file-item {
-  position: absolute;
+  // position: absolute;
   /*border:1px dashed #fff;*/
+  margin-top: 5px;
+  margin-left: 5px;
   &.selected {
     .file-body {
       /*border:2px solid rgba(43, 115, 199, 0.36);*/
@@ -68,10 +61,11 @@ export default {
     width: 90px;
     .icon {
       height: 80px;
-      width: 80%;
+      width: 64px;
       margin: 0 auto;
       background-size: 64px;
       background-repeat: no-repeat;
+      background-position-y: 8px;
     }
     .text {
       min-height: 20px;
@@ -83,6 +77,7 @@ export default {
       word-break: break-all;
       text-overflow: ellipsis;
       padding-bottom: 5px;
+      cursor: default;
     }
   }
 }
