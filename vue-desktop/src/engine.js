@@ -29,8 +29,12 @@ class Engine {
     }
   }
 
-  subscribe (action, callback) {
-    this.subscribes.action = callback
+  subscribe (serviceName, action, callback) {
+    let key = this.createSubscribeKey({
+      ServiceName: serviceName,
+      Action: action
+    })
+    this.subscribes[key] = callback
   }
 
   call (msg, callback) {

@@ -1,12 +1,12 @@
 <template>
   <div class="file-item" :class="{
-                           selected:file.selected,
-                           dragging:dragging
-                           }">
-    <div class="file-body">
+                                 selected:selected,
+                                 dragging:dragging
+                                 }">
+    <div class="file-body" @mousedown="onMouseDown">
       <div class="icon" :style="{
-                             'background-image':'url(file:///' + icon + ')'
-                             }">
+                                   'background-image':'url(http://localhost:8000' + icon + ')'
+                                   }">
 
       </div>
       <div class="text">
@@ -18,11 +18,28 @@
 
 <script>
 export default {
-  props: ['file', 'dragging'],
+  props: ['file', 'dragging', 'selected'],
+  watch: {
+    selected: {
+      handler: function (val, oldVal) {
+        console.log('change file', val, oldVal)
+      },
+      deep: true
+    }
+  },
   computed: {
     icon () {
       console.log('File Icon', this.file.MenuItem.Icon)
       return this.file.MenuItem.Icon.replace(/\\/g, '/')
+    }
+    // selected () {
+    //   console.log('computed selected', this.file.selected)
+    //   return this.file.selected
+    // }
+  },
+  methods: {
+    onMouseDown () {
+      this.$emit('onMouseDown', this.file)
     }
   }
 }
@@ -45,15 +62,16 @@ export default {
   .file-body {
     /*border:2px solid transparent;*/
     border-radius: 4px;
-    position: absolute;
+    // position: absolute;
     top: 50%;
     left: 50%;
     width: 90px;
     .icon {
       height: 80px;
-      width: 100%;
+      width: 80%;
       margin: 0 auto;
       background-size: 64px;
+      background-repeat: no-repeat;
     }
     .text {
       min-height: 20px;
