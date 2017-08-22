@@ -10,7 +10,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using ZeroRoo.Apps.Services;
 
-namespace ZeroRoo.Docker.JsServices
+namespace ZeroRoo.Docker.Services
 {
     public class DesktopMenuService : IAppService
     {

@@ -8,6 +8,7 @@ using WebSocketSharp.Net;
 using WebSocketSharp;
 using Microsoft.Extensions.Logging;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace ZeroRoo.Apps.Services
 {
@@ -24,6 +25,11 @@ namespace ZeroRoo.Apps.Services
             
             // Set the HTTP GET request event.
             this.wss.OnGet += Wss_OnGet;
+        }
+
+        public void Broadcast(AppServiceMessage msg)
+        {
+            this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
         }
         
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)

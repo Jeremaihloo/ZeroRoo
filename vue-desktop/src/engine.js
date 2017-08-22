@@ -56,6 +56,14 @@ class Engine {
     return path
   }
 
+  messageAlert (msg, callback) {
+    this.call(msg, res => {
+      if (callback != null) {
+        callback(res)
+      }
+    })
+  }
+
   install (Vue, options) {
     // 1. 添加全局方法或属性
     Vue.prototype.$engine = this

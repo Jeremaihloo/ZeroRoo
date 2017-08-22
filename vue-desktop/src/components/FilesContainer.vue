@@ -54,10 +54,15 @@ export default {
       Data: null
     }, res => {
       console.log('files', res)
-      res.Data.forEach(function (f) {
-        f.selected = false
-      }, this)
-      this.files = res.Data
+      if (res.ok) {
+        res.Data.forEach(function (f) {
+          f.selected = false
+        }, this)
+        this.files = res.Data
+      } else {
+        console.log('ERROR', res.Data)
+      }
+
     })
   },
   data () {

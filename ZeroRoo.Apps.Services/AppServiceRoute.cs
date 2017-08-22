@@ -25,28 +25,40 @@ namespace ZeroRoo.Apps.Services
         {
             var message = JsonConvert.DeserializeObject<AppServiceMessage>(e.Data);
 
-            var service = this.appServices.FirstOrDefault(h => h.GetType().FullName == message.ServiceName);
-            if (service == null)
+            try
             {
-                // logger
-                return;
-            }
-            var method = service.GetType().GetMethod(message.Action);
-            if (method == null)
-            {
-                // logger
-                return;
-            }
-            var result = method.Invoke(service, new object[] { message });
-            if(!(result is AppServiceMessage))
-            {
-                message.Data = result;
-            }
-            else
-            {
-                message = result as AppServiceMessage;
-            }
+                var service = this.appServices.FirstOrDefault(h => h.GetType().FullName == message.ServiceName);
+                if (service == null)
+                {
+                    // logger
+                    throw new Exception($"Service Not Found {message.ServiceName}");
+                }
+                var method = service.GetType().GetMethod(message.Action);
+                if (method == null)
+                {
+                    // logger
+                    throw new Exception($"Action Not Found {message.ServiceName}");
+                }
+                var result = method.Invoke(service, new object[] { message });
 
+                if (result == null)
+                {
+                    return;
+                }
+                else if (!(result is AppServiceMessage))
+                {
+                    message.Data = result;
+                }
+                else
+                {
+                    message = result as AppServiceMessage;
+                }
+            }
+            catch(Exception ex)
+            {
+                message.Data = ex.Message;
+                message.Ok = false;
+            }
             Send(JsonConvert.SerializeObject(message));
         }
 

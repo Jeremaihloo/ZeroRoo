@@ -13,5 +13,7 @@ namespace ZeroRoo.Apps.Services
         void Stop();
 
         void AddProxy(string src, string target);
+
+        void Broadcast(AppServiceMessage msg);
     }
 }

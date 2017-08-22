@@ -25,7 +25,7 @@ namespace ZeroRoo.Docker.Shapes
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.Location = new Point(0, 0);
 
-            browser = new ChromiumWebBrowser("localhost:3000")
+            browser = new ChromiumWebBrowser("localhost:8000")
             {
                 Dock = DockStyle.Fill,
             };

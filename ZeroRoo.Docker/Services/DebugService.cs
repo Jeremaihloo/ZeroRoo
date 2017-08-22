@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 
-namespace ZeroRoo.Docker.JsServices
+namespace ZeroRoo.Docker.Services
 {
     public class DebugService: IAppService
     {

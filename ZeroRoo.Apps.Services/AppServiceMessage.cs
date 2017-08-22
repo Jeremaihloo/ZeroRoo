@@ -14,10 +14,13 @@ namespace ZeroRoo.Apps.Services
 
         public object Data { get; set; }
 
+        public bool Ok { get; set; }
+
         public AppServiceMessage(string topic, object data)
         {
             this.ServiceName = topic;
             this.Data = data;
+            this.Ok = true;
         }
     }
 }

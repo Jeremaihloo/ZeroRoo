@@ -15,9 +15,13 @@ namespace Sample1
         public SampleActivity()
         {
             this.HtmlUri = "sample.html";
+            this.Title = "";
+            this.Name = "";
         }
 
         public string HtmlUri { get; set; }
+        public string Title { get; set; }
+        public string Name { get; set; }
 
         public void OnActive()
         {

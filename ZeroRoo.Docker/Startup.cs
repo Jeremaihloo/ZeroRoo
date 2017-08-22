@@ -11,7 +11,7 @@ using ZeroRoo.Apps.Abstractions;
 using ZeroRoo.Apps.Manifests;
 using ZeroRoo.Docker.Shapes;
 using ZeroRoo.Docker.Navigation;
-using ZeroRoo.Docker.JsServices;
+using ZeroRoo.Docker.Services;
 using ZeroRoo.FileSystem;
 using ZeroRoo.Apps.Services;
 
