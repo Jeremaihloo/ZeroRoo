@@ -18,9 +18,6 @@ export default {
     DesktopButton
   },
   methods: {
-    test () {
-      alert('sdfasfsafasf')
-    },
     btnOnMouseDown (file) {
       this.clearSelected()
       file.selected = true
@@ -41,24 +38,25 @@ export default {
   },
   mounted () {
     this.$engine.call({
-      ServiceName: 'ZeroRoo.Docker.JsServices.MainAppService',
+      ServiceName: 'ZeroRoo.Docker.Services.MainAppService',
       Action: 'GetVersion',
       Data: null
     }, res => {
-      console.log('ZeroRoo.Docker.JsService.MainAppService', 'GetVersion', res.Data)
+      console.log('ZeroRoo.Docker.Services.MainAppService', 'GetVersion', res.Data)
     })
 
     this.$engine.call({
-      ServiceName: 'ZeroRoo.Docker.JsServices.DesktopMenuService',
+      ServiceName: 'ZeroRoo.Docker.Services.DesktopMenuService',
       Action: 'GetDockButtons',
       Data: null
     }, res => {
-      console.log('files', res)
-      if (res.ok) {
+      console.log('........................')
+      console.log('files', res, res.Ok)
+      if (res.Ok) {
         res.Data.forEach(function (f) {
           f.selected = false
         }, this)
-        this.files = res.Data
+        this.files = Object.assign([], res.Data)
       } else {
         console.log('ERROR', res.Data)
       }
