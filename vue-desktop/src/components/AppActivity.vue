@@ -8,9 +8,9 @@
       <span class="btn-max"></span>
       <span class="btn-close"></span>
     </header>
-    <section class="activity-body">
+    <div class="activity-body">
       <iframe ref="iframe" :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -62,5 +62,12 @@ export default {
 </script>
 
 <style lang="stylus">
-
+.activity {
+  height 100%
+  display flex
+  width 100%
+}
+.activity-body{
+  width 100%
+}
 </style>
