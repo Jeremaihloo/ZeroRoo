@@ -5,7 +5,7 @@
       <ul class="nav nav-tabs" role="tablist">
         <template v-for="(tab, index) in activities">
           <li role="presentation" :class="{'active':tab.Active}" :key="index">
-            <a role="tab" href="javascript:void(0);" @click="select(activities.indexOf(tab))">
+            <a role="tab" href="javascript:;" @click="select(activities.indexOf(tab))">
               <span v-text="tab.Title"></span>
             </a>
           </li>
@@ -78,9 +78,10 @@ export default {
       this.activities.forEach(tab => {
         tab.Active = false
       })
-      let tab = this.activities[this.activeIndex]
-      tab.Active = true
-      console.log('selectCurrent tab', tab)
+      this.activities[this.activeIndex].Active = true
+      this.activities = Object.assign([], this.activities)
+      console.log('selectCurrent tab', this.activeIndex)
+      console.log(this.activities)
     },
     select (index) {
       console.log('onSelect', index)
