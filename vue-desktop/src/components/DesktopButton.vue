@@ -1,12 +1,12 @@
 <template>
   <div class="file-item" :class="{
-                                 selected:selected,
-                                 dragging:dragging
-                                 }">
+                                   selected:selected,
+                                   dragging:dragging
+                                   }">
     <div class="file-body" @mousedown="onMouseDown" @dblclick="onDbClick">
       <div class="icon" :style="{
-                                   'background-image':'url(' + icon + ')'
-                                   }">
+                                     'background-image':'url(' + icon + ')'
+                                     }">
 
       </div>
       <div class="text">
@@ -29,7 +29,7 @@ export default {
     onMouseDown () {
       this.$emit('onMouseDown', this.file)
     },
-    onDbClick() {
+    onDbClick () {
       this.$emit('onDbClick', this.file)
     }
   }
@@ -54,8 +54,7 @@ export default {
   }
   .file-body {
     /*border:2px solid transparent;*/
-    border-radius: 4px;
-    // position: absolute;
+    border-radius: 4px; // position: absolute;
     top: 50%;
     left: 50%;
     width: 90px;

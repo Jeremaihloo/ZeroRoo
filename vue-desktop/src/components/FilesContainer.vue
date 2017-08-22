@@ -1,5 +1,5 @@
 <<template>
-  <draggable class="file-section" v-model="files" @start="drag=true" @end="drag=false">
+  <draggable :options="{group:'files'}" class="file-section" v-model="files" @start="drag=true" @end="drag=false">
     <desktop-button v-for="(file, index) in files" :file="file" :key="index" 
       :dragging="drag" 
       :selected="file.selected" 
@@ -29,7 +29,7 @@ export default {
         console.log(f)
       }, this)
     },
-    btnOnDbClick(file){
+    btnOnDbClick (file) {
       console.log('OnDbClick', file)
       this.$bus.emit('activity:open', file.MenuItem.Activity)
     },

@@ -66,5 +66,10 @@ namespace ZeroRoo.Apps.Services
         {
             this.wss.Stop();
         }
+
+        public void AddProxy(string src, string target)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

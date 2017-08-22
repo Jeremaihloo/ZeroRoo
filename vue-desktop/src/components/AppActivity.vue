@@ -1,8 +1,9 @@
 
 <template>
-  <div class="activity">
-    <header>
+  <div class="activity" ref="main">
+    <header ref="header">
       <span class="icon"></span>
+      <span class="title">{{activity.text}}</span>
       <span class="btn-min"></span>
       <span class="btn-max"></span>
       <span class="btn-close"></span>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+// import StartDrag from '../StartDrag'
 
 export default {
   props: ['activity'],
@@ -38,15 +40,18 @@ export default {
     }
   },
   components: {},
-  mounted() {
+  mounted () {
     console.log('AppActivity Mounted')
     console.log('AppActivity:ready', this.activity)
     if (this.activity) {
       this.url = this.activity.HtmlUri
       this.go()
     }
+    // var sd = new StartDrag(this.$refs.header, this.$refs.main)
+    // StartDrag(this.$refs.header, this.$refs.main)
+    // console.log(sd)
   },
-  ready() {
+  ready () {
     console.log('AppActivity:ready', this.activity)
     if (this.activity) {
       this.url = this.activity.HtmlUri
@@ -56,6 +61,6 @@ export default {
 }
 </script>
 
-<style lang="less" rel="stylesheet/less">
+<style lang="stylus">
 
 </style>

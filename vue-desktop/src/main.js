@@ -3,6 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import * as uiv from 'uiv'
+import locale from 'uiv/src/locale/lang/zh-CN'
+console.log('use', uiv, locale)
+Vue.use(uiv, { locale })
+
+require('normalize-css')
+
 Vue.config.productionTip = false
 
 import Engine from './engine'
