@@ -29,8 +29,6 @@ namespace ZeroRoo.Docker.Shapes
             {
                 Dock = DockStyle.Fill,
             };
-            var provider = Program.Runtime.Services.BuildServiceProvider();
-            browser.RegisterAsyncJsObject("engine", provider.GetRequiredService<ZeroRooJsBradge>(), BindingOptions.DefaultBinder); //Standard object rego
 
             // browser.LoadingStateChanged += OnLoadingStateChanged;
             // browser.ConsoleMessage += OnBrowserConsoleMessage;

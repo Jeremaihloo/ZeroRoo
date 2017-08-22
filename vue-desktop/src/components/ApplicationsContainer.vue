@@ -11,7 +11,7 @@
           </li>
         </template>
         <li class="pull-right">
-          <button type="button" class="btn btn-success">关闭</button>
+          <button type="button" class="btn btn-success" @click="closeCurrentTab()">关闭</button>
         </li>
       </ul>
       <div class="tab-content">
@@ -67,6 +67,8 @@ export default {
         this.activities.push(activity)
         console.log('activity:open callback', activity)
         this.select(this.activities.length - 1)
+      } else {
+        this.select(this.activities.indexOf(find[0]))
       }
     })
   },
@@ -87,6 +89,19 @@ export default {
       console.log('onSelect', index)
       this.activeIndex = index
       this.selectCurrent()
+    },
+    closeCurrentTab () {
+      if (this.activeIndex === 0) {
+        return
+      }
+      let s = []
+      for (var index = 0; index < this.activities.length; index++) {
+        if (index !== this.activeIndex) {
+          s.push(this.activities[index])
+        }
+      }
+      this.activities = Object.assign([], s)
+      this.select(0)
     }
   }
 }

@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
-using ZeroRoo.Docker.JsServices.Structs;
 using ZeroRoo.FileSystem;
 
 namespace ZeroRoo.Docker.JsServices
@@ -33,19 +32,19 @@ namespace ZeroRoo.Docker.JsServices
             return file.PhysicalPath;
         }
 
-        public DesktopFileButton[] GetDesktopFiles()
-        {
-            var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
-            var contents = fileProvider
-                            .GetDirectoryContents("")
-                            .Select(h => new DesktopFileButton()
-                            {
-                                Name = h.Name,
-                                FileUri = h.PhysicalPath,
-                                IsDir = h.IsDirectory,
-                                Icon = GetIconLocation(h.PhysicalPath)
-                            }).ToArray();
-            return contents;
-        }
+        //public DesktopFileButton[] GetDesktopFiles()
+        //{
+        //    var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
+        //    var contents = fileProvider
+        //                    .GetDirectoryContents("")
+        //                    .Select(h => new DesktopFileButton()
+        //                    {
+        //                        Name = h.Name,
+        //                        FileUri = h.PhysicalPath,
+        //                        IsDir = h.IsDirectory,
+        //                        Icon = GetIconLocation(h.PhysicalPath)
+        //                    }).ToArray();
+        //    return contents;
+        //}
     }
 }

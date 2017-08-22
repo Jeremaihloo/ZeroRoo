@@ -13,5 +13,10 @@ namespace ZeroRoo.Docker.Navigation
         void OnCreate();
 
         string HtmlUri { get; set; }
+
+        string Title { get; set; }
+
+        string Name { get; set; }
+
     }
 }

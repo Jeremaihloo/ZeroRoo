@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Docker.Navigation;
 using ZeroRoo.Docker.Shapes;
-using ZeroRoo.Docker.JsServices.Structs;
 using ZeroRoo.FileSystem;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
