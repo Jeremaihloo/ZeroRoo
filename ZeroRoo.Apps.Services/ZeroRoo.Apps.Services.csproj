@@ -60,20 +60,25 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="websocket-sharp, Version=1.0.2.59611, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
       <HintPath>..\packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServiceMessage.cs" />
-    <Compile Include="AppServiceServer.cs" />
-    <Compile Include="AppServiceRoute.cs" />
+    <Compile Include="Backend\AppServiceMessage.cs" />
+    <Compile Include="Backend\AppServiceServer.cs" />
+    <Compile Include="Backend\AppServiceRoute.cs" />
     <Compile Include="AppServicesExtensions.cs" />
-    <Compile Include="IAppService.cs" />
-    <Compile Include="IAppServiceServer.cs" />
-    <Compile Include="MimeTypes.cs" />
+    <Compile Include="Views\AppViewHandler.cs" />
+    <Compile Include="Views\AppViewRoute.cs" />
+    <Compile Include="Views\AppViewRouter.cs" />
+    <Compile Include="Backend\IAppService.cs" />
+    <Compile Include="Backend\IAppServiceServer.cs" />
+    <Compile Include="Views\HtmlViewRoute.cs" />
+    <Compile Include="Views\IAppViewHandler.cs" />
+    <Compile Include="Views\IAppViewRoute.cs" />
+    <Compile Include="Views\MimeTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +86,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
+      <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>
+      <Name>ZeroRoo.Docker.Navigation</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
       <Project>{d1e3b18d-0683-492f-9f0f-4e4ea40f39bd}</Project>
       <Name>ZeroRoo</Name>

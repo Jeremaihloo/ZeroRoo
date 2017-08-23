@@ -15,9 +15,12 @@ namespace ZeroRoo.Apps.Services
     public class AppServiceServer : IAppServiceServer
     {
         private HttpServer wss;
+        private AppViewRouter appViewRouter;
 
-        public AppServiceServer(ILogger<AppServiceServer> logger, IEnumerable<IAppService> appServices)
+        public AppServiceServer(ILogger<AppServiceServer> logger, IEnumerable<IAppService> appServices, AppViewRouter appViewRouter)
         {
+            this.appViewRouter = appViewRouter;
+
             this.wss = new HttpServer(8000);
             this.wss.AddWebSocketService<AppServiceRoute>("/apps", () => new AppServiceRoute(logger, appServices));
 
@@ -31,36 +34,22 @@ namespace ZeroRoo.Apps.Services
         {
             this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
         }
-        
+
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)
         {
             var req = e.Request;
             var res = e.Response;
 
-            var path = req.RawUrl;
-            if (path == "/")
-                path += "index.html";
+            var path = req.Url.OriginalString;
 
-            byte[] contents;
-            var pDeal = path.Replace("/", "\\");
-            if (pDeal.StartsWith("\\"))
+            var handler = this.appViewRouter.Match(path);
+
+            if (handler != null)
             {
-                pDeal = pDeal.Substring(1);
-            }
-            var fp = Path.Combine(this.wss.RootPath, pDeal);
-            if (!File.Exists(fp))
-            {
-                res.StatusCode = (int)HttpStatusCode.NotFound;
-                return;
+                handler.Handle(req, res);
             }
 
-            contents = File.ReadAllBytes(fp);
-            res.ContentEncoding = Encoding.UTF8;
-
-            var ext = path.Substring(path.LastIndexOf('.'));
-            res.ContentType = MimeTypes.GetMimeType(ext);
-
-            res.WriteContent(contents);
+            // TODO: log
         }
 
         public void Start()

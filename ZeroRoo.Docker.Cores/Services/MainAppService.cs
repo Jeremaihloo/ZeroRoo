@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using ZeroRoo.Apps.Services;
 
 namespace ZeroRoo.Docker.Cores.Services
@@ -20,6 +21,11 @@ namespace ZeroRoo.Docker.Cores.Services
             // file://C://Users/jj/test.txt
             // http://
             // https://
+        }
+
+        public void ApplicationExit()
+        {
+            Application.Exit();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo;
+using ZeroRoo.Apps.Services;
 using ZeroRoo.Docker.Navigation;
 
 namespace Sample1
