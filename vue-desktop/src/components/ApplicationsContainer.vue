@@ -56,7 +56,7 @@ export default {
     this.$bus.on('activity:open', activity => {
       activity.Active = false
       if (activity.Title === 'undefined' || activity.Title === '' || activity.Title === null) {
-        activity.Title = 'Empty Title'
+        activity.Title = '没有标题'
       }
       console.log(this.activities, activity)
       var find = this.activities.filter(item => {

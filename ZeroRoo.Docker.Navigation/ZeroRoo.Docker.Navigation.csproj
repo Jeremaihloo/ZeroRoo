@@ -132,6 +132,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppUri.cs" />
     <Compile Include="BaseActivity.cs" />
     <Compile Include="IActivity.cs" />
     <Compile Include="INavigationManager.cs" />

@@ -11,9 +11,10 @@ namespace Sample1
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, new SampleActivity());
-            builder.Add("Sample1", "Firefox", "Firefox", "firefox.png", x => { }, new SampleActivity());
-
+            for (var i = 0; i < 20; i++)
+            {
+                builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, new SampleActivity());
+            }
         }
     }
 }

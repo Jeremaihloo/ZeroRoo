@@ -11,9 +11,10 @@ using ZeroRoo.Apps.Abstractions;
 using ZeroRoo.Apps.Manifests;
 using ZeroRoo.Docker.Shapes;
 using ZeroRoo.Docker.Navigation;
-using ZeroRoo.Docker.Services;
+using ZeroRoo.Docker.Cores.Services;
 using ZeroRoo.FileSystem;
 using ZeroRoo.Apps.Services;
+using ZeroRoo.DbConfigurations;
 
 namespace ZeroRoo.Docker
 {
@@ -25,7 +26,8 @@ namespace ZeroRoo.Docker
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appcore.json", optional: true, reloadOnChange: true);
+                .AddJsonFile("appcore.json", optional: true, reloadOnChange: true)
+                .AddDatabase("DefaultDb", null);
 
             CoreConfiguration = builder.Build();
         }

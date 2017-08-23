@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 
-namespace ZeroRoo.Docker.Services
+namespace ZeroRoo.Docker.Cores.Services
 {
     
     public class DesktopNotifyService : IAppService

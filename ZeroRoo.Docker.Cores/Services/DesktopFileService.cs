@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.FileSystem;
 
-namespace ZeroRoo.Docker.Services
+namespace ZeroRoo.Docker.Cores.Services
 {
     public class DesktopFileService: IAppService
     {

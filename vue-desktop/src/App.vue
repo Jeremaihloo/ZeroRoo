@@ -41,6 +41,7 @@ export default {
 
 .files-container {
   width: 100px;
+  overflow: scroll;
 }
 
 .activities-container {

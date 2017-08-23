@@ -171,6 +171,7 @@
     <Compile Include="Commands\CommandTests.cs" />
     <Compile Include="Utils\PinyinBuilderTests.cs" />
     <Compile Include="AppTests\AppLibraryServiceTests.cs" />
+    <Compile Include="Utils\UnitTest1.cs" />
     <Compile Include="ZeroRooTests.cs" />
   </ItemGroup>
   <ItemGroup>
