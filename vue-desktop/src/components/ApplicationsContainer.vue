@@ -55,10 +55,12 @@ export default {
     }
     this.$bus.on('activity:open', activity => {
       activity.Active = false
-      activity.Title = 'Empty Title'
+      if (activity.Title === 'undefined' || activity.Title === '' || activity.Title === null) {
+        activity.Title = 'Empty Title'
+      }
       console.log(this.activities, activity)
       var find = this.activities.filter(item => {
-        return item.HtmlUri === activity.HtmlUri
+        return item.Name === activity.Name
       })
       console.log('find', find)
       if (find.length === 0) {

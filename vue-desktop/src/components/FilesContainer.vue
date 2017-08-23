@@ -60,7 +60,6 @@ export default {
       } else {
         console.log('ERROR', res.Data)
       }
-
     })
   },
   data () {

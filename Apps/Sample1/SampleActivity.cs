@@ -10,27 +10,13 @@ using ZeroRoo.Docker.Navigation;
 
 namespace Sample1
 {
-    public partial class SampleActivity : IActivity
+    public partial class SampleActivity : BaseActivity
     {
         public SampleActivity()
+            :base()
         {
             this.HtmlUri = "sample.html";
-            this.Title = "";
-            this.Name = "";
-        }
-
-        public string HtmlUri { get; set; }
-        public string Title { get; set; }
-        public string Name { get; set; }
-
-        public void OnActive()
-        {
-            
-        }
-
-        public void OnCreate()
-        {
-            
+            this.Title = "实例";
         }
     }
 }
