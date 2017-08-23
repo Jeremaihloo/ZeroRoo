@@ -19,19 +19,16 @@ namespace ZeroRoo.Docker.Services
         private INavigationManager navigationManager;
         private IMenuItemButtonBuilder menuItemButtonBuilder;
         private IMenuItemButtonProvider menuItemButtonProvider;
-        private IActivityManager activityManager;
         private IFileSystem fileSystem;
 
         public DesktopMenuService(INavigationManager navigationManager,
                                     IMenuItemButtonProvider menuItemButtonProvider,
                                     IMenuItemButtonBuilder menuItemButtonBuilder,
-                                    IActivityManager activityManager,
                                     IFileSystem fileSystem)
         {
             this.navigationManager = navigationManager;
             this.menuItemButtonProvider = menuItemButtonProvider;
             this.menuItemButtonBuilder = menuItemButtonBuilder;
-            this.activityManager = activityManager;
             this.fileSystem = fileSystem;
         }
 
@@ -49,16 +46,6 @@ namespace ZeroRoo.Docker.Services
                 h.MenuItem.Activity.HtmlUri = $"http://localhost:8000/Apps/{h.MenuItem.App}/{h.MenuItem.Activity.HtmlUri}";
             }
             return buttons.ToArray();
-        }
-
-        public void Open(string name)
-        {
-            var menu = this.navigationManager.BuildMenu();
-            var current = menu.FirstOrDefault(h => h.Name == name);
-            if (current != null)
-            {
-                this.activityManager.Active(current.Activity as IActivity);
-            }
         }
     }
 }

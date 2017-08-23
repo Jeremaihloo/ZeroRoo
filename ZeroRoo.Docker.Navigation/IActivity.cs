@@ -8,15 +8,12 @@ namespace ZeroRoo.Docker.Navigation
 {
     public interface IActivity
     {
-        void OnActive();
-
-        void OnCreate();
 
         string HtmlUri { get; set; }
 
         string Title { get; set; }
 
-        string Name { get; set; }
+        string Name { get; }
 
     }
 }
