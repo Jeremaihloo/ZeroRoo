@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using CefSharp;
+using System.IO;
 
 namespace ZeroRoo.Docker.Shapes
 {
@@ -21,11 +22,11 @@ namespace ZeroRoo.Docker.Shapes
         {
             InitializeComponent();
 
-            //this.Size = Screen.GetWorkingArea(this).Size;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.Location = new Point(0, 0);
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.Location = new Point(0, 0);
+            this.WindowState = FormWindowState.Maximized;
 
-            browser = new ChromiumWebBrowser("localhost:8000")
+            browser = new ChromiumWebBrowser(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "views/index.html"))
             {
                 Dock = DockStyle.Fill,
             };
@@ -38,7 +39,12 @@ namespace ZeroRoo.Docker.Shapes
 
         private void Browser_IsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs e)
         {
-            browser.ShowDevTools();
+            // browser.ShowDevTools();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
         }
     }
 }

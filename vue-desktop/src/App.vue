@@ -22,10 +22,14 @@ export default {
     }
   },
   mounted () {
-    window.onresize = () => {
-      this.fcHeight = window.innerHeight
+    let resize = () => {
+      this.fcHeight = window.innerHeight - 5
       this.acWidth = window.innerWidth - 110
     }
+    window.onresize = () => {
+      resize()
+    }
+    resize()
   }
 }
 </script>

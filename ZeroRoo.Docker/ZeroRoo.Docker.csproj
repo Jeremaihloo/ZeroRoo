@@ -258,66 +258,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1_100.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57772.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57773.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57774.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57775.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57776.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57777.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57778.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\57779.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577710.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577711.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577712.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577713.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577714.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577715.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577716.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577717.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577718.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\577719.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\20150109103919340_easyicon_net_128.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">
       <Project>{25bb5974-8e72-4b23-ba31-4d51fa620195}</Project>
       <Name>ZeroRoo.Apps.Abstractions</Name>

@@ -30,7 +30,8 @@ namespace ZeroRoo.Docker
             var settings = new CefSettings()
             {
                 //By default CefSharp will use an in-memory cache, you need to specify a Cache Folder to persist data
-                CachePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CefSharp\\Cache")
+                CachePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CefSharp\\Cache"),
+                RemoteDebuggingPort = 8088
             };
 
             //Perform dependency check to make sure all relevant resources are in our output directory.
