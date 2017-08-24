@@ -54,6 +54,7 @@ export default {
       this.select(this.activities.length - 1)
     }
     this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', activity => {
+      console.log('ActivitiesContainer', 'ZeroRoo.Docker.Cores.Services.Open', activity)
       activity.Active = false
       if (activity.Title === 'undefined' || activity.Title === '' || activity.Title === null) {
         activity.Title = '没有标题'

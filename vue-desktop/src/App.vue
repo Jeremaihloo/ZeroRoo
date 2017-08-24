@@ -7,7 +7,7 @@
 
 <script>
 import FilesContainer from './components/FilesContainer'
-import ApplicationsContainer from './components/ApplicationsContainer'
+import ApplicationsContainer from './components/ActivitiesContainer'
 
 export default {
   name: 'app',
