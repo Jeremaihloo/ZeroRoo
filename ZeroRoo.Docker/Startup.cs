@@ -71,8 +71,6 @@ namespace ZeroRoo.Docker
 
             runtimeBuilder.UseAppsServices();
 
-            runtimeBuilder.UseDockerNavigation();
-
         }
     }
 }

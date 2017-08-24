@@ -1,16 +1,16 @@
 <template>
-  <div class="file-item" :class="{
+  <div class="desktop-item" :class="{
                                    selected:selected,
                                    dragging:dragging
                                    }">
-    <div class="file-body" @mousedown="onMouseDown" @dblclick="onDbClick">
+    <div class="item-body" @mousedown="onMouseDown" @dblclick="onDbClick">
       <div class="icon" :style="{
                                      'background-image':'url(' + icon + ')'
                                      }">
 
       </div>
       <div class="text">
-        {{file.Text}}
+        {{item.Text}}
       </div>
     </div>
   </div>
@@ -18,32 +18,32 @@
 
 <script>
 export default {
-  props: ['file', 'dragging', 'selected'],
+  props: ['item', 'dragging', 'selected'],
   computed: {
     icon () {
-      console.log('File Icon', this.file.MenuItem.Icon)
-      return this.file.MenuItem.Icon.replace(/\\/g, '/')
+      console.log('item Icon', this.item.Icon)
+      return this.item.Icon.replace(/\\/g, '/')
     }
   },
   methods: {
     onMouseDown () {
-      this.$emit('onMouseDown', this.file)
+      this.$emit('onMouseDown', this.item)
     },
     onDbClick () {
-      this.$emit('onDbClick', this.file)
+      this.$emit('onDbClick', this.item)
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.file-item {
+.desktop-item {
   // position: absolute;
   /*border:1px dashed #fff;*/
   margin-top: 5px;
   margin-left: 5px;
   &.selected {
-    .file-body {
+    .item-body {
       /*border:2px solid rgba(43, 115, 199, 0.36);*/
       /*background:rgba(43, 115, 199, 0.2);*/
       background: rgba(0, 134, 255, 0.27);
@@ -52,7 +52,7 @@ export default {
   &.dragging {
     opacity: 0.6;
   }
-  .file-body {
+  .item-body {
     /*border:2px solid transparent;*/
     border-radius: 4px; // position: absolute;
     top: 50%;

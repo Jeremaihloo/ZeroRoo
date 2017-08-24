@@ -94,23 +94,13 @@
     <Compile Include="Services\DesktopMenuService.cs" />
     <Compile Include="Services\DesktopNotifyService.cs" />
     <Compile Include="Services\MainAppService.cs" />
-    <Compile Include="Shapes\Abstractions\IMenuItemButtonBuilder.cs" />
-    <Compile Include="Shapes\Abstractions\IMenuItemButtonProvider.cs" />
-    <Compile Include="Shapes\Abstractions\IShape.cs" />
-    <Compile Include="Shapes\Abstractions\IShapeBuilder.cs" />
-    <Compile Include="Shapes\Abstractions\IShapeContainer.cs" />
-    <Compile Include="Shapes\Abstractions\IShapeProvider.cs" />
     <Compile Include="Shapes\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Shapes\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Shapes\DockerShapeContext.cs" />
     <Compile Include="Shapes\DockerShapeExtentions.cs" />
-    <Compile Include="Shapes\MenuItemButton.cs" />
-    <Compile Include="Shapes\MenuItemButtonBuilder.cs" />
-    <Compile Include="Shapes\MenuItemButtonsProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">

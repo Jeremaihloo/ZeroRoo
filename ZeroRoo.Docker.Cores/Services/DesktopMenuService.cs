@@ -17,35 +17,25 @@ namespace ZeroRoo.Docker.Cores.Services
         public string Name { get; set; }
 
         private INavigationManager navigationManager;
-        private IMenuItemButtonBuilder menuItemButtonBuilder;
-        private IMenuItemButtonProvider menuItemButtonProvider;
         private IFileSystem fileSystem;
 
         public DesktopMenuService(INavigationManager navigationManager,
-                                    IMenuItemButtonProvider menuItemButtonProvider,
-                                    IMenuItemButtonBuilder menuItemButtonBuilder,
                                     IFileSystem fileSystem)
         {
             this.navigationManager = navigationManager;
-            this.menuItemButtonProvider = menuItemButtonProvider;
-            this.menuItemButtonBuilder = menuItemButtonBuilder;
             this.fileSystem = fileSystem;
         }
 
-        public IShape[] GetDockButtons(AppServiceMessage msg)
+        public MenuItem[] GetAppMenuItems(AppServiceMessage msg)
         {
             var menu = this.navigationManager.BuildMenu();
-
-            var buttons = this.menuItemButtonProvider.GetButtons(this.menuItemButtonBuilder, menu);
-
             var appDirProvider = new PhysicalFileProvider(this.fileSystem.GetAppsDir().PhysicalPath);
-            foreach(var item in buttons)
+            foreach(var item in menu)
             {
-                var h = item as MenuItemButton;
-                h.MenuItem.Icon = $"http://localhost:8000/Apps/{h.MenuItem.App}/{h.MenuItem.Icon}";
-                h.MenuItem.Activity.HtmlUri = $"http://localhost:8000/Apps/{h.MenuItem.App}/{h.MenuItem.Activity.HtmlUri}";
+                item.Icon = $"http://localhost:8000/Apps/{item.App}/{item.Icon}";
+                item.Activity.HtmlUri = $"http://localhost:8000/Apps/{item.App}/{item.Activity.HtmlUri}";
             }
-            return buttons.ToArray();
+            return menu.ToArray();
         }
     }
 }

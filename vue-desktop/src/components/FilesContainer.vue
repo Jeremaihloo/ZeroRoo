@@ -1,8 +1,8 @@
 <<template>
-  <draggable :options="{group:'files'}" class="file-section" v-model="files" @start="drag=true" @end="drag=false">
-    <desktop-button v-for="(file, index) in files" :file="file" :key="index" 
+  <draggable :options="{group:'items'}" class="item-section" v-model="items" @start="drag=true" @end="drag=false">
+    <desktop-button v-for="(item, index) in items" :item="item" :key="index" 
       :dragging="drag" 
-      :selected="file.selected" 
+      :selected="item.selected" 
       @onMouseDown="btnOnMouseDown"
       @onDbClick="btnOnDbClick"></desktop-button>
   </draggable>
@@ -18,21 +18,21 @@ export default {
     DesktopButton
   },
   methods: {
-    btnOnMouseDown (file) {
+    btnOnMouseDown (item) {
       this.clearSelected()
-      file.selected = true
-      console.log('OnMouseDown', file)
-      this.files.forEach(function (f) {
+      item.selected = true
+      console.log('OnMouseDown', item)
+      this.items.forEach(function (f) {
         console.log(f)
       }, this)
     },
-    btnOnDbClick (file) {
-      console.log('OnDbClick', file)
-      this.$bus.emit('activity:open', file.MenuItem.Activity)
+    btnOnDbClick (item) {
+      console.log('OnDbClick', item)
+      this.$bus.emit('activity:open', item.Activity)
     },
     clearSelected () {
-      this.files.forEach(function (file) {
-        file.selected = false
+      this.items.forEach(function (item) {
+        item.selected = false
       }, this)
     }
   },
@@ -47,16 +47,16 @@ export default {
 
     this.$engine.call({
       ServiceName: 'ZeroRoo.Docker.Cores.Services.DesktopMenuService',
-      Action: 'GetDockButtons',
+      Action: 'GetAppMenuItems',
       Data: null
     }, res => {
       console.log('........................')
-      console.log('files', res, res.Ok)
+      console.log('items', res, res.Ok)
       if (res.Ok) {
         res.Data.forEach(function (f) {
           f.selected = false
         }, this)
-        this.files = Object.assign([], res.Data)
+        this.items = Object.assign([], res.Data)
       } else {
         console.log('ERROR', res.Data)
       }
@@ -64,7 +64,7 @@ export default {
   },
   data () {
     return {
-      files: [],
+      items: [],
       drag: false
     }
   }
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style scoped>
-.file-section {
+.item-section {
   background-color: rgb(176, 224, 230);
 }
 </style>
