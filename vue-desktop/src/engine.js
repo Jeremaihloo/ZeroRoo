@@ -20,12 +20,15 @@ class Engine {
       console.log('ONMESSAGE', ev)
       let dataObj = JSON.parse(ev.data)
       let key = this.createSubscribeKey(dataObj)
-      var callback = _this.subscribes[key]
-      callback(dataObj)
+      var callbacks = _this.subscribes[key]
+      callbacks.forEach(function (callback) {
+        callback(dataObj)
+      }, this)
     }
 
     this.ws.onerror = (ev) => {
       console.log('ONERROR', ev)
+      alert('系统出现异常，请退出！')
     }
   }
 
@@ -34,13 +37,14 @@ class Engine {
       ServiceName: serviceName,
       Action: action
     })
-    this.subscribes[key] = callback
+    if (this.subscribes[key] === undefined || this.subscribes[key] === null) {
+      this.subscribes[key] = []
+    }
+    this.subscribes[key].push(callback)
   }
 
   call (msg, callback) {
-    let path = this.createSubscribeKey(msg)
-
-    this.subscribes[path] = callback
+    this.subscribe(msg.ServiceName, msg.Action, callback)
     if (this.ws.readyState === WebSocket.OPEN) {
       console.log('CALL', msg)
       this.ws.send(JSON.stringify(msg))
