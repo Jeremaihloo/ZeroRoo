@@ -45,6 +45,9 @@ export default {
   /*border:1px dashed #fff;*/
   margin-top: 5px;
   margin-left: 5px;
+  &:hover {
+    background: rgba(0, 134, 255, 0.27);
+  }
   &.selected {
     .item-body {
       /*border:2px solid rgba(43, 115, 199, 0.36);*/

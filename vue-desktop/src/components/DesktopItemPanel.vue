@@ -10,7 +10,7 @@
 
 <script>
 import Draggable from 'vuedraggable'
-import DesktopButton from './DesktopButton'
+import DesktopButton from './DesktopItem'
 
 export default {
   components: {

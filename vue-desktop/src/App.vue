@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <files-container :style="{height:fcHeight+'px'}" class="files-container"></files-container>
-    <applications-container :style="{height:fcHeight+'px',width:acWidth+'px'}" class="activities-container"></applications-container>
+    <desktop-item-panel :style="{height:fcHeight+'px'}" class="files-container"></desktop-item-panel>
+    <activities-panel :style="{height:fcHeight+'px',width:acWidth+'px'}" class="activities-container"></activities-panel>
   </div>
 </template>
 
 <script>
-import FilesContainer from './components/FilesContainer'
-import ApplicationsContainer from './components/ActivitiesContainer'
+import DesktopItemPanel from './components/DesktopItemPanel'
+import ActivitiesPanel from './components/ActivitiesPanel'
 
 export default {
   name: 'app',
   components: {
-    FilesContainer,
-    ApplicationsContainer
+    DesktopItemPanel,
+    ActivitiesPanel
   },
   data () {
     return {
