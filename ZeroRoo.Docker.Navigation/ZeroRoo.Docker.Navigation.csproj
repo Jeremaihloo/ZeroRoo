@@ -132,8 +132,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseActivity.cs" />
-    <Compile Include="IActivity.cs" />
     <Compile Include="INavigationManager.cs" />
     <Compile Include="INavigationProvider.cs" />
     <Compile Include="MenuItem.cs" />

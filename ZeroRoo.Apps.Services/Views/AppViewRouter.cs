@@ -10,22 +10,23 @@ namespace ZeroRoo.Apps.Services
 {
     public class AppViewRouter
     {
-        private IEnumerable<IAppViewRoute> routes;
-        public AppViewRouter(IEnumerable<IAppViewRoute> routes)
+        private IEnumerable<IActivity> activities;
+        public AppViewRouter(IEnumerable<IActivity> activities)
         {
-            this.routes = routes;
+            this.activities = activities;
         }
 
-        public IAppViewHandler Match(string path)
+        public IActivity Match(string path)
         {
-            foreach(var item in this.routes)
+            foreach(var item in this.activities)
             {
-                if(item.IsMatch(path))
+                var reg = new Regex(item.RoutePattern);
+                if(reg.IsMatch(path))
                 {
-                    return item.Handler;
+                    return item;
                 }
             }
-            return new NotFoundViewHandler();
+            return new NotFoundActivity();
         }
     }
 }

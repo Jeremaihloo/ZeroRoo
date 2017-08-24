@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZeroRoo.Apps.Services
 {
-    public class HtmlViewRoute : AppViewRoute
+    public class HtmlViewRoute : AppViewRouteAttribute
     {
         public HtmlViewRoute() 
         {

@@ -13,7 +13,7 @@ namespace ZeroRoo.Docker.Navigation
             Contained = new List<MenuItem>();
         }
 
-        public NavigationBuilder Add(string appName, string name, string caption, string icon, Action<NavigationItemBuilder> itemBuilder, IActivity activityType)
+        public NavigationBuilder Add(string appName, string name, string caption, string icon, Action<NavigationItemBuilder> itemBuilder, string target)
         {
             var childBuilder = new NavigationItemBuilder();
 
@@ -21,7 +21,6 @@ namespace ZeroRoo.Docker.Navigation
             childBuilder.Name(name);
             childBuilder.Icon(icon);
             childBuilder.Caption(caption);
-            childBuilder.Activity(activityType);
             itemBuilder(childBuilder);
             Contained.AddRange(childBuilder.Build());
 

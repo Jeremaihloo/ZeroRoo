@@ -70,14 +70,12 @@
     <Compile Include="Backend\AppServiceServer.cs" />
     <Compile Include="Backend\AppServiceRoute.cs" />
     <Compile Include="AppServicesExtensions.cs" />
-    <Compile Include="Views\AppViewHandler.cs" />
-    <Compile Include="Views\AppViewRoute.cs" />
+    <Compile Include="BaseActivity.cs" />
+    <Compile Include="NotFoundActivity.cs" />
     <Compile Include="Views\AppViewRouter.cs" />
     <Compile Include="Backend\IAppService.cs" />
     <Compile Include="Backend\IAppServiceServer.cs" />
-    <Compile Include="Views\HtmlViewRoute.cs" />
-    <Compile Include="Views\IAppViewHandler.cs" />
-    <Compile Include="Views\IAppViewRoute.cs" />
+    <Compile Include="Views\IActivity.cs" />
     <Compile Include="Views\MimeTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

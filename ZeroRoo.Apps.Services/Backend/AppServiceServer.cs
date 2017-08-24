@@ -46,7 +46,7 @@ namespace ZeroRoo.Apps.Services
 
             if (handler != null)
             {
-                handler.Handle(req, res);
+                handler.OnView(req, res);
             }
 
             // TODO: log

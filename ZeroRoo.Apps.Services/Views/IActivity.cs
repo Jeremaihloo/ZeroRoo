@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebSocketSharp.Net;
 
-namespace ZeroRoo.Docker.Navigation
+namespace ZeroRoo.Apps.Services
 {
     public interface IActivity
     {
-
-        string HtmlUri { get; set; }
-
         string Title { get; set; }
 
-        string Name { get; }
+        string RoutePattern { get; set; }
 
+        void OnView(HttpListenerRequest req, HttpListenerResponse res);
+    
     }
 }

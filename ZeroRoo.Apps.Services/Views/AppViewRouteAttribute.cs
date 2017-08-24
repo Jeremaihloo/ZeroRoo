@@ -7,22 +7,16 @@ using System.Threading.Tasks;
 
 namespace ZeroRoo.Apps.Services
 {
-    public class AppViewRoute: IAppViewRoute
+    [AttributeUsage(AttributeTargets.Class)]
+    public class AppViewRouteAttribute : Attribute
     {
         public string RoutePattern { get; set; }
-        public IAppViewHandler Handler { get; set; }
 
-        public AppViewRoute()
-        {
-
-        }
-
-        public AppViewRoute(string routePattern, IAppViewHandler handler)
+        public AppViewRouteAttribute(string routePattern)
         {
             this.RoutePattern = routePattern;
-            this.Handler = handler;
         }
-
+        
         public bool IsMatch(string path)
         {
             var reg = new Regex(this.RoutePattern);

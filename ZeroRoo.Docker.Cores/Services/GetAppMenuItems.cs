@@ -28,7 +28,7 @@ namespace ZeroRoo.Docker.Cores.Services
             foreach (var item in menu)
             {
                 item.Icon = $"http://localhost:8000/Apps/{item.App}/{item.Icon}";
-                item.Activity.HtmlUri = $"http://localhost:8000/Apps/{item.App}/{item.Activity.HtmlUri}";
+                item.Target = $"http://localhost:8000/Apps/{item.App}/{item.Target}";
             }
             msg.Data = menu.ToArray();
             route.SendMessage(msg);

@@ -17,6 +17,7 @@ namespace Sample1
             base.ConfigureServices(services);
 
             services.AddScoped<INavigationProvider, Menu>();
+            services.AddScoped<IActivity, SampleActivity>();
         }
 
         public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)

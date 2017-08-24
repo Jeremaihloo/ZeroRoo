@@ -33,11 +33,11 @@ namespace ZeroRoo.Docker.Navigation
         /// The text to display with the menu item.
         /// </summary>
         public string Text { get; set; }
-
+        
         /// <summary>
-        /// the activity for the menu item, if null myabe the sub items none
+        /// Target
         /// </summary>
-        public IActivity Activity { get; set; }
+        public string Target { get; set; }
 
         /// <summary>
         /// The child menu items.

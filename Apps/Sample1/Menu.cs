@@ -13,7 +13,7 @@ namespace Sample1
         {
             for (var i = 0; i < 20; i++)
             {
-                builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, new SampleActivity(), new );
+                builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, "sample");
             }
         }
     }
