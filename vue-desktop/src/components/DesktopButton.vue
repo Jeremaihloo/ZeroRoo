@@ -1,12 +1,12 @@
 <template>
   <div class="desktop-item" :class="{
-                                   selected:selected,
-                                   dragging:dragging
-                                   }">
+                                     selected:selected,
+                                     dragging:dragging
+                                     }">
     <div class="item-body" @mousedown="onMouseDown" @dblclick="onDbClick">
       <div class="icon" :style="{
-                                     'background-image':'url(' + icon + ')'
-                                     }">
+                                       'background-image':'url(' + icon + ')'
+                                       }">
 
       </div>
       <div class="text">
@@ -27,10 +27,13 @@ export default {
   },
   methods: {
     onMouseDown () {
-      this.$emit('onMouseDown', this.item)
+
     },
     onDbClick () {
-      this.$emit('onDbClick', this.item)
+      this.$engine.call({
+        Service: 'ZeroRoo.Docker.Cores.Services.Open',
+        Data: this.item.Activity.HtmlUri
+      })
     }
   }
 }

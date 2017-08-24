@@ -10,13 +10,13 @@ using ZeroRoo.FileSystem;
 
 namespace ZeroRoo.Docker.Cores.Services
 {
-    public class DesktopFileService: IAppService
+    public class GetDesktopFiles : IAppService
     {
         private IFileSystem fileSystem;
-        
-        public DesktopFileService(IFileSystem fileSystem)
+
+        public GetDesktopFiles(IFileSystem fileSystem)
         {
-            this.fileSystem = fileSystem;
+            this.fileSystem = fileSystem;    
         }
 
         public string GetIconLocation(string filename)
@@ -24,12 +24,17 @@ namespace ZeroRoo.Docker.Cores.Services
             var icon = Icon.ExtractAssociatedIcon(filename);
             var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
 
-            var file =  fileProvider.GetFileInfo($"{filename}.icon");
+            var file = fileProvider.GetFileInfo($"{filename}.icon");
             if (!file.Exists)
             {
                 icon.ToBitmap().Save(file.PhysicalPath);
             }
             return file.PhysicalPath;
+        }
+
+        public void OnService(AppServiceRoute route, AppServiceMessage msg)
+        {
+            throw new NotImplementedException();
         }
 
         //public DesktopFileButton[] GetDesktopFiles()

@@ -17,9 +17,6 @@ Vue.config.productionTip = false
 import Engine from './engine'
 Vue.use(Engine)
 
-import EventBus from './eventbus'
-Vue.use(EventBus)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

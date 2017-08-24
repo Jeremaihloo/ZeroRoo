@@ -21,9 +21,11 @@ class Engine {
       let dataObj = JSON.parse(ev.data)
       let key = this.createSubscribeKey(dataObj)
       var callbacks = _this.subscribes[key]
-      callbacks.forEach(function (callback) {
-        callback(dataObj)
-      }, this)
+      if (callbacks !== undefined && callbacks !== null) {
+        callbacks.forEach(function (callback) {
+          callback(dataObj)
+        }, this)
+      }
     }
 
     this.ws.onerror = (ev) => {
@@ -32,10 +34,14 @@ class Engine {
     }
   }
 
-  subscribe (serviceName, action, callback) {
+  install (Vue, options) {
+    // 1. 添加全局方法或属性
+    Vue.prototype.$engine = this
+  }
+
+  subscribe (service, callback) {
     let key = this.createSubscribeKey({
-      ServiceName: serviceName,
-      Action: action
+      Service: service
     })
     if (this.subscribes[key] === undefined || this.subscribes[key] === null) {
       this.subscribes[key] = []
@@ -44,7 +50,9 @@ class Engine {
   }
 
   call (msg, callback) {
-    this.subscribe(msg.ServiceName, msg.Action, callback)
+    if (typeof (callback) === 'function') {
+      this.subscribe(msg.Service, callback)
+    }
     if (this.ws.readyState === WebSocket.OPEN) {
       console.log('CALL', msg)
       this.ws.send(JSON.stringify(msg))
@@ -55,23 +63,23 @@ class Engine {
   }
 
   createSubscribeKey (msg) {
-    let path = msg.ServiceName + '.' + msg.Action
+    let path = msg.Service
     path = path.replace(/\./g, '_')
     return path
   }
 
-  messageAlert (msg, callback) {
-    this.call(msg, res => {
+  // ----------------------------------------quick services--------------------------------------------//
+  msgAlert (msgContent, callback) {
+    this.call({
+      Service: 'ZeroRoo.Docker.Cores.Services.MessageAlert',
+      Data: msgContent
+    }, res => {
       if (callback != null) {
         callback(res)
       }
     })
   }
 
-  install (Vue, options) {
-    // 1. 添加全局方法或属性
-    Vue.prototype.$engine = this
-  }
 }
 
 export default new Engine()

@@ -38,16 +38,14 @@ export default {
   },
   mounted () {
     this.$engine.call({
-      ServiceName: 'ZeroRoo.Docker.Cores.Services.MainAppService',
-      Action: 'GetVersion',
+      Service: 'ZeroRoo.Docker.Cores.Services.GetVersion',
       Data: null
     }, res => {
-      console.log('ZeroRoo.Docker.Cores.Services.MainAppService', 'GetVersion', res.Data)
+      console.log('ZeroRoo.Docker.Cores.Services.GetVersion', 'GetVersion', res.Data)
     })
 
     this.$engine.call({
-      ServiceName: 'ZeroRoo.Docker.Cores.Services.DesktopMenuService',
-      Action: 'GetAppMenuItems',
+      Service: 'ZeroRoo.Docker.Cores.Services.GetAppMenuItems',
       Data: null
     }, res => {
       console.log('........................')

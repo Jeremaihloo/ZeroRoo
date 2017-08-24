@@ -50,13 +50,14 @@ namespace ZeroRoo.Docker
             
             services.AddNavigation();
             services.AddDockerShape();
+            
+            services.AddScoped<IAppService, ApplicationExit>();
+            services.AddScoped<IAppService, GetAppMenuItems>();
+            services.AddScoped<IAppService, GetDesktopFiles>();
+            services.AddScoped<IAppService, GetVersion>();
+            services.AddScoped<IAppService, MessageAlert>();
+            services.AddScoped<IAppService, Open>();
 
-            services.AddSingleton<DesktopMenuService>();
-            services.AddSingleton<DesktopFileService>();
-            services.AddSingleton<DesktopNotifyService>();
-
-            services.AddScoped<IAppService, MainAppService>();
-            services.AddScoped<IAppService, DesktopMenuService>();
 
             services.AddDefaultFileSystem();
 

@@ -27,39 +27,26 @@ namespace ZeroRoo.Apps.Services
 
             try
             {
-                var service = this.appServices.FirstOrDefault(h => h.GetType().FullName == message.ServiceName);
+                var service = this.appServices.FirstOrDefault(h => h.GetType().FullName == message.Service);
                 if (service == null)
                 {
                     // logger
-                    throw new Exception($"Service Not Found {message.ServiceName}");
+                    throw new Exception($"Service Not Found {message.Service}");
                 }
-                var method = service.GetType().GetMethod(message.Action);
-                if (method == null)
-                {
-                    // logger
-                    throw new Exception($"Action Not Found {message.ServiceName}");
-                }
-                var result = method.Invoke(service, new object[] { message });
 
-                if (result == null)
-                {
-                    return;
-                }
-                else if (!(result is AppServiceMessage))
-                {
-                    message.Data = result;
-                }
-                else
-                {
-                    message = result as AppServiceMessage;
-                }
+                service.OnService(this, message);
             }
             catch(Exception ex)
             {
                 message.Data = ex.Message;
                 message.Ok = false;
             }
-            Send(JsonConvert.SerializeObject(message));
+            SendMessage(message);
+        }
+
+        public void SendMessage(AppServiceMessage msg)
+        {
+            Send(JsonConvert.SerializeObject(msg));
         }
 
         protected override void OnError(ErrorEventArgs e)

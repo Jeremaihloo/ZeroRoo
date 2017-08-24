@@ -8,17 +8,15 @@ namespace ZeroRoo.Apps.Services
 {
     public class AppServiceMessage
     {
-        public string ServiceName { get; set; }
-
-        public string Action { get; set; } 
+        public string Service { get; set; }
 
         public object Data { get; set; }
 
         public bool Ok { get; set; }
 
-        public AppServiceMessage(string topic, object data)
+        public AppServiceMessage(string service, object data)
         {
-            this.ServiceName = topic;
+            this.Service = service;
             this.Data = data;
             this.Ok = true;
         }

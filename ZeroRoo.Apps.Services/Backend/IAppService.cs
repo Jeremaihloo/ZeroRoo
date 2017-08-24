@@ -8,6 +8,6 @@ namespace ZeroRoo.Apps.Services
 {
     public interface IAppService
     {
-
+        void OnService(AppServiceRoute route, AppServiceMessage msg);
     }
 }

@@ -30,7 +30,7 @@ namespace ZeroRoo.Apps.Services
             this.wss.OnGet += Wss_OnGet;
         }
 
-        public void Broadcast(AppServiceMessage msg)
+        public void SendMessage(AppServiceMessage msg)
         {
             this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
         }
