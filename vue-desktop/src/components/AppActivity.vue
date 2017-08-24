@@ -1,13 +1,6 @@
 
 <template>
   <div class="activity" ref="main">
-    <header ref="header">
-      <span class="icon"></span>
-      <span class="title">{{activity.text}}</span>
-      <span class="btn-min"></span>
-      <span class="btn-max"></span>
-      <span class="btn-close"></span>
-    </header>
     <div class="activity-body">
       <iframe ref="iframe" :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
     </div>
@@ -26,7 +19,7 @@ export default {
     }
   },
   watch: {
-    activity: function (newVal, oldVal) {
+    item: function (newVal, oldVal) {
       console.log(newVal, oldVal)
     }
   },
@@ -43,7 +36,7 @@ export default {
   mounted () {
     console.log('AppActivity Mounted')
     console.log('AppActivity:ready', this.item)
-    if (this.activity) {
+    if (this.item) {
       this.url = this.item.Target
       this.go()
     }
@@ -53,7 +46,7 @@ export default {
   },
   ready () {
     console.log('AppActivity:ready', this.item)
-    if (this.activity) {
+    if (this.item) {
       this.url = this.item.Target
       this.go()
     }

@@ -5,7 +5,7 @@
       <template v-for="(tab, index) in activities">
         <li role="presentation" :class="{'active':tab.Active}" :key="index">
           <a role="tab" href="javascript:;" @click="select(activities.indexOf(tab))">
-            <span v-text="tab.Title"></span>
+            <span v-text="tab.Activity.Title"></span>
           </a>
         </li>
       </template>
@@ -15,7 +15,7 @@
     </ul>
     <div class="tab-content">
       <div class="tab-pane" role="tabpanel" v-for="(tab, index) in activities" :class="{active:tab.Active}" :key="index" v-show="tab.Active">
-        <app-activity class="app-activity" :activity="tab"></app-activity>
+        <app-activity class="app-activity" :item="tab"></app-activity>
       </div>
     </div>
 
@@ -47,7 +47,9 @@ export default {
   created () {
     if (this.activities.length === 0) {
       let welcome = {
-        Title: '欢迎',
+        Activity: {
+          Title: '欢迎'
+        },
         Target: 'http://wwww.baidu.com'
       }
       this.activities.push(welcome)
@@ -55,18 +57,15 @@ export default {
     }
     this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', msg => {
       console.log('ActivitiesContainer', 'ZeroRoo.Docker.Cores.Services.Open', msg)
-      
-      if (activity.Title === 'undefined' || activity.Title === '' || activity.Title === null) {
-        activity.Title = '没有标题'
-      }
-      console.log(this.activities, activity)
+      let activityItem = msg.Data
+      console.log(this.activities, activityItem)
       var find = this.activities.filter(item => {
-        return item.Name === activity.Name
+        return item.Target === activityItem.Target
       })
       console.log('find', find)
       if (find.length === 0) {
-        this.activities.push(activity)
-        console.log('activity:open callback', activity)
+        this.activities.push(activityItem)
+        console.log('activity:open callback', activityItem)
         this.select(this.activities.length - 1)
       } else {
         this.select(this.activities.indexOf(find[0]))
