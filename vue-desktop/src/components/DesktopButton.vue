@@ -32,7 +32,7 @@ export default {
     onDbClick () {
       this.$engine.call({
         Service: 'ZeroRoo.Docker.Cores.Services.Open',
-        Data: this.item.Activity.HtmlUri
+        Data: this.item.Target
       })
     }
   }

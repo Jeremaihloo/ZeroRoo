@@ -18,7 +18,7 @@
 // import StartDrag from '../StartDrag'
 
 export default {
-  props: ['activity'],
+  props: ['item'],
   data: function () {
     return {
       url: '',
@@ -42,9 +42,9 @@ export default {
   components: {},
   mounted () {
     console.log('AppActivity Mounted')
-    console.log('AppActivity:ready', this.activity)
+    console.log('AppActivity:ready', this.item)
     if (this.activity) {
-      this.url = this.activity.HtmlUri
+      this.url = this.item.Target
       this.go()
     }
     // var sd = new StartDrag(this.$refs.header, this.$refs.main)
@@ -52,9 +52,9 @@ export default {
     // console.log(sd)
   },
   ready () {
-    console.log('AppActivity:ready', this.activity)
+    console.log('AppActivity:ready', this.item)
     if (this.activity) {
-      this.url = this.activity.HtmlUri
+      this.url = this.item.Target
       this.go()
     }
   }

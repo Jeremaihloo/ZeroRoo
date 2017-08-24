@@ -14,6 +14,7 @@ namespace ZeroRoo.Apps.Services
             services.AddSingleton<IAppServiceServer, AppServiceServer>();
             services.AddSingleton<AppServiceRoute>();
             services.AddSingleton<AppViewRouter>();
+            services.AddScoped<IActivity, HtmlActivity>();
             return services;
         }
 

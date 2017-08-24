@@ -48,14 +48,14 @@ export default {
     if (this.activities.length === 0) {
       let welcome = {
         Title: '欢迎',
-        HtmlUri: 'http://wwww.baidu.com'
+        Target: 'http://wwww.baidu.com'
       }
       this.activities.push(welcome)
       this.select(this.activities.length - 1)
     }
-    this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', activity => {
-      console.log('ActivitiesContainer', 'ZeroRoo.Docker.Cores.Services.Open', activity)
-      activity.Active = false
+    this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', msg => {
+      console.log('ActivitiesContainer', 'ZeroRoo.Docker.Cores.Services.Open', msg)
+      
       if (activity.Title === 'undefined' || activity.Title === '' || activity.Title === null) {
         activity.Title = '没有标题'
       }

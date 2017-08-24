@@ -70,8 +70,9 @@
     <Compile Include="Backend\AppServiceServer.cs" />
     <Compile Include="Backend\AppServiceRoute.cs" />
     <Compile Include="AppServicesExtensions.cs" />
-    <Compile Include="BaseActivity.cs" />
-    <Compile Include="NotFoundActivity.cs" />
+    <Compile Include="Views\HtmlActivity.cs" />
+    <Compile Include="Views\BaseActivity.cs" />
+    <Compile Include="Views\NotFoundActivity.cs" />
     <Compile Include="Views\AppViewRouter.cs" />
     <Compile Include="Backend\IAppService.cs" />
     <Compile Include="Backend\IAppServiceServer.cs" />

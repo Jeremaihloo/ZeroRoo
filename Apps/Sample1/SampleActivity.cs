@@ -22,7 +22,7 @@ namespace Sample1
 
         public override void OnView(HttpListenerRequest req, HttpListenerResponse res)
         {
-            throw new NotImplementedException();
+            WriteHtmlContent(res, "<h1>Sample1</h1>");
         }
     }
 }

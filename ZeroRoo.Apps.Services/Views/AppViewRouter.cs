@@ -21,7 +21,7 @@ namespace ZeroRoo.Apps.Services
             foreach(var item in this.activities)
             {
                 var reg = new Regex(item.RoutePattern);
-                if(reg.IsMatch(path))
+                if(reg.IsMatch(path.ToLower()))
                 {
                     return item;
                 }

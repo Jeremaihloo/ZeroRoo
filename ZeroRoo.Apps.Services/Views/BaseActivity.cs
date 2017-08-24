@@ -40,12 +40,21 @@ namespace ZeroRoo.Apps.Services
         {
             var content = Encoding.UTF8.GetBytes("This is BaseActivity !");
 
-            if(File.Exists(viewPath))
+            if (viewPath.StartsWith("/"))
             {
-                content = File.ReadAllBytes(viewPath);
+                viewPath = viewPath.Substring(1);
             }
 
-            res.WriteContent(content);
+            if (File.Exists(viewPath))
+            {
+                content = File.ReadAllBytes(viewPath);
+                res.WriteContent(content);
+            }
+            else
+            {
+                res.StatusCode = (int)HttpStatusCode.NotFound;
+                res.ContentType = "text/html; charset=utf-8";
+            }
         }
     }
 }
