@@ -30,6 +30,9 @@ export default {
     },
     iframeGo: function (url) {
       this.src = url
+    },
+    onFrameLoad () {
+      console.log('onFrameLoad')
     }
   },
   components: {},
@@ -42,6 +45,10 @@ export default {
     // var sd = new StartDrag(this.$refs.header, this.$refs.main)
     // StartDrag(this.$refs.header, this.$refs.main)
     // console.log(sd)
+    console.log(this.$refs.iframe.contentWindow)
+    this.$refs.iframe.contentWindow.onload = function () {
+      console.log('iframe onload')
+    }
   },
   ready () {
     console.log('AppActivity Ready', this.item)

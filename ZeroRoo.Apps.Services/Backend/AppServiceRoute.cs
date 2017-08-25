@@ -23,8 +23,11 @@ namespace ZeroRoo.Apps.Services
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            var message = JsonConvert.DeserializeObject<AppServiceMessage>(e.Data);
+            this.Send("test");
+            return;
 
+            var message = JsonConvert.DeserializeObject<AppServiceMessage>(e.Data);
+            
             try
             {
                 var service = this.appServices.FirstOrDefault(h => h.GetType().FullName == message.Service);

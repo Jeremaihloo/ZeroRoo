@@ -162,6 +162,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AppServiceServerTest.cs" />
     <Compile Include="AppTests\ExtensionManagerTests.cs" />
     <Compile Include="AppTests\ExtensionProviderTests.cs" />
     <Compile Include="Events\EventBusTests.cs" />
@@ -178,6 +179,10 @@
     <ProjectReference Include="..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">
       <Project>{25bb5974-8e72-4b23-ba31-4d51fa620195}</Project>
       <Name>ZeroRoo.Apps.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">
+      <Project>{3e14b0d3-9996-4124-b87f-4750e7479544}</Project>
+      <Name>ZeroRoo.Apps.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZeroRoo.Apps\ZeroRoo.Apps.csproj">
       <Project>{3d7efc12-0d9a-4d6a-b2e4-e51edb27333b}</Project>

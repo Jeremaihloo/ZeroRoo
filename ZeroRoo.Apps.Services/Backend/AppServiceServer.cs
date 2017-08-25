@@ -29,11 +29,15 @@ namespace ZeroRoo.Apps.Services
             
             // Set the HTTP GET request event.
             this.wss.OnGet += Wss_OnGet;
+
+            //this.wss.Start();
         }
 
         public void SendMessage(AppServiceMessage msg)
         {
             this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
+            this.wss.WebSocketServices.Hosts.FirstOrDefault().Sessions.Broadcast(Encoding.UTF8.GetBytes("hello"));
+            this.wss.WebSocketServices["/apps"].Sessions.Broadcast("test");
         }
 
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)

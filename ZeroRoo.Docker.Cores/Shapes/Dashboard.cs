@@ -51,7 +51,12 @@ namespace ZeroRoo.Docker.Shapes
            //})).Start();
 
             newBrowser = null;
-            //var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
+            var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
+            chromiumWebBrowser.Parent.Invoke(new Action(() =>
+            {
+                server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
+            }));
+            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
             //chromiumWebBrowser.Load(targetUrl);
             frame.LoadUrl(targetUrl);
             return true;
