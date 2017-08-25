@@ -9,6 +9,7 @@ using WebSocketSharp;
 using Microsoft.Extensions.Logging;
 using System.IO;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace ZeroRoo.Apps.Services
 {

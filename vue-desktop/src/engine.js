@@ -9,16 +9,16 @@ class Engine {
 
     let _this = this
     this.ws.onopen = (ev) => {
-      console.log('ONOPEN', ev)
+      console.log('[ENGINE:ONOPEN]', ev)
       this.beforeOpen.forEach(function (msg) {
-        console.log('SEND AFTER ONOPEN', msg)
+        console.log('[ENGINE:SEND_AFTER_ONOPEN]', msg)
         this.ws.send(JSON.stringify(msg))
       }, this)
     }
 
     this.ws.onmessage = (ev) => {
-      console.log('ONMESSAGE', ev)
       let dataObj = JSON.parse(ev.data)
+      console.log('[ENGINE:ONMESSAGE]', dataObj.Service, ev)
       let key = this.createSubscribeKey(dataObj)
       var callbacks = _this.subscribes[key]
       if (callbacks !== undefined && callbacks !== null) {
@@ -29,7 +29,7 @@ class Engine {
     }
 
     this.ws.onerror = (ev) => {
-      console.log('ONERROR', ev)
+      console.log('[ENGINE:ONERROR]', ev)
       alert('系统出现异常，请退出！')
     }
   }
@@ -47,6 +47,7 @@ class Engine {
       this.subscribes[key] = []
     }
     this.subscribes[key].push(callback)
+    console.log('[ENGINE:SUBSCRIBE]', service)
   }
 
   call (msg, callback) {
@@ -54,10 +55,10 @@ class Engine {
       this.subscribe(msg.Service, callback)
     }
     if (this.ws.readyState === WebSocket.OPEN) {
-      console.log('CALL', msg)
+      console.log('[ENGINE:CALL]', msg)
       this.ws.send(JSON.stringify(msg))
     } else {
-      console.log('SAVE BEFORE OPENED', msg)
+      console.log('[ENGINE:SAVE_BEFORE_OPENED]', msg)
       this.beforeOpen.push(msg)
     }
   }

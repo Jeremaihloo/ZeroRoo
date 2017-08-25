@@ -41,7 +41,7 @@ export default {
   },
   watch: {
     activeIndex: function (val, oldVal) {
-      console.log('tabIndex changed', val, oldVal)
+      // console.log('tabIndex changed', val, oldVal)
     }
   },
   created () {
@@ -56,16 +56,16 @@ export default {
       this.select(this.activities.length - 1)
     }
     this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', msg => {
-      console.log('ActivitiesContainer', 'ZeroRoo.Docker.Cores.Services.Open', msg)
+      console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.Docker.Cores.Services.Open', msg)
       let activityItem = msg.Data
-      console.log(this.activities, activityItem)
+      // console.log(this.activities, activityItem)
       var find = this.activities.filter(item => {
         return item.Target === activityItem.Target
       })
-      console.log('find', find)
+      // console.log('find', find)
       if (find.length === 0) {
         this.activities.push(activityItem)
-        console.log('activity:open callback', activityItem)
+        // console.log('activity:open callback', activityItem)
         this.select(this.activities.length - 1)
       } else {
         this.select(this.activities.indexOf(find[0]))
@@ -82,11 +82,10 @@ export default {
       })
       this.activities[this.activeIndex].Active = true
       this.activities = Object.assign([], this.activities)
-      console.log('selectCurrent tab', this.activeIndex)
-      console.log(this.activities)
+      console.log('[ActivitiesPanel:SELECT_CURRENT_TAB]', this.activeIndex, this.activities)
     },
     select (index) {
-      console.log('onSelect', index)
+      // console.log('onSelect', index)
       this.activeIndex = index
       this.selectCurrent()
     },

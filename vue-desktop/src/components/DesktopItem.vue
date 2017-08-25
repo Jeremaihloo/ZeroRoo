@@ -21,7 +21,7 @@ export default {
   props: ['item', 'dragging', 'selected'],
   computed: {
     icon () {
-      console.log('item Icon', this.item.Icon)
+      // console.log('item Icon', this.item.Icon)
       return this.item.Icon.replace(/\\/g, '/')
     }
   },

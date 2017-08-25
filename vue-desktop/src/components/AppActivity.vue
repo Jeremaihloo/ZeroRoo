@@ -20,7 +20,7 @@ export default {
   },
   watch: {
     item: function (newVal, oldVal) {
-      console.log(newVal, oldVal)
+      // console.log(newVal, oldVal)
     }
   },
   methods: {
@@ -34,8 +34,7 @@ export default {
   },
   components: {},
   mounted () {
-    console.log('AppActivity Mounted')
-    console.log('AppActivity:ready', this.item)
+    console.log('AppActivity Mounted', this.item)
     if (this.item) {
       this.url = this.item.Target
       this.go()
@@ -45,7 +44,7 @@ export default {
     // console.log(sd)
   },
   ready () {
-    console.log('AppActivity:ready', this.item)
+    console.log('AppActivity Ready', this.item)
     if (this.item) {
       this.url = this.item.Target
       this.go()
