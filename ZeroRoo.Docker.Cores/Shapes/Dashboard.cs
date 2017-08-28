@@ -45,10 +45,11 @@ namespace ZeroRoo.Docker.Shapes
         {
             var provider = services.BuildServiceProvider();
             var server = provider.GetRequiredService<IAppServiceServer>();
-           // new Thread(new ThreadStart(() =>
-           //{
-           //    server.SendMessage(new AppServiceMessage(typeof(Open).FullName, targetUrl));
-           //})).Start();
+            new Thread(new ThreadStart(() =>
+           {
+               server.SendMessage(new AppServiceMessage(typeof(Open).FullName, targetUrl));
+           })).Start();
+            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
 
             newBrowser = null;
             var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
@@ -89,6 +90,18 @@ namespace ZeroRoo.Docker.Shapes
             browser.IsBrowserInitializedChanged += Browser_IsBrowserInitializedChanged;
             browser.LifeSpanHandler = new LifeSpanHandler(services);
             this.Controls.Add(browser);
+
+            var provider = services.BuildServiceProvider();
+            var server = provider.GetRequiredService<IAppServiceServer>();
+            new Thread(new ThreadStart(() =>
+            {
+                while (true)
+                {
+                    server.SendMessage(new AppServiceMessage(typeof(Open).FullName, "ss1"));
+                    Thread.Sleep(2000);
+                }
+            })).Start();
+            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", "ss2"));
         }
 
         private void Browser_IsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs e)

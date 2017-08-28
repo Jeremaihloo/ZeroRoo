@@ -17,6 +17,8 @@ class Engine {
     }
 
     this.ws.onmessage = (ev) => {
+      console.log('[ENGINE:ORIGINAL]', ev)
+
       let dataObj = JSON.parse(ev.data)
       console.log('[ENGINE:ONMESSAGE]', dataObj.Service, ev)
       let key = this.createSubscribeKey(dataObj)

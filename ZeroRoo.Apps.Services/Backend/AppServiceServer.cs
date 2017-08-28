@@ -17,10 +17,12 @@ namespace ZeroRoo.Apps.Services
     {
         private HttpServer wss;
         private AppViewRouter appViewRouter;
+        private Queue<AppServiceMessage> msgQueue;
 
         public AppServiceServer(ILogger<AppServiceServer> logger, IEnumerable<IAppService> appServices, AppViewRouter appViewRouter)
         {
             this.appViewRouter = appViewRouter;
+            this.msgQueue = new Queue<AppServiceMessage>();
 
             this.wss = new HttpServer(8000);
             this.wss.AddWebSocketService<AppServiceRoute>("/apps", () => new AppServiceRoute(logger, appServices));
@@ -35,9 +37,10 @@ namespace ZeroRoo.Apps.Services
 
         public void SendMessage(AppServiceMessage msg)
         {
-            this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
-            this.wss.WebSocketServices.Hosts.FirstOrDefault().Sessions.Broadcast(Encoding.UTF8.GetBytes("hello"));
-            this.wss.WebSocketServices["/apps"].Sessions.Broadcast("test");
+            msgQueue.Enqueue(msg);
+            //this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
+            //this.wss.WebSocketServices.Hosts.FirstOrDefault().Sessions.Broadcast(Encoding.UTF8.GetBytes("hello"));
+            //this.wss.WebSocketServices["/apps"].Sessions.Broadcast("test");
         }
 
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)
@@ -60,6 +63,18 @@ namespace ZeroRoo.Apps.Services
         public void Start()
         {
             this.wss.Start();
+            ThreadPool.QueueUserWorkItem(state =>
+            {
+                while (true)
+                {
+                    if (msgQueue.Count > 0)
+                    {
+                        var msg = msgQueue.Dequeue();
+                        this.wss.WebSocketServices.Broadcast("start");
+                        Thread.Sleep(2000);
+                    }
+                }
+            });
         }
 
         public void Stop()
