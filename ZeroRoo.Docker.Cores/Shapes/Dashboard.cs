@@ -19,10 +19,10 @@ namespace ZeroRoo.Docker.Shapes
 {
     internal class LifeSpanHandler : ILifeSpanHandler
     {
-        private IServiceCollection services;
-        public LifeSpanHandler(IServiceCollection services)
+        private IAppServiceServer appServiceServer;
+        public LifeSpanHandler(IAppServiceServer appServiceServer)
         {
-            this.services = services;
+            this.appServiceServer = appServiceServer;
         }
 
         public bool DoClose(IWebBrowser browserControl, IBrowser browser)
@@ -43,21 +43,10 @@ namespace ZeroRoo.Docker.Shapes
 
         public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
         {
-            var provider = services.BuildServiceProvider();
-            var server = provider.GetRequiredService<IAppServiceServer>();
-            new Thread(new ThreadStart(() =>
-           {
-               server.SendMessage(new AppServiceMessage(typeof(Open).FullName, targetUrl));
-           })).Start();
-            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
+            appServiceServer.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
 
             newBrowser = null;
             var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
-            chromiumWebBrowser.Parent.Invoke(new Action(() =>
-            {
-                server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
-            }));
-            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
             //chromiumWebBrowser.Load(targetUrl);
             frame.LoadUrl(targetUrl);
             return true;
@@ -69,7 +58,7 @@ namespace ZeroRoo.Docker.Shapes
     {
         private readonly ChromiumWebBrowser browser;
 
-        public Dashboard(IServiceCollection services)
+        public Dashboard(IAppServiceServer appServiceServer)
         {
             InitializeComponent();
 
@@ -88,20 +77,8 @@ namespace ZeroRoo.Docker.Shapes
             // browser.LoadingStateChanged += OnLoadingStateChanged;
             // browser.ConsoleMessage += OnBrowserConsoleMessage;
             browser.IsBrowserInitializedChanged += Browser_IsBrowserInitializedChanged;
-            browser.LifeSpanHandler = new LifeSpanHandler(services);
+            browser.LifeSpanHandler = new LifeSpanHandler(appServiceServer);
             this.Controls.Add(browser);
-
-            var provider = services.BuildServiceProvider();
-            var server = provider.GetRequiredService<IAppServiceServer>();
-            new Thread(new ThreadStart(() =>
-            {
-                while (true)
-                {
-                    server.SendMessage(new AppServiceMessage(typeof(Open).FullName, "ss1"));
-                    Thread.Sleep(2000);
-                }
-            })).Start();
-            server.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", "ss2"));
         }
 
         private void Browser_IsBrowserInitializedChanged(object sender, IsBrowserInitializedChangedEventArgs e)

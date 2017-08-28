@@ -27,15 +27,12 @@ namespace UnitTestProject
                     new PhysicalFileProvider(Directory.GetCurrentDirectory())
             };
 
-            var runtime = new RuntimeBuilder()
-                .UseEnviroment(env)
-                .UseStartup(new Startup(env))
-                .Build();
-
-            runtime.Run();
-
-            var provider = runtime.Services.BuildServiceProvider();
-            var appManager = runtime.Services.BuildServiceProvider().GetRequiredService<IAppManager>();
+            var runtime = new ServiceCollection()
+                .AddEnviroment(env)
+                .UseStartup(new Startup(env));
+            
+            var provider = runtime.BuildServiceProvider();
+            var appManager = runtime.BuildServiceProvider().GetRequiredService<IAppManager>();
 
             Assert.AreEqual("ZeroRoo", provider.GetService<IRuntimeEnviroment>().ApplicationName);
             var apps = appManager.GetApps();

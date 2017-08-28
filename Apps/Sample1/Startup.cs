@@ -20,7 +20,7 @@ namespace Sample1
             services.AddScoped<IActivity, SampleActivity>();
         }
 
-        public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)
+        public override void Configure(IServiceCollection runtimeBuilder, IServiceProvider serviceProvider)
         {
             base.Configure(runtimeBuilder, serviceProvider);
         }

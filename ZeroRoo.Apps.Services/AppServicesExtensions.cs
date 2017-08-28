@@ -18,12 +18,11 @@ namespace ZeroRoo.Apps.Services
             return services;
         }
 
-        public static IRuntimeBuilder UseAppsServices(this IRuntimeBuilder runtime)
+        public static IServiceProvider UseAppsServices(this IServiceProvider provider)
         {
-            var provider = runtime.Services.BuildServiceProvider();
             var server = provider.GetRequiredService<IAppServiceServer>();
             server.Start();
-            return runtime;
+            return provider;
         }
     }
 }

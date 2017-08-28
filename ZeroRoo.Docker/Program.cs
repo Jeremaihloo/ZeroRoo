@@ -1,4 +1,5 @@
 ﻿using CefSharp;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ZeroRoo.Docker
 {
     static class Program
     {
-        public static IRuntime Runtime { get; set; }
+        public static IServiceCollection Services;
 
         /// <summary>
         /// 应用程序的主入口点。
@@ -44,12 +45,11 @@ namespace ZeroRoo.Docker
                     new PhysicalFileProvider(Directory.GetCurrentDirectory())
             };
 
-            Runtime = new RuntimeBuilder()
-                .UseEnviroment(env)
-                .UseStartup(new Startup(env))
-                .Build();
+            Services = new ServiceCollection()
+                .AddEnviroment(env)
+                .UseStartup(new Startup(env));
 
-            Runtime.RunForm<Dashboard>();
+            Services.RunForm<Dashboard>();
 
             Application.ApplicationExit += Application_ApplicationExit;
         }

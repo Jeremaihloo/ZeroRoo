@@ -10,7 +10,7 @@ namespace ZeroRoo
 {
     public abstract class StartupBase : IStartup
     {
-        public virtual void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)
+        public virtual void Configure(IServiceCollection runtimeBuilder, IServiceProvider serviceProvider)
         {
             
         }

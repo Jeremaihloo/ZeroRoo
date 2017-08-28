@@ -17,7 +17,7 @@ namespace ZeroRoo.Apps.Laundry
             services.AddScoped<INavigationProvider, Menu>();
         }
 
-        public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)
+        public override void Configure(IServiceCollection runtimeBuilder, IServiceProvider serviceProvider)
         {
             base.Configure(runtimeBuilder, serviceProvider);
         }

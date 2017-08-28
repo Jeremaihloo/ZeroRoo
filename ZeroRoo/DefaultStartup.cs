@@ -30,7 +30,7 @@ namespace ZeroRoo
         }
 
         // This method gets called by the runtime. Use this method to configure the application.
-        public override void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider)
+        public override void Configure(IServiceCollection runtimeBuilder, IServiceProvider serviceProvider)
         {
             
         }

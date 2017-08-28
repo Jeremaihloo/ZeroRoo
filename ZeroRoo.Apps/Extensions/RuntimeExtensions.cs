@@ -15,9 +15,9 @@ namespace ZeroRoo.Apps
 {
     public static class Runtimeapps
     {
-        public static IRuntimeBuilder UseApps(this IRuntimeBuilder builder)
+        public static IServiceCollection UseApps(this IServiceCollection builder)
         {
-            IServiceProvider provider = builder.Services.BuildServiceProvider();
+            IServiceProvider provider = builder.BuildServiceProvider();
             var appManager = provider.GetRequiredService<IAppManager>();
             var hostingEnvironment = provider.GetRequiredService<IRuntimeEnviroment>();
             var loggerFactory = provider.GetRequiredService<ILoggerFactory>();
@@ -47,7 +47,7 @@ namespace ZeroRoo.Apps
                         {
                             foreach (var item in appEntry.ExportedTypes.Where(h => typeof(IStartup).IsAssignableFrom(h)))
                             {
-                                builder.Services.AddScoped(typeof(IStartup), item);
+                                builder.AddScoped(typeof(IStartup), item);
                             }
                         }
                     }
@@ -59,11 +59,11 @@ namespace ZeroRoo.Apps
                 //});
             }
 
-            var secProvider = builder.Services.BuildServiceProvider();
+            var secProvider = builder.BuildServiceProvider();
 
             foreach(var startup in secProvider.GetServices<IStartup>())
             {
-                startup.ConfigureServices(builder.Services);
+                startup.ConfigureServices(builder);
                 startup.Configure(builder, provider);
             }
 
@@ -75,9 +75,9 @@ namespace ZeroRoo.Apps
             return typeof(IStartup).IsAssignableFrom(type);
         }
 
-        public static IRuntimeBuilder UseEventBus(this IRuntimeBuilder builder)
+        public static IServiceCollection UseEventBus(this IServiceCollection builder)
         {
-            var twoServices = builder.Services;
+            var twoServices = builder;
 
             twoServices.AddScoped<IEventBus, DefaultZeroEventBus>();
             twoServices.AddSingleton<IEventBusState, EventBusState>();

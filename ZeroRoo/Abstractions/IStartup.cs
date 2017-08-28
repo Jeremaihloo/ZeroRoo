@@ -11,6 +11,6 @@ namespace ZeroRoo
     public interface IStartup
     {
         void ConfigureServices(IServiceCollection services);
-        void Configure(IRuntimeBuilder runtimeBuilder, IServiceProvider serviceProvider);
+        void Configure(IServiceCollection services, IServiceProvider serviceProvider);
     }
 }

@@ -194,16 +194,12 @@
   <ItemGroup>
     <Compile Include="Abstractions\IStartup.cs" />
     <Compile Include="Extensions\InvokeExtensions.cs" />
-    <Compile Include="Abstractions\IRuntime.cs" />
-    <Compile Include="Abstractions\IRuntimeBuilder.cs" />
     <Compile Include="Abstractions\IRuntimeEnviroment.cs" />
     <Compile Include="Extensions\RuntimeBuilderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StartupBase.cs" />
-    <Compile Include="ZeroRuntime.cs" />
     <Compile Include="Extensions\ServiceProviderExtensions.cs" />
     <Compile Include="DefaultStartup.cs" />
-    <Compile Include="RuntimeBuilder.cs" />
     <Compile Include="ZeroCoreException.cs" />
     <Compile Include="ZeroRuntimeEnviroment.cs" />
   </ItemGroup>
