@@ -11,12 +11,11 @@ namespace ZeroRoo.Docker.Core
 {
     public static class RuntimeExtentions
     {
-        public static IServiceCollection RunForm<T>(this IServiceCollection runtime)
+        public static IServiceProvider RunForm<T>(this IServiceProvider provider)
         {
-            var provider = runtime.BuildServiceProvider();
             var dash = provider.GetRequiredService<T>() as Form;
             Application.Run(dash);
-            return runtime;
+            return provider;
         }
     }
 }

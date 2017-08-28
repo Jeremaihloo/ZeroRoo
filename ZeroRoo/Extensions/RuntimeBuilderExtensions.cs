@@ -10,13 +10,18 @@ namespace ZeroRoo
 {
     public static class RuntimeBuilderExtensions
     {
-        public static IServiceCollection UseStartup(this IServiceCollection builder, IStartup startup)
+        public static IServiceProvider UseStartup(this IServiceCollection builder, IStartup startup)
         {
+
             startup.ConfigureServices(builder);
 
-            startup.Configure(builder, builder.BuildServiceProvider());
+            var provider = builder.BuildServiceProvider();
 
-            return builder;
+            startup.Configure(builder, provider);
+
+            builder.AddSingleton<IServiceProvider>(provider);
+
+            return provider;
         }
 
         public static IServiceCollection AddEnviroment(this IServiceCollection builder, IRuntimeEnviroment env)

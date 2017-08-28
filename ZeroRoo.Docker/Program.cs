@@ -15,7 +15,7 @@ namespace ZeroRoo.Docker
     static class Program
     {
         public static IServiceCollection Services;
-
+        public static IServiceProvider ServiceProvider;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -46,10 +46,11 @@ namespace ZeroRoo.Docker
             };
 
             Services = new ServiceCollection()
-                .AddEnviroment(env)
-                .UseStartup(new Startup(env));
+                .AddEnviroment(env);
 
-            Services.RunForm<Dashboard>();
+            ServiceProvider = Services.UseStartup(new Startup(env));
+            
+            ServiceProvider.RunForm<Dashboard>();
 
             Application.ApplicationExit += Application_ApplicationExit;
         }
