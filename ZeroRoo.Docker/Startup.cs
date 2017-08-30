@@ -62,13 +62,15 @@ namespace ZeroRoo.Docker
             services.AddDefaultFileSystem();
 
             services.AddAppsServices();
+
+            services.AddApps();
+
         }
 
         public override void Configure(IServiceCollection runtimeBuilder, IServiceProvider serviceProvider)
         {
             base.Configure(runtimeBuilder, serviceProvider);
 
-            runtimeBuilder.UseApps();
 
             serviceProvider.UseAppsServices();
 

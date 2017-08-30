@@ -15,7 +15,7 @@ namespace ZeroRoo.Apps
 {
     public static class Runtimeapps
     {
-        public static IServiceCollection UseApps(this IServiceCollection builder)
+        public static IServiceCollection AddApps(this IServiceCollection builder)
         {
             IServiceProvider provider = builder.BuildServiceProvider();
             var appManager = provider.GetRequiredService<IAppManager>();
