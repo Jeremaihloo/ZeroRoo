@@ -38,9 +38,6 @@ namespace ZeroRoo.Apps.Services
         public void SendMessage(AppServiceMessage msg)
         {
             msgQueue.Enqueue(msg);
-            //this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
-            //this.wss.WebSocketServices.Hosts.FirstOrDefault().Sessions.Broadcast(Encoding.UTF8.GetBytes("hello"));
-            //this.wss.WebSocketServices["/apps"].Sessions.Broadcast("test");
         }
 
         private void Wss_OnGet(object sender, HttpRequestEventArgs e)
@@ -70,7 +67,7 @@ namespace ZeroRoo.Apps.Services
                     if (msgQueue.Count > 0)
                     {
                         var msg = msgQueue.Dequeue();
-                        this.wss.WebSocketServices.Broadcast("start");
+                        this.wss.WebSocketServices.Broadcast(JsonConvert.SerializeObject(msg));
                         Thread.Sleep(2000);
                     }
                 }

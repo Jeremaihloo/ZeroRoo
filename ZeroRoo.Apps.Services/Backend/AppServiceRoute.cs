@@ -23,9 +23,6 @@ namespace ZeroRoo.Apps.Services
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            this.Send("onMessage");
-            return;
-
             var message = JsonConvert.DeserializeObject<AppServiceMessage>(e.Data);
             
             try

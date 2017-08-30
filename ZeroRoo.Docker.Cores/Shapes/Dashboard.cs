@@ -48,7 +48,7 @@ namespace ZeroRoo.Docker.Shapes
             newBrowser = null;
             var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
             //chromiumWebBrowser.Load(targetUrl);
-            frame.LoadUrl(targetUrl);
+            //frame.LoadUrl(targetUrl);
             return true;
         }
 
