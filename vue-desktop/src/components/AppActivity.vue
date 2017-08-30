@@ -19,8 +19,8 @@ export default {
     }
   },
   watch: {
-    item: function (newVal, oldVal) {
-      // console.log(newVal, oldVal)
+    src: function (newVal, oldVal) {
+      console.log('iframe src change', newVal, oldVal)
     }
   },
   methods: {

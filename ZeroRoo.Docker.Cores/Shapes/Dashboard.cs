@@ -39,7 +39,7 @@ namespace ZeroRoo.Docker.Shapes
         public void OnBeforeClose(IWebBrowser browserControl, IBrowser browser)
         {
             // throw new NotImplementedException();
-        }
+        } 
 
         public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
         {
