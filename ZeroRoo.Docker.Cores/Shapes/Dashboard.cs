@@ -43,7 +43,13 @@ namespace ZeroRoo.Docker.Shapes
 
         public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
         {
-            appServiceServer.SendMessage(new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", targetUrl));
+            var msg = new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", new
+                        {
+                            Activity = new BaseActivity() { Title = "新网页" },
+                            Target = targetUrl
+                        });
+
+            appServiceServer.SendMessage(msg);
 
             newBrowser = null;
             var chromiumWebBrowser = (ChromiumWebBrowser)browserControl;
