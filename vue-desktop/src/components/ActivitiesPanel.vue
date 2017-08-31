@@ -55,8 +55,8 @@ export default {
       this.activities.push(welcome)
       this.select(this.activities.length - 1)
     }
-    this.$engine.subscribe('ZeroRoo.Docker.Cores.Services.Open', msg => {
-      console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.Docker.Cores.Services.Open', msg)
+    this.$engine.subscribe('ZeroRoo.DefaultApp.Services.Open', msg => {
+      console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.DefaultApp.Services.Open', msg)
       let activityItem = msg.Data
       // console.log(this.activities, activityItem)
       var find = this.activities.filter(item => {
@@ -70,6 +70,14 @@ export default {
       } else {
         this.select(this.activities.indexOf(find[0]))
       }
+    })
+    this.$engine.subscribe('ZeroRoo.DefaultApp.Services.ActivityTitleChange', msg => {
+      console.log('ActivityTitleChange', msg)
+      this.activities.forEach(function (element) {
+        if (element.Target === msg.Data.Item.Target) {
+          element.Title = msg.Data.NewVal
+        }
+      }, this)
     })
   },
   mounted () {

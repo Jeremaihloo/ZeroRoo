@@ -2,7 +2,7 @@
 <template>
   <div class="activity" ref="main">
     <div class="activity-body">
-      <iframe ref="iframe" :src="src" name="test" height="100%" width="100%" frameborder="0"></iframe>
+      <iframe ref="iframe" :src="src" @load="onFrameLoad" name="test" height="100%" width="100%" frameborder="0"></iframe>
     </div>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   watch: {
     src: function (newVal, oldVal) {
       console.log('iframe src change', newVal, oldVal)
+
     }
   },
   methods: {
@@ -33,6 +34,16 @@ export default {
     },
     onFrameLoad () {
       console.log('onFrameLoad')
+      console.log(this.$refs.iframe.contentDocument.title)
+      this.$engine.call({
+        Service: 'ZeroRoo.DefaultApp.Services.ActivityTitleChange',
+        Data: {
+          Item: this.item,
+          NewTitle: this.$refs.iframe.contentDocument.title
+        }
+      }, res => {
+        console.log('send success')
+      })
     }
   },
   components: {},
@@ -45,7 +56,8 @@ export default {
     // var sd = new StartDrag(this.$refs.header, this.$refs.main)
     // StartDrag(this.$refs.header, this.$refs.main)
     // console.log(sd)
-    console.log(this.$refs.iframe.contentWindow)
+    console.log('-------------------------------------', this.$refs.iframe.contentWindow)
+    console.log(this.$refs.iframe.contentWindow.frames)
     this.$refs.iframe.contentWindow.onload = function () {
       console.log('iframe onload')
     }

@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using CefSharp;
 using System.IO;
 using ZeroRoo.Apps.Services;
-using ZeroRoo.Docker.Cores.Services;
 using System.Threading;
 
 namespace ZeroRoo.Docker.Shapes
@@ -43,7 +42,7 @@ namespace ZeroRoo.Docker.Shapes
 
         public bool OnBeforePopup(IWebBrowser browserControl, IBrowser browser, IFrame frame, string targetUrl, string targetFrameName, WindowOpenDisposition targetDisposition, bool userGesture, IPopupFeatures popupFeatures, IWindowInfo windowInfo, IBrowserSettings browserSettings, ref bool noJavascriptAccess, out IWebBrowser newBrowser)
         {
-            var msg = new AppServiceMessage("ZeroRoo.Docker.Cores.Services.Open", new
+            var msg = new AppServiceMessage("ZeroRoo.DefaultApp.Services.Open", new
                         {
                             Activity = new BaseActivity() { Title = "新网页" },
                             Target = targetUrl
@@ -79,6 +78,11 @@ namespace ZeroRoo.Docker.Shapes
             {
                 Dock = DockStyle.Fill,
             };
+
+            browser.BrowserSettings.WebSecurity = CefState.Disabled;
+            browser.BrowserSettings.FileAccessFromFileUrls = CefState.Enabled;
+            browser.BrowserSettings.UniversalAccessFromFileUrls = CefState.Enabled;
+            browser.BrowserSettings.TextAreaResize = CefState.Disabled;
 
             // browser.LoadingStateChanged += OnLoadingStateChanged;
             // browser.ConsoleMessage += OnBrowserConsoleMessage;

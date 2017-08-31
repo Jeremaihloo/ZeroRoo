@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.Docker.Navigation;
 
-namespace ZeroRoo.Docker.Cores.Services
+namespace ZeroRoo.DefaultApp.Services
 {
     public class Open : IAppService
     {

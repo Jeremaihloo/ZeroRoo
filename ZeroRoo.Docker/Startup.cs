@@ -11,7 +11,6 @@ using ZeroRoo.Apps.Abstractions;
 using ZeroRoo.Apps.Manifests;
 using ZeroRoo.Docker.Shapes;
 using ZeroRoo.Docker.Navigation;
-using ZeroRoo.Docker.Cores.Services;
 using ZeroRoo.FileSystem;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.DbConfigurations;
@@ -51,12 +50,7 @@ namespace ZeroRoo.Docker
             services.AddNavigation();
             services.AddDockerShape();
             
-            services.AddScoped<IAppService, ApplicationExit>();
-            services.AddScoped<IAppService, GetAppMenuItems>();
-            services.AddScoped<IAppService, GetDesktopFiles>();
-            services.AddScoped<IAppService, GetVersion>();
-            services.AddScoped<IAppService, MessageAlert>();
-            services.AddScoped<IAppService, Open>();
+            
 
 
             services.AddDefaultFileSystem();

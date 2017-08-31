@@ -53,11 +53,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.BackgroundTasks", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.Apps.Services", "ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj", "{3E14B0D3-9996-4124-B87F-4750E7479544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.Docker.Cores", "ZeroRoo.Docker.Cores\ZeroRoo.Docker.Cores.csproj", "{CDC80F6C-1842-43F3-B141-EBD78B525DBA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.Dbs", "ZeroRoo.DbConfigurations\ZeroRoo.Dbs.csproj", "{4AB0CB12-CE32-4F7A-8C86-E5B995503B6A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{599246E9-962A-403F-BC8C-4D137CC60508}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroRoo.DefaultApp", "ZeroRoo.DefaultApp\ZeroRoo.DefaultApp.csproj", "{CDC80F6C-1842-43F3-B141-EBD78B525DBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -251,14 +251,6 @@ Global
 		{3E14B0D3-9996-4124-B87F-4750E7479544}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E14B0D3-9996-4124-B87F-4750E7479544}.Release|x64.ActiveCfg = Release|Any CPU
 		{3E14B0D3-9996-4124-B87F-4750E7479544}.Release|x64.Build.0 = Release|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|x64.ActiveCfg = Debug|x64
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|x64.Build.0 = Debug|x64
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|x64.ActiveCfg = Release|Any CPU
-		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|x64.Build.0 = Release|Any CPU
 		{4AB0CB12-CE32-4F7A-8C86-E5B995503B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4AB0CB12-CE32-4F7A-8C86-E5B995503B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AB0CB12-CE32-4F7A-8C86-E5B995503B6A}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -275,6 +267,14 @@ Global
 		{599246E9-962A-403F-BC8C-4D137CC60508}.Release|Any CPU.Build.0 = Release|Any CPU
 		{599246E9-962A-403F-BC8C-4D137CC60508}.Release|x64.ActiveCfg = Release|Any CPU
 		{599246E9-962A-403F-BC8C-4D137CC60508}.Release|x64.Build.0 = Release|Any CPU
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|x64.ActiveCfg = Debug|x64
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Debug|x64.Build.0 = Debug|x64
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|x64.ActiveCfg = Release|x64
+		{CDC80F6C-1842-43F3-B141-EBD78B525DBA}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

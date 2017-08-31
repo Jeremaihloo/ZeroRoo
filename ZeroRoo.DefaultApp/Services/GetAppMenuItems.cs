@@ -8,7 +8,7 @@ using ZeroRoo.Apps.Services;
 using ZeroRoo.Docker.Navigation;
 using ZeroRoo.FileSystem;
 
-namespace ZeroRoo.Docker.Cores.Services
+namespace ZeroRoo.DefaultApp.Services
 {
     public class GetAppMenuItems : IAppService
     {

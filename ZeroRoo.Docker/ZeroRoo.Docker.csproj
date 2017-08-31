@@ -228,7 +228,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dashboard.cs" />
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="DefaultConfiguration.cs" />
+    <Compile Include="DockerShapeExtentions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RuntimeExtentions.cs" />
@@ -273,10 +278,6 @@
     <ProjectReference Include="..\ZeroRoo.DbConfigurations\ZeroRoo.Dbs.csproj">
       <Project>{4ab0cb12-ce32-4f7a-8c86-e5b995503b6a}</Project>
       <Name>ZeroRoo.Dbs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ZeroRoo.Docker.Cores\ZeroRoo.Docker.Cores.csproj">
-      <Project>{cdc80f6c-1842-43f3-b141-ebd78b525dba}</Project>
-      <Name>ZeroRoo.Docker.Cores</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
       <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>

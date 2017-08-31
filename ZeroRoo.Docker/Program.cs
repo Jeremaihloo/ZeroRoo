@@ -32,8 +32,15 @@ namespace ZeroRoo.Docker
             {
                 //By default CefSharp will use an in-memory cache, you need to specify a Cache Folder to persist data
                 CachePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "CefSharp\\Cache"),
-                RemoteDebuggingPort = 8088
-            };
+                RemoteDebuggingPort = 8088,
+                //浏览器引擎的语言
+                AcceptLanguageList = "zh-CN,zh;q=0.8",
+                //日志文件
+                LogFile = "/LogData",
+                PersistSessionCookies = true,
+                UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
+                UserDataPath = "/userData"
+        };
 
             //Perform dependency check to make sure all relevant resources are in our output directory.
             Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);

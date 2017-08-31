@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 
-namespace ZeroRoo.Docker.Cores.Services
+namespace ZeroRoo.DefaultApp.Services
 {
     public class GetVersion : IAppService
     {

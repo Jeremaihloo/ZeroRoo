@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZeroRoo.Docker.Navigation;
 
-namespace ZeroRoo.Docker.Cores.DefaultApp
+namespace ZeroRoo.DefaultApp
 {
     public class Menu : INavigationProvider
     {

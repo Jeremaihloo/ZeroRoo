@@ -40,7 +40,7 @@ export default {
     // })
 
     this.$engine.call({
-      Service: 'ZeroRoo.Docker.Cores.Services.GetAppMenuItems',
+      Service: 'ZeroRoo.DefaultApp.Services.GetAppMenuItems',
       Data: null
     }, res => {
       if (res.Ok) {

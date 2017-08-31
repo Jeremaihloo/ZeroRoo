@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.Docker.Navigation;
 
-namespace ZeroRoo.Docker.Cores.DefaultApp.Activities
+namespace ZeroRoo.DefaultApp.Activities
 {
     public class ApplicationExitActivity : BaseActivity
     {

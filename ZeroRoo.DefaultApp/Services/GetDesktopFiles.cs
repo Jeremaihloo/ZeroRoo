@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.FileSystem;
 
-namespace ZeroRoo.Docker.Cores.Services
+namespace ZeroRoo.DefaultApp.Services
 {
     public class GetDesktopFiles : IAppService
     {
