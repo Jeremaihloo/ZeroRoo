@@ -3,14 +3,14 @@
 
     <ul class="nav nav-tabs" role="tablist">
       <template v-for="(tab, index) in activities">
-        <li role="presentation" :class="{'active':tab.Active}" :key="index">
+        <li role="presentation" :class="{'active':tab.Active}" :style="{width:tabWidth + 'px'}" :key="index">
           <a role="tab" href="javascript:;" @click="select(activities.indexOf(tab))">
             <span v-text="tab.Activity.Title"></span>
           </a>
         </li>
       </template>
       <li class="pull-right">
-        <button type="button" class="btn btn-success" @click="closeCurrentTab()">关闭</button>
+        <button id="btnCloseActivity" type="button" class="btn btn-success" @click="closeCurrentTab()">关闭</button>
       </li>
     </ul>
     <div class="tab-content">
@@ -36,12 +36,21 @@ export default {
     return {
       activities: [],
       drag: false,
-      activeIndex: 0
+      activeIndex: 0,
+      tabWidth: 180
     }
   },
   watch: {
     activeIndex: function (val, oldVal) {
       // console.log('tabIndex changed', val, oldVal)
+    },
+    activities: function (val, oldVal) {
+      let appWidth = document.getElementById('applications').clientWidth
+      let btnCloseActivityWidth = document.getElementById('btnCloseActivity').clientWidth
+      let calcTabWidth = (appWidth - btnCloseActivityWidth - 20) / this.activities.length
+      if (calcTabWidth < 180) {
+        this.tabWidth = calcTabWidth
+      }
     }
   },
   created () {
