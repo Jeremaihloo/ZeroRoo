@@ -25,6 +25,19 @@ namespace ZeroRoo.Apps.Services
             set { routePattern = value; }
         }
 
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public BaseActivity()
+        {
+            this.Name = this.GetType().FullName;
+            this.Title = "新内容";
+        }
+
         public virtual void OnView(HttpListenerRequest req, HttpListenerResponse res)
         {
             res.ContentType = "text/html; charset=utf-8";

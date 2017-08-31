@@ -9,6 +9,8 @@ namespace ZeroRoo.Apps.Services
 {
     public interface IActivity
     {
+        string Name { get; set; }
+
         string Title { get; set; }
 
         string RoutePattern { get; set; }
