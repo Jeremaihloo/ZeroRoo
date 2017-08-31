@@ -123,5 +123,21 @@ export default {
     display flex
     width 100%    
     flex 1
+
+.nav-tabs 
+  > li
+    max-width: 180px;
+    overflow hidden
+    white-space nowrap
+    height 40px
+    > a
+      overflow hidden
+      display inline-block
+      width 100%
+      > span 
+        width 100%
+        overflow hidden
+        text-overflow:ellipsis;
+        display block
 </style>
 
