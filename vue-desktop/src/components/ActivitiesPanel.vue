@@ -58,7 +58,7 @@ export default {
     this.$engine.subscribe('ZeroRoo.DefaultApp.Services.Open', msg => {
       console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.DefaultApp.Services.Open', msg)
       let activityItem = msg.Data
-      // console.log(this.activities, activityItem)
+      console.log(this.activities, activityItem)
       var find = this.activities.filter(item => {
         return item.Target === activityItem.Target
       })
@@ -74,8 +74,9 @@ export default {
     this.$engine.subscribe('ZeroRoo.DefaultApp.Services.ActivityTitleChange', msg => {
       console.log('ActivityTitleChange', msg)
       this.activities.forEach(function (element) {
-        if (element.Target === msg.Data.Item.Target) {
-          element.Title = msg.Data.NewVal
+        if (element.Activity.Name === msg.Data.Item.Activity.Name) {
+          console.log('命中----------------------------')
+          element.Activity.Title = msg.Data.NewTitle
         }
       }, this)
     })

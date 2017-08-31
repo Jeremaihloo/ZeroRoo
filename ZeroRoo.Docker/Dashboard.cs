@@ -44,7 +44,11 @@ namespace ZeroRoo.Docker.Shapes
         {
             var msg = new AppServiceMessage("ZeroRoo.DefaultApp.Services.Open", new
                         {
-                            Activity = new BaseActivity() { Title = "新网页" },
+                            Activity = new BaseActivity()
+                            {
+                                Title = "新网页",
+                                Name = $"WebURL:{Convert.ToBase64String(Encoding.UTF8.GetBytes(targetUrl))}"
+                            },
                             Target = targetUrl
                         });
 
