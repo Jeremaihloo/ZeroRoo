@@ -20,8 +20,7 @@ export default {
   },
   watch: {
     src: function (newVal, oldVal) {
-      console.log('iframe src change', newVal, oldVal)
-
+      // console.log('iframe src change', newVal, oldVal)
     }
   },
   methods: {
@@ -33,8 +32,8 @@ export default {
       this.src = url
     },
     onFrameLoad () {
-      console.log('onFrameLoad')
-      console.log(this.$refs.iframe.contentDocument.title)
+      // console.log('onFrameLoad')
+      // console.log(this.$refs.iframe.contentDocument.title)
       this.$engine.call({
         Service: 'ZeroRoo.DefaultApp.Services.ActivityTitleChange',
         Data: {
@@ -42,28 +41,13 @@ export default {
           NewTitle: this.$refs.iframe.contentDocument.title
         }
       }, res => {
-        console.log('send success')
+        // console.log('send success')
       })
     }
   },
   components: {},
   mounted () {
-    console.log('AppActivity Mounted', this.item)
-    if (this.item) {
-      this.url = this.item.Target
-      this.go()
-    }
-    // var sd = new StartDrag(this.$refs.header, this.$refs.main)
-    // StartDrag(this.$refs.header, this.$refs.main)
-    // console.log(sd)
-    console.log('-------------------------------------', this.$refs.iframe.contentWindow)
-    console.log(this.$refs.iframe.contentWindow.frames)
-    this.$refs.iframe.contentWindow.onload = function () {
-      console.log('iframe onload')
-    }
-  },
-  ready () {
-    console.log('AppActivity Ready', this.item)
+    // console.log('AppActivity Mounted', this.item)
     if (this.item) {
       this.url = this.item.Target
       this.go()

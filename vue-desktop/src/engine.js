@@ -9,7 +9,7 @@ class Engine {
 
     let _this = this
     this.ws.onopen = (ev) => {
-      console.log('[ENGINE:ONOPEN]', ev)
+      console.log('[ENGINE:ONOPEN]')
       this.beforeOpen.forEach(function (msg) {
         console.log('[ENGINE:SEND_AFTER_ONOPEN]', msg)
         this.ws.send(JSON.stringify(msg))
@@ -17,10 +17,8 @@ class Engine {
     }
 
     this.ws.onmessage = (ev) => {
-      console.log('[ENGINE:ORIGINAL]', ev)
-
       let dataObj = JSON.parse(ev.data)
-      console.log('[ENGINE:ONMESSAGE]', dataObj.Service, ev)
+      console.log('[ENGINE:ONMESSAGE]', dataObj.Service, ev.data)
       let key = this.createSubscribeKey(dataObj)
       var callbacks = _this.subscribes[key]
       if (callbacks !== undefined && callbacks !== null) {

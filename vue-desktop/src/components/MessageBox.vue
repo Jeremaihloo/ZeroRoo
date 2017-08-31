@@ -18,7 +18,6 @@ export default {
   },
   mounted () {
     this.$engine.subscribe('ZeroRoo.DefaultApp.Services.MessageAlert', res => {
-      console.log(res)
       res.Enabled = true
       this.messages = Object.assign([res], this.messages)
     })

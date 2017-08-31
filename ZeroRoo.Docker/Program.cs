@@ -40,7 +40,13 @@ namespace ZeroRoo.Docker
                 PersistSessionCookies = true,
                 UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36",
                 UserDataPath = "/userData"
-        };
+            };
+            //if(!File.Exists("PepperFlash/26.0.0.151/pepflashplayer.dll"))
+            //{
+            //    throw new Exception("sffs");
+            //}
+            //settings.CefCommandLineArgs.Add("ppapi-flash-path", "PepperFlash/26.0.0.151/pepflashplayer.dll");
+            //settings.CefCommandLineArgs.Add("ppapi-flash-version", "26.0.0.151");
 
             //Perform dependency check to make sure all relevant resources are in our output directory.
             Cef.Initialize(settings, performDependencyCheck: true, browserProcessHandler: null);

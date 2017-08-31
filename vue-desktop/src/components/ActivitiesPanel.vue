@@ -65,9 +65,9 @@ export default {
       this.select(this.activities.length - 1)
     }
     this.$engine.subscribe('ZeroRoo.DefaultApp.Services.Open', msg => {
-      console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.DefaultApp.Services.Open', msg)
+      // console.log('ActivitiesContainer $engine.subscribe', 'ZeroRoo.DefaultApp.Services.Open', msg)
       let activityItem = msg.Data
-      console.log(this.activities, activityItem)
+      // console.log(this.activities, activityItem)
       var find = this.activities.filter(item => {
         return item.Target === activityItem.Target
       })
@@ -81,10 +81,10 @@ export default {
       }
     })
     this.$engine.subscribe('ZeroRoo.DefaultApp.Services.ActivityTitleChange', msg => {
-      console.log('ActivityTitleChange', msg)
+      // console.log('ActivityTitleChange', msg)
       this.activities.forEach(function (element) {
         if (element.Activity.Name === msg.Data.Item.Activity.Name) {
-          console.log('命中----------------------------')
+          // console.log('命中----------------------------')
           element.Activity.Title = msg.Data.NewTitle
         }
       }, this)
@@ -100,7 +100,7 @@ export default {
       })
       this.activities[this.activeIndex].Active = true
       this.activities = Object.assign([], this.activities)
-      console.log('[ActivitiesPanel:SELECT_CURRENT_TAB]', this.activeIndex, this.activities)
+      // console.log('[ActivitiesPanel:SELECT_CURRENT_TAB]', this.activeIndex, this.activities)
     },
     select (index) {
       // console.log('onSelect', index)
@@ -112,6 +112,13 @@ export default {
         return
       }
       let s = []
+      console.log(this.activities)
+      console.log(this.$children)
+      this.$children.forEach(function (element) {
+        if (element.item.Activity.Name === this.activities[this.activeIndex].Activity.Name) {
+          element.$destroy()
+        }
+      }, this)
       for (var index = 0; index < this.activities.length; index++) {
         if (index !== this.activeIndex) {
           s.push(this.activities[index])
