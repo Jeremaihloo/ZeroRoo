@@ -13,6 +13,7 @@ namespace ZeroRoo.DefaultApp.Activities
         public ApplicationExitActivity()
         {
             this.Title = "退出系统";
+            this.RoutePattern = "";
         }
     }
 }

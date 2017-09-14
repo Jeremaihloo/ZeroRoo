@@ -38,7 +38,11 @@ namespace ZeroRoo.Apps.Services
             }
             catch(Exception ex)
             {
-                message.Data = ex.Message;
+                message.Data = new
+                {
+                    ErrMsg = ex.Message,
+                    ErrStack = ex.StackTrace
+                };
                 message.Ok = false;
             }
             SendMessage(message);

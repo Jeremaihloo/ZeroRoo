@@ -13,8 +13,12 @@ require('normalize-css')
 
 Vue.config.productionTip = false
 
-import Engine from './engine'
+import Engine from 'zeroroo-desktop'
+console.log(Engine)
 Vue.use(Engine)
+
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 /* eslint-disable no-new */
 new Vue({

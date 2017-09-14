@@ -16,7 +16,7 @@ namespace ZeroRoo.DefaultApp.Services
 
         public GetDesktopFiles(IFileSystem fileSystem)
         {
-            this.fileSystem = fileSystem;    
+            this.fileSystem = fileSystem;
         }
 
         public string GetIconLocation(string filename)
@@ -32,24 +32,31 @@ namespace ZeroRoo.DefaultApp.Services
             return file.PhysicalPath;
         }
 
+        struct DesktopFile
+        {
+            public string Name;
+            public string Target;
+            public bool IsDir;
+            public string Icon;
+        }
         public void OnService(AppServiceRoute route, AppServiceMessage msg)
         {
-            throw new NotImplementedException();
+            var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
+            var contents = fileProvider
+                            .GetDirectoryContents("")
+                            .Select(h => new DesktopFile
+                            {
+                                Name = h.Name,
+                                Target = h.PhysicalPath,
+                                IsDir = h.IsDirectory,
+                                Icon = ""
+                            }).ToArray();
+            //for (var i = 0; i < contents.Length; i++)
+            //{
+            //    contents[i].Icon = GetIconLocation(contents[i].Target);
+            //}
+            msg.Data = contents;
+            route.SendMessage(msg);
         }
-
-        //public DesktopFileButton[] GetDesktopFiles()
-        //{
-        //    var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
-        //    var contents = fileProvider
-        //                    .GetDirectoryContents("")
-        //                    .Select(h => new DesktopFileButton()
-        //                    {
-        //                        Name = h.Name,
-        //                        FileUri = h.PhysicalPath,
-        //                        IsDir = h.IsDirectory,
-        //                        Icon = GetIconLocation(h.PhysicalPath)
-        //                    }).ToArray();
-        //    return contents;
-        //}
     }
 }
