@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDE6708A-5D50-4287-8350-54230FD8D575}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ZeroRoo.ZTests</RootNamespace>
+    <AssemblyName>ZeroRoo.ZTests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.8.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Console.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Debug">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Debug.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.2.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppServiceServerTest.cs" />
+    <Compile Include="TestLoggerFactory.cs" />
+    <Compile Include="ZeroRooTests.cs" />
+    <Compile Include="AppTests\AppLibraryServiceTests.cs" />
+    <Compile Include="AppTests\ExtensionManagerTests.cs" />
+    <Compile Include="AppTests\ExtensionProviderTests.cs" />
+    <Compile Include="Commands\CommandTests.cs" />
+    <Compile Include="Events\EventBusTests.cs" />
+    <Compile Include="Laughing\LaughingTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\PinyinBuilderTests.cs" />
+    <Compile Include="Utils\UnitTest1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppTests\TestApps\Sample1\App.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTests\TestApps\Sample2\Two.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTests\TestApps\Sample3\App.txt" />
+    <Content Include="AppTests\TestApps\Sample4\App.txt" />
+    <Content Include="AppTests\TestDependencyApps\Sample1\App.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTests\TestDependencyApps\Sample2\App.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppTests\TestDependencyApps\Sample3\App.txt" />
+    <Content Include="AppTests\TestDependencyApps\Sample4\App.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppTests\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Events\" />
+    <Folder Include="Laughing\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
+      <Project>{D1E3B18D-0683-492F-9F0F-4E4EA40F39BD}</Project>
+      <Name>ZeroRoo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">
+      <Project>{3E14B0D3-9996-4124-B87F-4750E7479544}</Project>
+      <Name>ZeroRoo.Apps.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Apps\ZeroRoo.Apps.csproj">
+      <Project>{3D7EFC12-0D9A-4D6A-B2E4-E51EDB27333B}</Project>
+      <Name>ZeroRoo.Apps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">
+      <Project>{25BB5974-8E72-4B23-BA31-4D51FA620195}</Project>
+      <Name>ZeroRoo.Apps.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Command\ZeroRoo.Commands.csproj">
+      <Project>{A8F37693-21A7-4440-A10A-AB5E6B5719A7}</Project>
+      <Name>ZeroRoo.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.DbConfigurations\ZeroRoo.Dbs.csproj">
+      <Project>{4AB0CB12-CE32-4F7A-8C86-E5B995503B6A}</Project>
+      <Name>ZeroRoo.Dbs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
+      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
+      <Name>ZeroRoo.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Events\ZeroRoo.Events.csproj">
+      <Project>{E7C3E6B0-9591-42D6-B7DB-AFF0DC334A95}</Project>
+      <Name>ZeroRoo.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Laugh\ZeroRoo.Laughing.csproj">
+      <Project>{50C4D456-943B-405E-ADEE-E9314763B7D2}</Project>
+      <Name>ZeroRoo.Laughing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
+      <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>
+      <Name>ZeroRoo.Docker.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
+      <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
+      <Name>ZeroRoo.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
