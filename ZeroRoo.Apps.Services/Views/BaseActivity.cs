@@ -35,7 +35,8 @@ namespace ZeroRoo.Apps.Services
         public BaseActivity()
         {
             this.Name = this.GetType().FullName;
-            this.Title = "新内容";
+            this.title = "新内容";
+            this.routePattern = this.GetType().FullName;
         }
 
         public virtual void OnView(HttpListenerRequest req, HttpListenerResponse res)
@@ -53,7 +54,7 @@ namespace ZeroRoo.Apps.Services
         {
             var content = Encoding.UTF8.GetBytes("This is BaseActivity !");
 
-            if (viewPath.StartsWith("/"))
+            if (viewPath.StartsWith("/", StringComparison.OrdinalIgnoreCase))
             {
                 viewPath = viewPath.Substring(1);
             }

@@ -5784,9 +5784,9 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-zeroroo-desktop@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/zeroroo-desktop/-/zeroroo-desktop-0.0.1.tgz#8a954f8cb6f9ee0bdc3fd42a04736ddffda59deb"
+zeroroo-desktop@^0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npm.taobao.org/zeroroo-desktop/download/zeroroo-desktop-0.0.2.tgz#bcb9863a347ea8be7682f9838d2c492bbedc0259"
   dependencies:
     babel "^6.23.0"
     babel-core "^6.26.0"

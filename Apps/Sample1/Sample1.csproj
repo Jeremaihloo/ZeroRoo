@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\ZeroRoo.Docker\bin\x64\Debug\Apps\Sample1\</OutputPath>
+    <OutputPath>..\..\ZeroRoo.Running\bin\Debug\Apps\Sample1</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
