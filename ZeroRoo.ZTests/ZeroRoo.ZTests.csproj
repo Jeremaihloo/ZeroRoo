@@ -112,6 +112,7 @@
     <Folder Include="Laughing\" />
     <Folder Include="Properties\" />
     <Folder Include="Utils\" />
+    <Folder Include="Laundry15\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">

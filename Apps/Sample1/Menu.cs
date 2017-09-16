@@ -11,10 +11,7 @@ namespace Sample1
     {
         public void BuildNavigation(NavigationBuilder builder)
         {
-            for (var i = 0; i < 20; i++)
-            {
-                builder.Add("Sample1", "Chrome", "Chrome", "chrome.png", x => { }, "sample");
-            }
+            builder.Add("Sample1", "Chrome", "Sample", "chrome.png", x => { }, "sample");
         }
     }
 }

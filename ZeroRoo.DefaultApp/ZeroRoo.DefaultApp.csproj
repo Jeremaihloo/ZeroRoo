@@ -96,6 +96,10 @@
     <Compile Include="Services\GetVersion.cs" />
     <Compile Include="Services\Open.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Activities\TextEditorActivity.cs" />
+    <Compile Include="Activities\ExcelEditorActivity.cs" />
+    <Compile Include="Activities\WordEditorActivity.cs" />
+    <Compile Include="Activities\CalculatorActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">
@@ -120,7 +124,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Activities\ApplicationExitActivity.html" />
     <Content Include="App.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
