@@ -15,6 +15,9 @@ import locale from 'uiv/src/locale/lang/zh-CN'
 
 Vue.use(uiv, { locale })
 
+import Engine from 'zeroroo-desktop'
+Vue.use(Engine)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

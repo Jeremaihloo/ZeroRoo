@@ -1,4 +1,4 @@
-﻿Name: ZeroRoo.Apps.Laundry
+﻿Name: ZeroRoo.Apps.LaundryAgent
 Author: Bertrand Le Roy
 Description:
     This plug-in replaces

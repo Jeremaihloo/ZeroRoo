@@ -13,7 +13,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>..\..\ZeroRoo.Running\bin\Debug\Apps\ZeroRoo.Apps.LaundryAgent</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -21,7 +21,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
+    <OutputPath>..\..\ZeroRoo.Running\bin\Debug\Apps\ZeroRoo.Apps.LaundryAgent</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -34,15 +34,60 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection">
       <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\..\packages\WebSocketSharp.1.0.3-rc11\lib\websocket-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LaundryAgentActivity.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="LaundryAgent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">
+      <Project>{3E14B0D3-9996-4124-B87F-4750E7479544}</Project>
+      <Name>ZeroRoo.Apps.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Apps\ZeroRoo.Apps.csproj">
+      <Project>{3D7EFC12-0D9A-4D6A-B2E4-E51EDB27333B}</Project>
+      <Name>ZeroRoo.Apps</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Apps.Abstractions\ZeroRoo.Apps.Abstractions.csproj">
+      <Project>{25BB5974-8E72-4B23-BA31-4D51FA620195}</Project>
+      <Name>ZeroRoo.Apps.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo\ZeroRoo.csproj">
+      <Project>{D1E3B18D-0683-492F-9F0F-4E4EA40F39BD}</Project>
+      <Name>ZeroRoo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
+      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
+      <Name>ZeroRoo.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
+      <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>
+      <Name>ZeroRoo.Docker.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
+      <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
+      <Name>ZeroRoo.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="agent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

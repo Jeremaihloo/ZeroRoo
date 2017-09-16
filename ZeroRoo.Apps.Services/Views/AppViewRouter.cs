@@ -18,10 +18,10 @@ namespace ZeroRoo.Apps.Services
 
         public IActivity Match(string path)
         {
-            foreach(var item in this.activities)
+            foreach (var item in this.activities)
             {
-                var reg = new Regex(item.RoutePattern);
-                if(reg.IsMatch(path.ToLower()))
+                var reg = new Regex(item.RoutePattern, RegexOptions.IgnoreCase);
+                if (reg.IsMatch(path.ToLower()))
                 {
                     return item;
                 }

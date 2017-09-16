@@ -204,10 +204,14 @@ export default {
     },
     save () {
       this.$engine.call({
-        Service: 'ZeroRoo.Apps.LaundryAgent',
-        Data: this.editingData
+        Service: 'ZeroRoo.Apps.LaundryAgent.LaundryAgent',
+        Data: this.agentData
       }, res => {
-        this.editOpen = false
+        if (res.Ok) {
+          this.editOpen = false
+        } else {
+          alert('error')
+        }
       })
     }
   }
