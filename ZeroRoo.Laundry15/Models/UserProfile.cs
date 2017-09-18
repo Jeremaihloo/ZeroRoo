@@ -1,12 +1,14 @@
 ﻿
 using System;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
 
-    public class Vip
+    public class User
     {
         public int ID { get; set; }
+
+        public UserRole Role { get; set; }
 
         public string VipID { get; set; }
 
