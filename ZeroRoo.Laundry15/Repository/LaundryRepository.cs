@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Laundry.LibCore.Models;
+using ZeroRoo.Laundry15.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Laundry.LibCore.Repository
+namespace ZeroRoo.Laundry15.Repository
 {
     public class LaundryRepository
     {
@@ -20,9 +20,9 @@ namespace Laundry.LibCore.Repository
         public List<LaundryTicket> All()
         {
             return this.LaundryDbContext.LaundryTickets
-                .Include(item=>item.ClotheRecords)
-                    .ThenInclude(clothe=>clothe.FlawRecords)
-                .Include(item=>item.Vip)
+                .Include(item => item.ClotheRecords)
+                    .ThenInclude(clothe => clothe.FlawRecords)
+                .Include(item => item.Customer)
                 .ToList();
         }
 
@@ -52,11 +52,11 @@ namespace Laundry.LibCore.Repository
         {
             return this.LaundryDbContext.LaundryTickets
                 .Where(item => item.IDView.Contains(filter) ||
-                        item.Vip.Phone.Contains(filter) ||
-                        item.Vip.Name.Contains(filter))
+                        item.Customer.Phone.Contains(filter) ||
+                        item.Customer.Name.Contains(filter))
                 .Include(item => item.ClotheRecords)
                     .ThenInclude(clothe => clothe.FlawRecords)
-                .Include(item => item.Vip)
+                .Include(item => item.Customer)
                 .ToList();
         }
 
@@ -69,26 +69,26 @@ namespace Laundry.LibCore.Repository
             fee.FromVip = fromVip;
             fee.Account = fromCash + fromVip;
             fee.RealAccount = fee.Account;
-            fee.VipID = vipID;
+            fee.CustomerID = vipID;
             fee.TicketID = ticketID;
             this.LaundryDbContext.FeeRecords.Add(fee);
 
             //衣单
-            var ticket = this.LaundryDbContext.LaundryTickets.FirstOrDefault(item=>item.ID == ticketID);
+            var ticket = this.LaundryDbContext.LaundryTickets.FirstOrDefault(item => item.ID == ticketID);
             ticket.HasPay = true;
 
             this.LaundryDbContext.LaundryTickets.Update(ticket);
 
-            var vip = this.LaundryDbContext.Vips.FirstOrDefault(item => item.ID == vipID);
+            var vip = this.LaundryDbContext.UserProfiles.FirstOrDefault(item => item.ID == vipID);
             vip.Balance -= fee.FromVip;
 
-            this.LaundryDbContext.Vips.Update(vip);
+            this.LaundryDbContext.UserProfiles.Update(vip);
             this.LaundryDbContext.SaveChanges();
         }
 
         public void TakeOff(List<LaundryTicket> ticketList)
         {
-            foreach(var ticket in ticketList)
+            foreach (var ticket in ticketList)
             {
                 foreach (var item in ticket.ClotheRecords)
                 {
@@ -104,7 +104,7 @@ namespace Laundry.LibCore.Repository
 
         public void TakeOff(LaundryTicket ticket)
         {
-            foreach(var item in ticket.ClotheRecords)
+            foreach (var item in ticket.ClotheRecords)
             {
                 item.State = TicketClotheState.TakeOff;
                 this.LaundryDbContext.TicketClotheRecords.Update(item);
@@ -116,7 +116,7 @@ namespace Laundry.LibCore.Repository
 
         public void TakeOff(List<TicketClotheRecord> ticketClotheList)
         {
-            foreach(var item in ticketClotheList)
+            foreach (var item in ticketClotheList)
             {
                 item.State = TicketClotheState.TakeOff;
                 this.LaundryDbContext.TicketClotheRecords.Update(item);
@@ -131,8 +131,8 @@ namespace Laundry.LibCore.Repository
             this.LaundryDbContext.SaveChanges();
             var allCount = ticketClothe.LaundryTicket.ClotheRecords.Count;
             var hasTakeOff = ticketClothe.LaundryTicket.ClotheRecords.Where(item => item.State == TicketClotheState.TakeOff).Count();
-            var finish =  allCount == hasTakeOff;
-            if(finish)
+            var finish = allCount == hasTakeOff;
+            if (finish)
             {
                 ticketClothe.LaundryTicket.HasTakeOff = true;
                 this.LaundryDbContext.LaundryTickets.Update(ticketClothe.LaundryTicket);

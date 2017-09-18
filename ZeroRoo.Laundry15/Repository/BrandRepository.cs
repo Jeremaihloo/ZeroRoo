@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Laundry.LibCore.Models;
+using ZeroRoo.Laundry15.Models;
 
-namespace Laundry.LibCore.Repository
+namespace ZeroRoo.Laundry15.Repository
 {
     public class BrandRepository
     {

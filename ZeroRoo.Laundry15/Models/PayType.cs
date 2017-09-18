@@ -1,10 +1,10 @@
 ﻿using System;
 namespace ZeroRoo.Laundry15.Models
 {
-    public class PayType
+    public enum PayType
     {
-        public PayType()
-        {
-        }
+        Wechat = 0,
+        Alipay = 1,
+        Cash = 2
     }
 }

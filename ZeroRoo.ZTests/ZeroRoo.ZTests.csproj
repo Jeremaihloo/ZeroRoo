@@ -82,10 +82,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\PinyinBuilderTests.cs" />
     <Compile Include="Utils\UnitTest1.cs" />
+    <Compile Include="Laundry15\TestLaundry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppTests\TestApps\Sample1\App.txt">
@@ -158,6 +162,14 @@
     <ProjectReference Include="..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
       <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
       <Name>ZeroRoo.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Laundry15\ZeroRoo.Laundry15.csproj">
+      <Project>{83C82FD6-6C8F-45DF-A44C-C114714E421B}</Project>
+      <Name>ZeroRoo.Laundry15</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.Laundry15.Printing\ZeroRoo.Laundry15.Printing.csproj">
+      <Project>{99920F1A-B87C-4751-A6A7-2389B1B0E83A}</Project>
+      <Name>ZeroRoo.Laundry15.Printing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

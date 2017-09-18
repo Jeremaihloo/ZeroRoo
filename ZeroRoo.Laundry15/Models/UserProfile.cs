@@ -4,7 +4,7 @@ using System;
 namespace ZeroRoo.Laundry15.Models
 {
 
-    public class User
+    public class UserProfile
     {
         public int ID { get; set; }
 

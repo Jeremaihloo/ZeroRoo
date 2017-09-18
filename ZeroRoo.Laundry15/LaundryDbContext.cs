@@ -1,7 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using Laundry.LibCore.Models;
+ï»¿using Microsoft.EntityFrameworkCore;
+using ZeroRoo.Laundry15.Models;
 
-namespace Laundry.LibCore
+namespace ZeroRoo.Laundry15
 {
     public class LaundryDbContext : DbContext
     {
@@ -21,12 +21,12 @@ namespace Laundry.LibCore
 
         public DbSet<TicketClotheRecord> TicketClotheRecords { get; set; }
 
-        public DbSet<Vip> Vips { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
 
         public DbSet<ClotheCategory> ClotheCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        { 
+        {
             optionsBuilder.UseSqlite("Filename=./laundry.db");
         }
 
@@ -70,7 +70,7 @@ namespace Laundry.LibCore
             modelBuilder.Entity<FeeRecord>()
                 .HasIndex(item => item.IDView)
                 .IsUnique();
-            // µÚÒ»´ÎÊı¾İÇ¨ÒÆÒª×¢ÊÍµô
+            // ç¬¬ä¸€æ¬¡æ•°æ®è¿ç§»è¦æ³¨é‡Šæ‰
             modelBuilder.Entity<FeeRecord>()
                 .Property(item => item.IDView)
                 .ValueGeneratedOnAdd()
@@ -103,7 +103,7 @@ namespace Laundry.LibCore
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("datetime('now', 'localtime')");
 
-            // µÚÒ»´ÎÊı¾İÇ¨ÒÆÒª×¢ÊÍµô
+            // ç¬¬ä¸€æ¬¡æ•°æ®è¿ç§»è¦æ³¨é‡Šæ‰
             modelBuilder.Entity<LaundryTicket>()
                 .Property(item => item.IDView)
                 .ValueGeneratedOnAdd()
@@ -118,24 +118,24 @@ namespace Laundry.LibCore
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("datetime('now', 'localtime')");
 
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .Property(item => item.CreateAt)
                 .ValueGeneratedOnAdd()
                 .HasDefaultValueSql("datetime('now', 'localtime')");
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .Property(item => item.UpdateAt)
                 .ValueGeneratedOnAddOrUpdate()
                 .HasDefaultValueSql("datetime('now', 'localtime')");
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .HasIndex(item => item.Phone)
                 .IsUnique();
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .Ignore(item => item.FeeSum);
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .Ignore(item => item.TicketCount);
-            modelBuilder.Entity<Vip>()
+            modelBuilder.Entity<UserProfile>()
                 .Ignore(item => item.ClotheCount);
-            
+
             modelBuilder.Entity<ClotheCategory>()
                 .Property(item => item.CreateAt)
                 .ValueGeneratedOnAdd()

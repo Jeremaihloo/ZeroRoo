@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
     public class LaundryTicket
     {
@@ -14,12 +14,12 @@ namespace Laundry.LibCore.Models
 
         public string IDView { get; set; }
 
-        public int VipID { get; set; }
-        public Vip Vip { get; set; }
+        public int CustomerID { get; set; }
+        public UserProfile Customer { get; set; }
 
         public bool HasPay { get; set; }
 
-        //public FeeRecord FeeRecord { get; set; }
+        public FeeRecord FeeRecord { get; set; }
 
         /// <summary>
         /// 是否已经取回
@@ -36,7 +36,7 @@ namespace Laundry.LibCore.Models
 
         public string Mark { get; set; }
 
-        public List<TicketClotheRecord> ClotheRecords { get; set; }
+        public IList<TicketClotheRecord> ClotheRecords { get; set; }
 
         public DateTime CreateAt { get; set; }
 

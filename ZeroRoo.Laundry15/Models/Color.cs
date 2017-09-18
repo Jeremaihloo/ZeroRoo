@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
     /// <summary>
     /// 颜色

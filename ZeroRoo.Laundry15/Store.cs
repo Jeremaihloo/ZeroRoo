@@ -5,7 +5,7 @@ using System.Text;
 
 using System.IO;
 
-namespace Laundry.LibCore
+namespace ZeroRoo.Laundry15
 {
     public class Store
     {

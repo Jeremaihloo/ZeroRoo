@@ -1,4 +1,4 @@
-﻿namespace Laundry.LibCore.Models
+﻿namespace ZeroRoo.Laundry15.Models
 {
     /// <summary>
     /// 消费类型

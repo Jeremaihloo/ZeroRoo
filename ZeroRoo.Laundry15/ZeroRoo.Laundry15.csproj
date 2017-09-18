@@ -122,11 +122,6 @@
   <ItemGroup>
     <Compile Include="FeeCalculator.cs" />
     <Compile Include="LaundryDbContext.cs" />
-    <Compile Include="Migrations\20161226080529_Create.cs" />
-    <Compile Include="Migrations\20161226080529_Create.Designer.cs">
-      <DependentUpon>20161226080529_Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\LaundryDbContextModelSnapshot.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\ClotheCategory.cs" />
     <Compile Include="Models\Color.cs" />
@@ -136,11 +131,10 @@
     <Compile Include="Models\FlawRecord.cs" />
     <Compile Include="Models\GetClotheWayType.cs" />
     <Compile Include="Models\LaundryTicket.cs" />
-    <Compile Include="Models\NewVipPost.cs" />
     <Compile Include="Models\Price.cs" />
     <Compile Include="Models\ReportChartView.cs" />
     <Compile Include="Models\TicketClotheRecord.cs" />
-    <Compile Include="Models\Vip.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\ClotheCategoryRepository.cs" />
@@ -150,7 +144,7 @@
     <Compile Include="Repository\LaundryRepository.cs" />
     <Compile Include="Repository\PriceRepository.cs" />
     <Compile Include="Repository\TicketClotheRecordRepository.cs" />
-    <Compile Include="Repository\VipRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Store.cs" />
     <Compile Include="VersionMigrations\Data\Migrator.cs" />
     <Compile Include="VersionMigrations\Data\OldDbContext.cs" />
@@ -164,6 +158,9 @@
     <Compile Include="VersionMigrations\OldModel\YanSe.cs" />
     <Compile Include="VersionMigrations\OldModel\YiFu.cs" />
     <Compile Include="VersionMigrations\OldModel\YiFuPriceType.cs" />
+    <Compile Include="Models\UserRole.cs" />
+    <Compile Include="Models\PayType.cs" />
+    <Compile Include="Models\TicketClotheState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

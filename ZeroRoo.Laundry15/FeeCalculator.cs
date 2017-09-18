@@ -1,11 +1,11 @@
-﻿using Laundry.LibCore.Models;
+﻿using ZeroRoo.Laundry15.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Laundry.LibCore
+namespace ZeroRoo.Laundry15
 {
     public class FeeCalculator
     {

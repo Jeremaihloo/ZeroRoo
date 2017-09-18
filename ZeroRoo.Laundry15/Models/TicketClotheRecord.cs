@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
-    public enum TicketClotheState
-    {
-        NotClean = 0,
-        HasClean = 1,
-        TakeOff = 2
-    }
-    
     public class TicketClotheRecord
     {
 
@@ -29,7 +22,7 @@ namespace Laundry.LibCore.Models
         public string Brand { get; set; }
 
         public decimal Price { get; set; }
-        
+
         public List<FlawRecord> FlawRecords { get; set; }
 
         public string Mark { get; set; }

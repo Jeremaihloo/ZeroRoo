@@ -1,4 +1,4 @@
-using Laundry.LibCore;
+﻿using ZeroRoo.Laundry15;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,7 +68,7 @@ namespace Laundry.DbMigration
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
         public event EventHandler<string> NewStep;
-        
+
         public int StepCount { get { return this.Steps.ToList().Count; } }
 
         public Exception CreateDataBase()
@@ -79,14 +79,14 @@ namespace Laundry.DbMigration
                 DatabaseFacade d = new DatabaseFacade(newDbContext);
                 d.Migrate();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
             return null;
         }
-        
-        Laundry.LibCore.Models.Vip emptyCustomer = new Laundry.LibCore.Models.Vip();
+
+        ZeroRoo.Laundry15.Models.UserProfile emptyCustomer = new ZeroRoo.Laundry15.Models.UserProfile();
 
         public Exception MigrationVips()
         {
@@ -95,7 +95,7 @@ namespace Laundry.DbMigration
                 emptyCustomer.Name = "未知";
                 emptyCustomer.Address = "";
                 emptyCustomer.Phone = "000";
-                newDbContext.Vips.Add(emptyCustomer);
+                newDbContext.UserProfiles.Add(emptyCustomer);
                 newDbContext.SaveChanges();
 
                 var oldUserList = oldDbContext.UCC_User.ToList();
@@ -103,24 +103,24 @@ namespace Laundry.DbMigration
 
                 foreach (var item in oldUserList)
                 {
-                    var newItem = new Laundry.LibCore.Models.Vip();
+                    var newItem = new ZeroRoo.Laundry15.Models.UserProfile();
                     newItem.Address = item.Address;
                     newItem.Balance = (decimal)item.Money;
                     newItem.VipID = item.UserID;
                     newItem.Name = item.UserName;
                     newItem.Phone = item.PhoneNo;
                     newItem.Sex = item.Sex;
-                    newDbContext.Vips.Add(newItem);
+                    newDbContext.UserProfiles.Add(newItem);
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
             return null;
         }
-        
+
         public Exception MigrationFlaws()
         {
             try
@@ -131,13 +131,13 @@ namespace Laundry.DbMigration
 
                 foreach (var item in oldFlawList)
                 {
-                    var newItem = new Laundry.LibCore.Models.Flaw();
+                    var newItem = new ZeroRoo.Laundry15.Models.Flaw();
                     newItem.Text = item.XiaCiContent;
                     newDbContext.Flaws.Add(newItem);
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -153,13 +153,13 @@ namespace Laundry.DbMigration
 
                 foreach (var item in oldColorList)
                 {
-                    var newItem = new Laundry.LibCore.Models.Color();
+                    var newItem = new ZeroRoo.Laundry15.Models.Color();
                     newItem.Text = item.YanSeName;
                     newDbContext.Colors.Add(newItem);
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -173,20 +173,20 @@ namespace Laundry.DbMigration
                 var s = new string[] { "服饰类", "皮草类", "织补类", "鞋子类", "车饰类", "单烫类", "家纺类" };
                 foreach (var item in s)
                 {
-                    var cate = new Laundry.LibCore.Models.ClotheCategory();
+                    var cate = new ZeroRoo.Laundry15.Models.ClotheCategory();
                     cate.Text = item;
                     newDbContext.ClotheCategories.Add(cate);
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
             return null;
         }
 
-        Laundry.LibCore.Models.ClotheCategory emptyCategory = new Laundry.LibCore.Models.ClotheCategory();
+        ZeroRoo.Laundry15.Models.ClotheCategory emptyCategory = new ZeroRoo.Laundry15.Models.ClotheCategory();
 
         public Exception MigrationPrices()
         {
@@ -200,7 +200,7 @@ namespace Laundry.DbMigration
 
                 foreach (var item in oldClotheInfoList)
                 {
-                    var newItem = new Laundry.LibCore.Models.Price();
+                    var newItem = new ZeroRoo.Laundry15.Models.Price();
                     newItem.CanDiscount = true;
                     newItem.IsDiscount = item.IsZheKou == 1;
                     newItem.Category = newDbContext.ClotheCategories.Where(a => a.Text == item.Cat).FirstOrDefault();
@@ -216,7 +216,7 @@ namespace Laundry.DbMigration
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -232,13 +232,13 @@ namespace Laundry.DbMigration
 
                 foreach (var item in oldBrandList)
                 {
-                    var newItem = new Laundry.LibCore.Models.Brand();
+                    var newItem = new ZeroRoo.Laundry15.Models.Brand();
                     newItem.Text = item.PinPaiName;
                     newDbContext.Brands.Add(newItem);
                 }
                 newDbContext.SaveChanges();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -249,15 +249,15 @@ namespace Laundry.DbMigration
         {
             try
             {
-                var emptyTicket = new Laundry.LibCore.Models.LaundryTicket();
-                emptyTicket.GetClotheWay = LibCore.Models.ClotheWayType.Self;
+                var emptyTicket = new ZeroRoo.Laundry15.Models.LaundryTicket();
+                emptyTicket.GetClotheWay = ZeroRoo.Laundry15.Models.ClotheWayType.Self;
                 emptyTicket.HasPay = false;
                 emptyTicket.HasTakeOff = false;
                 emptyTicket.PlanTakeAwayAt = DateTime.Now;
                 emptyTicket.CreateAt = DateTime.Now;
                 emptyTicket.Mark = "";
                 emptyTicket.IDView = "";
-                emptyTicket.Vip = emptyCustomer;
+                emptyTicket.Customer = emptyCustomer;
 
                 if (!newDbContext.LaundryTickets.Any())
                 {
@@ -269,19 +269,19 @@ namespace Laundry.DbMigration
 
                     foreach (var item in oldTicketList)
                     {
-                        var newItem = new Laundry.LibCore.Models.LaundryTicket();
-                        newItem.GetClotheWay = item.PutWay == "自提" ? Laundry.LibCore.Models.ClotheWayType.Self : Laundry.LibCore.Models.ClotheWayType.StoreTo;
+                        var newItem = new ZeroRoo.Laundry15.Models.LaundryTicket();
+                        newItem.GetClotheWay = item.PutWay == "自提" ? ZeroRoo.Laundry15.Models.ClotheWayType.Self : ZeroRoo.Laundry15.Models.ClotheWayType.StoreTo;
                         newItem.HasPay = item.MoneyState == "已付" ? true : false;
                         newItem.HasTakeOff = item.State == "已取" ? true : false;
                         newItem.PlanTakeAwayAt = item.QuYiDateTime;
                         newItem.CreateAt = item.ShouYiDateTime;
                         newItem.Mark = item.BeiZhu;
                         newItem.IDView = item.TicketID;
-                        newItem.Vip = newDbContext.Vips.Where(i => i.VipID == item.UserID).FirstOrDefault();
+                        newItem.Customer = newDbContext.UserProfiles.Where(i => i.VipID == item.UserID).FirstOrDefault();
                         //如果找不到这个用户，创建非VIP客户用户
-                        if (newItem.Vip == null)
+                        if (newItem.Customer == null)
                         {
-                            newItem.Vip = emptyCustomer;
+                            newItem.Customer = emptyCustomer;
                         }
                         newDbContext.LaundryTickets.Add(newItem);
                     }
@@ -289,7 +289,7 @@ namespace Laundry.DbMigration
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -300,7 +300,7 @@ namespace Laundry.DbMigration
         {
             try
             {
-                var emptyFeeRecord = new Laundry.LibCore.Models.FeeRecord();
+                var emptyFeeRecord = new ZeroRoo.Laundry15.Models.FeeRecord();
 
                 if (!newDbContext.FeeRecords.Any())
                 {
@@ -309,8 +309,8 @@ namespace Laundry.DbMigration
                     emptyFeeRecord.Account = 0;
                     emptyFeeRecord.GiftAccount = 0;
                     emptyFeeRecord.Mark = "未付款";
-                    emptyFeeRecord.Vip = emptyCustomer;
-                    emptyFeeRecord.FeeType = Laundry.LibCore.Models.FeeType.Empty;
+                    emptyFeeRecord.Customer = emptyCustomer;
+                    emptyFeeRecord.FeeType = ZeroRoo.Laundry15.Models.FeeType.Empty;
                     newDbContext.FeeRecords.Add(emptyFeeRecord);
                     newDbContext.SaveChanges();
 
@@ -319,33 +319,33 @@ namespace Laundry.DbMigration
 
                     foreach (var item in oldFeeRecordList)
                     {
-                        var newItem = new Laundry.LibCore.Models.FeeRecord();
+                        var newItem = new ZeroRoo.Laundry15.Models.FeeRecord();
                         newItem.IDView = item.MoneyID;
                         newItem.Mark = item.BeiZhu;
                         newItem.GiftAccount = (decimal)item.ZengSongMoney;
                         newItem.CreateAt = item.MoneyTime;
-                        newItem.Vip = newDbContext.Vips.Where(i => i.Name == item.UserName).FirstOrDefault();
+                        newItem.Customer = newDbContext.UserProfiles.Where(i => i.Name == item.UserName).FirstOrDefault();
                         //如果找不到这个用户，创建非VIP客户用户
-                        if (newItem.Vip == null)
+                        if (newItem.Customer == null)
                         {
-                            newItem.Vip = emptyCustomer;
+                            newItem.Customer = emptyCustomer;
                         }
                         if (item.ShiShouMoney > 0)
                         {
                             if (item.ZengSongMoney > 0)
                             {
-                                newItem.FeeType = Laundry.LibCore.Models.FeeType.CreateVip;
+                                newItem.FeeType = ZeroRoo.Laundry15.Models.FeeType.CreateVip;
                             }
                             else
                             {
-                                newItem.FeeType = Laundry.LibCore.Models.FeeType.Recharge;
+                                newItem.FeeType = ZeroRoo.Laundry15.Models.FeeType.Recharge;
                             }
                             newItem.Account = (decimal)item.Money;
                             newItem.RealAccount = (decimal)item.ShiShouMoney;
                         }
                         else
                         {
-                            newItem.FeeType = Laundry.LibCore.Models.FeeType.LuandryTicket;
+                            newItem.FeeType = ZeroRoo.Laundry15.Models.FeeType.LuandryTicket;
                             newItem.Account = -(decimal)item.Money;
                             newItem.RealAccount = -(decimal)item.ShiShouMoney;
                         }
@@ -361,7 +361,7 @@ namespace Laundry.DbMigration
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -372,8 +372,8 @@ namespace Laundry.DbMigration
         {
             try
             {
-                var emptyBrand = new Laundry.LibCore.Models.Brand();
-                var emptyColor = new Laundry.LibCore.Models.Color();
+                var emptyBrand = new ZeroRoo.Laundry15.Models.Brand();
+                var emptyColor = new ZeroRoo.Laundry15.Models.Color();
                 if (!newDbContext.TicketClotheRecords.Any())
                 {
                     emptyBrand.Text = "empty";
@@ -389,10 +389,10 @@ namespace Laundry.DbMigration
 
                     foreach (var item in oldTicketClotheRecordList)
                     {
-                        var newItem = new Laundry.LibCore.Models.TicketClotheRecord();
+                        var newItem = new ZeroRoo.Laundry15.Models.TicketClotheRecord();
                         newItem.Brand = item.PinPai;
                         newItem.Color = item.Color;
-                        newItem.FlawRecords = new List<Laundry.LibCore.Models.FlawRecord>();
+                        newItem.FlawRecords = new List<ZeroRoo.Laundry15.Models.FlawRecord>();
                         var flawArr = item.XiaCi.Split(',');
                         foreach (var f in flawArr)
                         {
@@ -401,12 +401,12 @@ namespace Laundry.DbMigration
                             var find = newDbContext.Flaws.Where(t => f.Contains(t.Text)).FirstOrDefault();
                             if (find == null)
                             {
-                                find = new Laundry.LibCore.Models.Flaw();
+                                find = new ZeroRoo.Laundry15.Models.Flaw();
                                 find.Text = f;
                                 newDbContext.Flaws.Add(find);
                                 newDbContext.SaveChanges();
                             }
-                            var findR = new Laundry.LibCore.Models.FlawRecord();
+                            var findR = new ZeroRoo.Laundry15.Models.FlawRecord();
                             findR.Text = f;
                             newItem.FlawRecords.Add(findR);
                         }
@@ -423,7 +423,7 @@ namespace Laundry.DbMigration
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex;
             }
@@ -442,7 +442,7 @@ namespace Laundry.DbMigration
             logger.Info("开始数据更新");
 
             Exception ex = null;
-            foreach(var item in this.Steps)
+            foreach (var item in this.Steps)
             {
                 ex = item.Value();
                 if (ex != null)

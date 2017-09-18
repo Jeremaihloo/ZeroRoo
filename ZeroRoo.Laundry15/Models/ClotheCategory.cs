@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Laundry.LibCore.Models;
+using ZeroRoo.Laundry15.Models;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
     public class ClotheCategory
     {

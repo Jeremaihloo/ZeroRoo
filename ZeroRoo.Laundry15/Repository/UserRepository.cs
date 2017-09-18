@@ -17,29 +17,29 @@ namespace ZeroRoo.Laundry15.Repository
             this.LaundryDbContext = new LaundryDbContext();
         }
 
-        public User Find(int id)
+        public UserProfile Find(int id)
         {
-            return this.LaundryDbContext.Users.FirstOrDefault(item => item.ID == id);
+            return this.LaundryDbContext.UserProfiles.FirstOrDefault(item => item.ID == id);
         }
 
-        public User FindByVipPhone(string phone)
+        public UserProfile FindByVipPhone(string phone)
         {
-            return this.LaundryDbContext.Users.FirstOrDefault(item => item.Phone == phone);
+            return this.LaundryDbContext.UserProfiles.FirstOrDefault(item => item.Phone == phone);
         }
 
-        public User FindByVipID(string vipID)
+        public UserProfile FindByVipID(string vipID)
         {
-            return this.LaundryDbContext.Users.FirstOrDefault(item => item.VipID == vipID);
+            return this.LaundryDbContext.UserProfiles.FirstOrDefault(item => item.VipID == vipID);
         }
 
-        public List<User> List()
+        public List<UserProfile> List()
         {
-            return this.LaundryDbContext.Users.ToList();
+            return this.LaundryDbContext.UserProfiles.ToList();
         }
 
-        public List<User> Search(string filter)
+        public List<UserProfile> Search(string filter)
         {
-            var list = this.LaundryDbContext.Users
+            var list = this.LaundryDbContext.UserProfiles
                 .Where(item => item.Phone.Contains(filter) ||
                     item.Name.Contains(filter) ||
                     item.VipID.Contains(filter))
@@ -62,7 +62,8 @@ namespace ZeroRoo.Laundry15.Repository
             return list;
         }
 
-        //public void Save(NewVipPost post)
+        // TODO:
+        //public void Save(int uid, )
         //{
         //    post.VipInfo.Balance = post.FeeRecord.Account + post.FeeRecord.GiftAccount;
         //    post.FeeRecord.FeeType = FeeType.CreateVip;
@@ -71,19 +72,19 @@ namespace ZeroRoo.Laundry15.Repository
         //    this.LaundryDbContext.SaveChanges();
         //}
 
-        public void Save(User vip)
+        public void Save(UserProfile vip)
         {
-            this.LaundryDbContext.Users.Add(vip);
+            this.LaundryDbContext.UserProfiles.Add(vip);
             this.LaundryDbContext.SaveChanges();
         }
 
         public void Recharge(FeeRecord entity)
         {
-            entity.Customer = this.LaundryDbContext.Users.FirstOrDefault(item => item.ID == entity.CustomerID);
+            entity.Customer = this.LaundryDbContext.UserProfiles.FirstOrDefault(item => item.ID == entity.CustomerID);
             entity.BeforeUserBlance = entity.Customer.Balance;
             entity.AfterUserBlance = entity.Account + entity.GiftAccount;
             this.LaundryDbContext.FeeRecords.Add(entity);
-            this.LaundryDbContext.Users.Update(entity.Customer);
+            this.LaundryDbContext.UserProfiles.Update(entity.Customer);
             this.LaundryDbContext.SaveChanges();
         }
     }

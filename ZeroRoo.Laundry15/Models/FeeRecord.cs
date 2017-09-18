@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Laundry.LibCore.Models
+namespace ZeroRoo.Laundry15.Models
 {
     /// <summary>
     /// 顾客消费记录
@@ -59,11 +59,17 @@ namespace Laundry.LibCore.Models
         public string Mark { get; set; }
 
         /// <summary>
+        /// 支付方式
+        /// </summary>
+        /// <value>The type of the pay.</value>
+        public PayType PayType { get; set; }
+
+        /// <summary>
         /// 用户ID
         /// </summary>
-        public int VipID { get; set; }
-        public Vip Vip { get; set; }
-        
+        public int CustomerID { get; set; }
+        public UserProfile Customer { get; set; }
+
 
         public DateTime CreateAt { get; set; }
 
