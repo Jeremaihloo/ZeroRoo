@@ -11,7 +11,9 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "uiv": "^0.11.9",
+    "vfg-fields-for-uiv": "^0.0.2",
     "vue": "^2.4.2",
     "vue-router": "^2.7.0",
     "zeroroo-desktop": "^0.0.2"

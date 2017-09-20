@@ -47,6 +47,7 @@
     <Compile Include="LaundryAgentActivity.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="LaundryAgent.cs" />
+    <Compile Include="AgentCommands.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -79,6 +80,10 @@
     <ProjectReference Include="..\..\ZeroRoo.Utils\ZeroRoo.Utils.csproj">
       <Project>{C36482A3-190B-4E8B-B167-0395FF7CBB66}</Project>
       <Name>ZeroRoo.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ZeroRoo.Command\ZeroRoo.Commands.csproj">
+      <Project>{A8F37693-21A7-4440-A10A-AB5E6B5719A7}</Project>
+      <Name>ZeroRoo.Commands</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

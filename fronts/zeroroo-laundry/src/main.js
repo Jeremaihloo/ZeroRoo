@@ -6,6 +6,22 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+import * as uiv from 'uiv'
+import locale from 'uiv/src/locale/lang/zh-CN'
+Vue.use(uiv, { locale })
+
+import VueFormGenerator from 'vue-form-generator'
+Vue.use(VueFormGenerator)
+
+import VfgFieldsForUiv from 'vfg-fields-for-uiv'
+console.log(VfgFieldsForUiv)
+Vue.use(VfgFieldsForUiv)
+
+import Engine from 'zeroroo-desktop'
+Vue.use(Engine)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
