@@ -12,25 +12,25 @@ namespace ZeroRoo.DefaultApp.Services
 {
     public class GetDesktopFiles : IAppService
     {
-        private IFileSystem fileSystem;
+        private DefaultFilesMapping mappings;
 
-        public GetDesktopFiles(IFileSystem fileSystem)
+        public GetDesktopFiles(DefaultFilesMapping mappings)
         {
-            this.fileSystem = fileSystem;
+            this.mappings = mappings;
         }
 
-        public string GetIconLocation(string filename)
-        {
-            var icon = Icon.ExtractAssociatedIcon(filename);
-            var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
+        //public string GetIconLocation(string filename)
+        //{
+        //    var icon = Icon.ExtractAssociatedIcon(filename);
+        //    var fileProvider = new PhysicalFileProvider(this.mappings.Get(SpecialFileNames.Resource));
 
-            var file = fileProvider.GetFileInfo($"{filename}.icon");
-            if (!file.Exists)
-            {
-                icon.ToBitmap().Save(file.PhysicalPath);
-            }
-            return file.PhysicalPath;
-        }
+        //    var file = fileProvider.GetFileInfo($"{filename}.icon");
+        //    if (!file.Exists)
+        //    {
+        //        icon.ToBitmap().Save(file.PhysicalPath);
+        //    }
+        //    return file.PhysicalPath;
+        //}
 
         struct DesktopFile
         {
@@ -39,9 +39,10 @@ namespace ZeroRoo.DefaultApp.Services
             public bool IsDir;
             public string Icon;
         }
+
         public void OnService(AppServiceRoute route, AppServiceMessage msg)
         {
-            var fileProvider = new PhysicalFileProvider(this.fileSystem.GetDesktopFilesDir().PhysicalPath);
+            var fileProvider = new PhysicalFileProvider(this.mappings.Get(SpecialFileNames.Desktop));
             var contents = fileProvider
                             .GetDirectoryContents("")
                             .Select(h => new DesktopFile
@@ -51,10 +52,6 @@ namespace ZeroRoo.DefaultApp.Services
                                 IsDir = h.IsDirectory,
                                 Icon = ""
                             }).ToArray();
-            //for (var i = 0; i < contents.Length; i++)
-            //{
-            //    contents[i].Icon = GetIconLocation(contents[i].Target);
-            //}
             msg.Data = contents;
             route.SendMessage(msg);
         }

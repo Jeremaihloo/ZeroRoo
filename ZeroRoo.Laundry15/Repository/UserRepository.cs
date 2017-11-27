@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ZeroRoo.Laundry15.Repository
 {
-    public class VipRepository
+    public class UserRepository
     {
         public LaundryDbContext LaundryDbContext { get; set; }
 
-        public VipRepository()
+        public UserRepository()
         {
             this.LaundryDbContext = new LaundryDbContext();
         }

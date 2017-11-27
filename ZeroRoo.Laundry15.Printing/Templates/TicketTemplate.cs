@@ -1,8 +1,10 @@
-﻿using Laundry.LibCore.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using ZeroRoo.Laundry15;
+using ZeroRoo.Laundry15.Models;
 
 namespace Laundry.LibCore.Print.Templates
 {
@@ -13,10 +15,10 @@ namespace Laundry.LibCore.Print.Templates
         public TicketTemplate(LaundryTicket ticket)
         {
             this.Ticket = ticket;
-            this.storeInfo = new Store();
+            this.storeInfo = new StoreInfo();
         }
 
-        private Store storeInfo;
+        private StoreInfo storeInfo;
 
         public List<PrintLine> GetLines()
         {
@@ -42,12 +44,12 @@ namespace Laundry.LibCore.Print.Templates
                 lines.Add(new PrintLine("颜色：" + item.Color + "  品牌：" + item.Brand, 8));
                 lines.Add(new PrintLine("瑕疵：", 8));
                 var flawList = new List<string>();
-                foreach(var flaw in item.FlawRecords)
+                foreach (var flaw in item.FlawRecords)
                 {
                     flawList.Add(flaw.Text);
                 }
 
-                for(var j =0;j<flawList.Count;j++)
+                for (var j = 0; j < flawList.Count; j++)
                 {
                     StringBuilder sb = new StringBuilder();
                     for (int k = j; k < j + 3; k++)
@@ -78,7 +80,7 @@ namespace Laundry.LibCore.Print.Templates
             lines.Add(new PrintLine("总计金额：" + FeeCalculator.New().Calculate(this.Ticket), 14));
             lines.Add(new PrintLine("付款状态：" + (this.Ticket.HasPay ? "已付" : "未付"), 10));
             lines.Add(new PrintLine("                                        ", 8));
-            lines.Add(new PrintLine("卡上余额：" + this.Ticket.Vip.Balance + "元", 12));
+            lines.Add(new PrintLine("卡上余额：" + this.Ticket.Customer.Balance + "元", 12));
 
             lines.Add(new PrintLine("仿皮、皮草、地毯、单烫等不打折", 8));
             lines.Add(new PrintLine("本店地址: " + this.storeInfo.Address, 8));

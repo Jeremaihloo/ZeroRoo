@@ -146,10 +146,6 @@
       <Project>{25BB5974-8E72-4B23-BA31-4D51FA620195}</Project>
       <Name>ZeroRoo.Apps.Abstractions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
-      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
-      <Name>ZeroRoo.FileSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ZeroRoo.Apps.Services\ZeroRoo.Apps.Services.csproj">
       <Project>{3E14B0D3-9996-4124-B87F-4750E7479544}</Project>
       <Name>ZeroRoo.Apps.Services</Name>

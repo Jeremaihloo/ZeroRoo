@@ -69,10 +69,6 @@
       <Project>{D1E3B18D-0683-492F-9F0F-4E4EA40F39BD}</Project>
       <Name>ZeroRoo</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
-      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
-      <Name>ZeroRoo.FileSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ZeroRoo.Docker.Navigation\ZeroRoo.Docker.Navigation.csproj">
       <Project>{929DA311-2AFD-4B7D-8017-DE99136E559E}</Project>
       <Name>ZeroRoo.Docker.Navigation</Name>

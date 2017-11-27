@@ -40,7 +40,11 @@ namespace ZeroRoo.Apps.Laundry
             foreach (var model in models)
             {
                 var schema = this.GetModelSchema(model);
-                m_schema.Add(schema);
+                m_schema.Add(new
+                {
+                    name = model.Name,
+                    fields = schema
+                });
             }
             results.Add(m_schema);
             Console.WriteLine(JsonConvert.SerializeObject(m_schema, Formatting.Indented));

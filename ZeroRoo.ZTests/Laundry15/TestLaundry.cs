@@ -4,6 +4,7 @@ using ZeroRoo.Laundry15;
 using Microsoft.Extensions.DependencyInjection;
 using Laundry.DbMigration;
 using ZeroRoo.Laundry15.Repository;
+using ZeroRoo.Laundry15.Models;
 
 namespace ZeroRoo.ZTests.Laundry15
 {
@@ -20,7 +21,7 @@ namespace ZeroRoo.ZTests.Laundry15
         private LaundryRepository laundryRep;
         private PriceRepository priceRep;
         private TicketClotheRecordRepository ticketClotheRecordRep;
-        private VipRepository vipRep;
+        private UserRepository vipRep;
 
         public TestLaundry()
         {
@@ -36,15 +37,32 @@ namespace ZeroRoo.ZTests.Laundry15
             services.AddSingleton<LaundryRepository>();
             services.AddSingleton<PriceRepository>();
             services.AddSingleton<TicketClotheRecordRepository>();
-            services.AddSingleton<VipRepository>();
+            services.AddSingleton<UserRepository>();
 
             var provider = services.BuildServiceProvider();
-
+            dbContext = provider.GetRequiredService<LaundryDbContext>();
+            oldContext = provider.GetRequiredService<OldDbContext>();
+            brandRep = provider.GetRequiredService<BrandRepository>();
+            clotheCategoryRep = provider.GetRequiredService<ClotheCategoryRepository>();
+            colorRep = provider.GetRequiredService<ColorRepository>();
+            feeRecordRep = provider.GetRequiredService<FeeRecordRepository>();
+            flawRep = provider.GetRequiredService<FlawRepository>();
+            laundryRep = provider.GetRequiredService<LaundryRepository>();
+            priceRep = provider.GetRequiredService<PriceRepository>();
+            ticketClotheRecordRep = provider.GetRequiredService<TicketClotheRecordRepository>();
+            vipRep = provider.GetRequiredService<UserRepository>();
         }
 
         [Test()]
-        public void TestCase()
+        public void TestBrand()
         {
+            var brand = new Brand()
+            {
+                Text = "测试品牌"
+            };
+            dbContext.Brands.Add(brand);
+            dbContext.SaveChanges();
+            Assert.IsTrue(brand.ID > 0);
         }
     }
 }

@@ -71,9 +71,6 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
-    <Reference Include="NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.Extensions.Logging.1.0.0-rtm-beta5\lib\net451\NLog.Extensions.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.4.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
@@ -118,6 +115,10 @@
     <Reference Include="SQLitePCLRaw.batteries_v2">
       <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\net45\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
+    <Reference Include="NLog.Extensions.Logging">
+      <HintPath>..\packages\NLog.Extensions.Logging.1.0.0-rtm-rc2\lib\net461\NLog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeeCalculator.cs" />
@@ -142,7 +143,6 @@
     <Compile Include="Repository\PriceRepository.cs" />
     <Compile Include="Repository\TicketClotheRecordRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
-    <Compile Include="Store.cs" />
     <Compile Include="VersionMigrations\Data\Migrator.cs" />
     <Compile Include="VersionMigrations\Data\OldDbContext.cs" />
     <Compile Include="VersionMigrations\OldModel\ChongZhiType.cs" />
@@ -161,6 +161,8 @@
     <Compile Include="Models\Enums\TicketClotheState.cs" />
     <Compile Include="Models\Enums\UserRole.cs" />
     <Compile Include="Models\Views\ReportChartView.cs" />
+    <Compile Include="Models\StoreInfo.cs" />
+    <Compile Include="Models\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

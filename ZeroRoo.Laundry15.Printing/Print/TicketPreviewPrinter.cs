@@ -1,4 +1,4 @@
-﻿using Laundry.LibCore.Models;
+﻿
 using Laundry.LibCore.Print.Templates;
 using System;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZeroRoo.Laundry15.Models;
 
 namespace Laundry.LibCore.Print
 {

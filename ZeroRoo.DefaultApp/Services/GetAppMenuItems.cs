@@ -13,18 +13,19 @@ namespace ZeroRoo.DefaultApp.Services
     public class GetAppMenuItems : IAppService
     {
         private INavigationManager navigationManager;
-        private IFileSystem fileSystem;
+        private IFileProvider provider;
+        private DefaultFilesMapping mappings;
 
-        public GetAppMenuItems(INavigationManager navigationManager, IFileSystem fileSystem)
+        public GetAppMenuItems(INavigationManager navigationManager, IRuntimeEnviroment env, DefaultFilesMapping mappings)
         {
             this.navigationManager = navigationManager;
-            this.fileSystem = fileSystem;
+            this.provider = env.RootFileProvider;
         }
 
         public void OnService(AppServiceRoute route, AppServiceMessage msg)
         {
             var menu = this.navigationManager.BuildMenu();
-            var appDirProvider = new PhysicalFileProvider(this.fileSystem.GetAppsDir().PhysicalPath);
+            var appDirProvider = new PhysicalFileProvider(this.mappings.Get(SpecialFileNames.Apps));
             foreach (var item in menu)
             {
                 item.Icon = $"http://localhost:8000/Apps/{item.App}/{item.Icon}";

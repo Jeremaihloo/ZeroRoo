@@ -110,13 +110,13 @@
       <Project>{929da311-2afd-4b7d-8017-de99136e559e}</Project>
       <Name>ZeroRoo.Docker.Navigation</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
-      <Project>{4d5c122e-cfab-4ea8-8d6f-82eacfb355dc}</Project>
-      <Name>ZeroRoo.FileSystem</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ZeroRoo\ZeroRoo.csproj">
       <Project>{d1e3b18d-0683-492f-9f0f-4e4ea40f39bd}</Project>
       <Name>ZeroRoo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZeroRoo.FileSystem\ZeroRoo.FileSystem.csproj">
+      <Project>{4D5C122E-CFAB-4EA8-8D6F-82EACFB355DC}</Project>
+      <Name>ZeroRoo.FileSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

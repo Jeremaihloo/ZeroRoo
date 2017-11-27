@@ -23,6 +23,8 @@ namespace ZeroRoo.Laundry15
 
         public DbSet<UserProfile> UserProfiles { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         public DbSet<ClotheCategory> ClotheCategories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

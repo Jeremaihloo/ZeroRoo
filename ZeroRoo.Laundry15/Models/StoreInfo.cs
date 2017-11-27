@@ -5,11 +5,11 @@ using System.Text;
 
 using System.IO;
 
-namespace ZeroRoo.Laundry15
+namespace ZeroRoo.Laundry15.Models
 {
-    public class Store
+    public class StoreInfo
     {
-        public Store()
+        public StoreInfo()
         {
             this.Name = "美国UCC国际洗衣";
             this.Phone = "13761561263";
@@ -21,5 +21,7 @@ namespace ZeroRoo.Laundry15
         public string Phone { get; set; }
 
         public string Address { get; set; }
+
+        public User ShopKeeper { get; set; }
     }
 }

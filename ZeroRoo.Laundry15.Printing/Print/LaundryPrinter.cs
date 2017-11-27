@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Laundry.LibCore.Models;
 using Laundry.LibCore.Print.Templates;
 using System.Drawing;
+using ZeroRoo.Laundry15.Models;
 
 namespace Laundry.LibCore.Print
 {
@@ -17,7 +17,7 @@ namespace Laundry.LibCore.Print
         public LaundryPrinter()
         {
             this.Printer = new Printer();
-            this.QrCode = (Bitmap)Bitmap.FromFile("qrcode.jpg");
+            this.QrCode = (Bitmap)Image.FromFile("qrcode.jpg");
         }
 
         public void PrintTicket(LaundryTicket ticket)

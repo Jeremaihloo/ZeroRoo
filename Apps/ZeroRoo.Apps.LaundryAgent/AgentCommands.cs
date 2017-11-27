@@ -6,7 +6,7 @@ namespace ZeroRoo.Apps.LaundryAgent
 {
     public class AgentCommands : DefaultCommandHandler
     {
-        public Commands()
+        public AgentCommands()
         {
         }
     }

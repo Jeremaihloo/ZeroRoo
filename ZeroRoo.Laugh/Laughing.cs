@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Text;
 
 using ZeroRoo.Laughing;
-using ZeroRoo.Laughing;
 
 namespace ZeroRoo.Laughing
 {

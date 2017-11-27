@@ -10,7 +10,6 @@ using ZeroRoo.Apps;
 using ZeroRoo.Apps.Abstractions;
 using ZeroRoo.Apps.Manifests;
 using ZeroRoo.Docker.Navigation;
-using ZeroRoo.FileSystem;
 using ZeroRoo.Apps.Services;
 using ZeroRoo.DbConfigurations;
 
@@ -47,8 +46,6 @@ namespace ZeroRoo.Running
             services.AddSingleton<IAppContainerFactory, AppContainerFactory>();
 
             services.AddNavigation();
-
-            services.AddDefaultFileSystem();
 
             services.AddAppsServices();
 
